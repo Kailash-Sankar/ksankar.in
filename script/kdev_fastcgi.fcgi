@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perlml
 
 use Catalyst::ScriptRunner;
 Catalyst::ScriptRunner->run('kdev', 'FastCGI');
