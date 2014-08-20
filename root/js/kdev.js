@@ -100,7 +100,8 @@ function adjustWindow(){
 
 			// Init Skrollr
 			var s = skrollr.init();
-			s.destroy();
+			//i want to try how skroller behaves on mobile devices
+			//s.destroy();
 	   	}
 
 	}
