@@ -1,0 +1,20 @@
+[% META title = 'Users list' %]
+[% IF profile.role == 0 %]
+<div  class="text-left contentblock">
+<div class="lead text-center">List of Registered Users</div>
+	<table class="table table-hover"> 
+	    <thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+        <tbody>
+		[% FOREACH user IN users %]
+		<tr>
+			<td>[% user.id %]</td><td>[% user.firstname %]</td><td>[% user.lastname %]</td><td>[% user.username %]</td><td>[% user.email %]</td><td>[% user.role %]</td>
+			<td><a href="[% c.uri_for(c.controller.action_for('delete_user'),[user.id]) %]" class="glyphicon glyphicon-remove" style="color:red"></a></td>
+        </tr>
+		[% END %]
+        </tbody>
+    </table>  
+</div>
+[% ELSE %]
+<div class="alert alert-danger">Oops!You don't have access to this page.</div>
+[% END %]
+	  

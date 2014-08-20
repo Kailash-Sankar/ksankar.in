@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html id="newhome" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[% template.title or 'Epi Center' %]</title>
+
+    <!-- Bootstrap -->
+    <link href="[% c.uri_for('/css/bootstrap.min.css') %]" rel="stylesheet">
+    <link href="[% c.uri_for('/css/kdev.css') %]" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    [% DEFAULT rightpanel = 'login.tt' %]
+    [% DEFAULT navlight = 'active' %]
+  </head>
+  <body style="background:none">
+      <div class="container-fluid">
+		 <!-- <img class="img-responsive" src="[% c.uri_for('/static/body_bg.jpg') %]" style="position:absolute;  width:100%; align:center;"> -->
+       <div class="row">  
+	 <div class="col-lg-2 text-left">      
+		     <!-- <div class="btn-group navbar-left">
+				<p class="label label-default navbarleft">Designs</p> 
+				<br>
+			   <a href="[% c.uri_for('/home') %]" class="btn btn-default" onmouseover="lighthint();" onmouseout="refreshhint();">Day</a>
+	           <a href="[% c.uri_for('/changetheme/1') %]" class="btn btn-default navbar-inverse" style="color:white;" onmouseover="nighthint();" onmouseout="refreshhint();">Night</a>
+	           </div>    --> 
+	  </div>
+	  
+         <div class="col-lg-6 col-lg-offset-1 text-center">
+    	   [% # INCLUDE carousel.tt %]     
+    	  </br></br></br> 
+         </div>
+         <div class="col-lg-2 col-lg-offset-1 text-right">
+	     </div> 
+	     
+	     
+	     <div class="col-lg-12">
+			[% # INCLUDE carousel.tt %]     
+	     </div>
+       </div>
+
+       <div class="row lowresnav"> 	
+		   <div class="col-lg-12">
+        <!--   <ul class="nav nav-tabs nav-justified navbar-inverse">
+	    <li><a href="[% c.uri_for('/home') %]">Demo</span></a></li>
+	    <li><a href='#'>Blog</a></li>
+	    <li><a href='#'>About</span></a></li>
+            <li ><a href='#'>FAQ</span></a></li>	
+          </ul> -->
+          <a class="squareicon homespan" style="padding:10px; cursor:pointer; color:#FFFFFF;" href="[% c.uri_for('/epicenter') %]">
+	        Home
+          </a>
+          <a class="squareicon designspan" style="padding:10px; cursor:pointer; color:#FFFFFF;" href="[% c.uri_for('/') %]">
+	        Designs
+          </a>
+          <a class="squareicon loginspan" style="padding:10px; cursor:pointer; color:#FFFFFF;" data-toggle="modal" data-target="#loginwindow" onmouseover="loginhint();" onmouseout="refreshhint();">
+	       Login
+         </a>
+         <a class="squareicon regspan" style="padding:10px; cursor:pointer; color:#FFFFFF;" data-toggle="modal" data-target="#registerwindow" onmouseover="reghint();" onmouseout="refreshhint();">
+	       Register
+         </a>
+          </div>
+       </div>
+      <div class="row"><div class="col-lg-12"></br></br></br></div></div>
+      <div classs="row">
+      <div class="col-lg-2 text-left">
+	  [%  INCLUDE $rightpanel %]
+       </div>
+        <div class="col-lg-6 col-lg-offset-1  addwhite"> 
+		[% IF status_msg || c.request.params.status_msg %]
+		  <div class="alert alert-success alert-dismissible">
+			  <button type="button" class="close" data-dismiss="alert">
+				  <span aria-hidden="true">&times;</span>
+			  </button>[% status_msg || c.request.params.status_msg | html %]
+		  </div>
+		[%END%]     	
+        [% content %]
+	</div>
+	<div class="col-lg-2 col-lg-offset-1 text-center addgrey">
+	 <address>
+ 	 <strong>Kailash Sankar</strong><br>
+ 	 Developer<br>
+ 	 <a href="mailto:#">kailash.sankar@outlook.com</a><br>
+	</address>
+	<!--
+	  <div class="btn-group">
+            <a href="[% c.uri_for('/home') %]" class="btn btn-default" onmouseover="lighthint();" onmouseout="refreshhint();">Day</a>
+	        <a href="[% c.uri_for('/changetheme/1') %]" class="btn btn-default navbar-inverse" style="color:white;" onmouseover="nighthint();" onmouseout="refreshhint();">Night</a>
+      </div> -->
+       </div>
+    </div>
+      </div>			
+     <script src="[% c.uri_for('/js/jquery.min.js') %]"></script>
+     <script src="[% c.uri_for('/js/bootstrap.min.js') %]"></script> 
+     <script src="[% c.uri_for('/js/kdev.js') %]"></script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<div class="modal fade" id="loginwindow" tabindex="-1" aria-labelledby="loginwindowlabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="padding:10px;">
+      <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+	    <h4 class="modal-title" id="loginwindowlabel">Login</h4>
+	  </div>
+      <form id="login" role="form" method='post' action="[% c.uri_for('/login') %]">
+  	  <div class="form-group">	
+             <label for="emailinput">Username</label>
+	     <input type="text" class="form-control" id="email_id" name="username" placeholder="Enter Username">
+	  </div>
+	  <div class="form-group">
+	    <label for="passwordinput">Password</label>
+	    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+	  </div>
+	  <button type="submit" class="btn btn-info">Sign in</button>
+	  <span>&nbsp;&nbsp;<a class="text-warning" data-toggle="popover" title="TO DO" data-content="Build a forgot password page" href="#">Forgot password?</a></span>
+	  [% IF login_error %]
+	  <br><br>
+	  <p class="alert alert-danger">[% login_error %]</p>
+	  [% END %]
+      </form>
+    </div>  	
+  </div>
+</div>
+
+<div class="modal fade" id="registerwindow" tabindex="-1" aria-labelledby="registerwindowlabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="registerwindowlabel">Registration</h4>
+      </div>
+       <form class="form-horizontal" role="form" method="post" action="[% c.uri_for('register') %]">
+       <div class="modal-body">
+         <p class="col-sm-6">Please fill the below form&hellip;</p><p class="help-block text-right col-sm-6">All fields are mandatory</p>     
+         <div class="form-group">
+	   <!-- first name -->
+	   <label for="name" class="col-sm-2 control-label">Name:</label>
+	   <div class="col-sm-10">
+	     <input type="text"  id="reg_firstname" name="reg_firstname" size="40" maxlength="25" placeholder="First Name" required> 
+	     <span> &nbsp; &nbsp; &nbsp; </span> 
+         <input type="text"  id="reg_lastname" name="reg_lastname" size="40" maxlength="25" placeholder="Last Name" required>  	
+       </div>
+	 </div>
+     <!-- DOB -->
+	     <div class="form-group">
+	   <label for="dob" class="col-sm-2 control-label">Date of Birth:</label>
+	   <div class="col-sm-10">
+	     <input type="number" name="reg_dd" size="2" maxlength="2" min="01" max="31" placeholder="DD" required>
+	     &nbsp;
+	     <input type="number" name="reg_mm" size="2" maxlength="2" min="01" max="12" placeholder="MM" required>
+	     &nbsp;
+      	 <input type="number" name="reg_yyyy" size="4" maxlength="4" min="1914" max="2014" placeholder="YYYY" required>
+	   </div>
+	 </div>
+	<!-- Email address -->
+	     <div class="form-group">
+	   <label for="email" class="col-sm-2 control-label">Email:</label>
+	   <div class="col-sm-10">
+	     <input type="email"  id="reg_email" name="reg_email" size="40" maxlength="40" placeholder="Enter email" required> 
+	     <span> &nbsp; &nbsp; &nbsp; </span> 
+         <input type="email"  id="reg_confirmemail" name="reg_confirmemail" size="40" maxlength="40" placeholder="Confirm email" required>  	
+         </div>
+	 </div>
+	<!--- username-->
+	     <div class="form-group">
+	   <!-- first name -->
+	   <label for="username" class="col-sm-2 control-label">Username:</label>
+	   <div class="col-sm-10">
+	     <input type="text"  id="reg_username" name="reg_username" size="40" maxlength="20" placeholder="Be creative but avoid NSFW" required> 
+	   </div>
+	 </div>
+	<!-- password -->
+         <div class="form-group">
+	   <!-- first name -->
+	   <label for="password" class="col-sm-2 control-label">Password:</label>
+	   <div class="col-sm-10">
+	     <input type="password"  id="reg_password" name="reg_password" size="40" maxlength="20" placeholder="Enter password" required> 
+         <span> &nbsp; &nbsp; &nbsp; </span> 
+         <input type="password"  id="reg_confirmpassword" name="reg_confirmpassword" size="40" maxlength="25" placeholder="Confirm password" required> 
+	   </div>
+	 </div>
+    <!-- color picker -->
+         <div class="form-group">
+	   <!-- first name -->
+	     <label for="colorpicker" class="col-sm-2 control-label">Choose a color:</label>
+	     <div class="col-sm-10">
+	       <input type="color"  id="reg_color" name="reg_color"  placeholder="recovery" required> 
+	       <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="The color code will come in handy if you forgot your password"></span>
+	     </div>
+	 </div>
+    <!-- reg end--> 
+       </div>
+       <div class="modal-footer">
+	    <button type="button" class="btn btn-defualt" data-dismiss="modal">Close</button>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    </div>  	
+  </div>
+</div>
+

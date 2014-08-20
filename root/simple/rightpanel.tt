@@ -1,0 +1,18 @@
+<p class="lead">
+	<blockquote class="profileblock" >
+      <p class="text-capitalize">Hello [% profile.firstname %]</p>
+	  <footer>logged in as [% profile.username %]</footer>
+   </blockquote>
+</p>
+<div class="btn-group-vertical btn-block">
+ <a class="btn btn-info btn-small" href="[% c.uri_for('/userbase') %]">Home</a>
+ <a class="btn btn-info btn-small" href="[% c.uri_for('/userbase/myprofile')%]">My Profile</a>
+ <a class="btn btn-info btn-small" href="[% c.uri_for('/logout') %]">Logout</a>
+</div>
+[% IF profile.role == 0 %]
+<div class="btn-group-vertical btn-block">
+ <p class="label label-warning text-center">Admin Links</p>
+ <a class="btn btn-info btn-small" href="[% c.uri_for('/admin/users_list') %]">Users list</a>
+</div>
+[% END %]
+

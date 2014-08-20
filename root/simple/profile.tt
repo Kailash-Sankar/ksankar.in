@@ -1,0 +1,22 @@
+<div>
+  <p class="lead text-center">Profile</p>
+  <p>
+    <table class="table table-hover">  
+      <tbody>
+        <tr>
+          <td>Name:</td><td>[% profile.firstname %] [%profile.lastname %]</td>
+        </tr>
+        <tr>
+          <td>Date Of Birth:</td><td>[% profile.dob %]</td>
+        </tr>
+        <tr>
+          <td>Email:</td><td>[% profile.email %]</td>
+        </tr>
+        <tr>
+          <td>Username:</td><td>[% profile.username %]</td>
+        </tr>
+      </tbody>
+    </table>
+  </p>
+</div>
+

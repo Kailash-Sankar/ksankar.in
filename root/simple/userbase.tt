@@ -1,0 +1,11 @@
+[% META title = 'User Home' %]
+<p class="lead text-justified contentblock">
+In quantum mechanics, the uncertainty principle is any of a variety 
+of mathematical inequalities asserting a fundamental limit to the 
+precision with which certain pairs of physical properties of a 
+particle known as complementary variables, such as position x and 
+momentum p, can be known simultaneously. For instance, in 1927, 
+Werner Heisenberg stated that the more precisely the position of 
+some particle is determined, the less precisely its momentum can be 
+known, and vice versa.
+</p>
