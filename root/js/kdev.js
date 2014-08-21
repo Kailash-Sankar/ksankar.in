@@ -53,6 +53,7 @@ $("#navdown").click(function() {
 	$loader = $('#preloader');
 	$body = $('body');
 	
+	
     //show gif loader till the page is fully loaded   
 	$body.imagesLoaded( function() {
 		setTimeout(function() {
@@ -61,10 +62,24 @@ $("#navdown").click(function() {
 		      //adjustWindow();
 		      
 		      // remove gif loader
-			  $loader.removeClass('loading').addClass('loaded');
+		      $loader.removeClass('loading').addClass('loaded');
+		      $loader.one('transitionend', function(e) {    
+						$loader.addClass('hidden');  
+  
+				});  
 			  
+			 			  
 		}, 800);
-	});
+		
+	var imgLoad = imagesLoaded('#parallax-base');
+	imgLoad.on( 'progress', function( instance, image ) {
+    var result = image.isLoaded ? 'loaded' : 'broken';
+    console.log( 'image is ' + result + ' for ' + image.img.src );
+     });
+
+});
+
+
 
 
 function adjustWindow(){
@@ -100,8 +115,8 @@ function adjustWindow(){
 
 			// Init Skrollr
 			var s = skrollr.init();
-			//i want to try how skroller behaves on mobile devices
-			//s.destroy();
+			//scrolling doesn't happen the way we want on touch 
+			s.destroy();
 	   	}
 
 	}
