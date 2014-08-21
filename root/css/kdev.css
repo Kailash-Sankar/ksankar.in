@@ -119,7 +119,8 @@ html#newhome {
 
 .loading {
 background: url('../static/loader.gif') no-repeat center center;
-z-index:999;
+background-color:#FFA500;
+z-index:9999;
 width:128px;
 height:128px;
 position:fixed;
@@ -128,10 +129,19 @@ height:100%
 }
 
 .loaded {
-display:none;
+background: url('../static/loader.gif') no-repeat center center;
+background-color:#fff;
+z-index:1;
+width:128px;
+height:128px;
+position:fixed;
+width:100%;
+height:100%;
+opacity: 0;
+-webkit-transition: opacity 600ms ease-out;
+-moz-transition: opacity 600ms ease-out;
+transition: opacity 600ms ease-out;
 }
-
-
 
 /* ====================== common css, media queries will override whatever is required ========================== */
 #parallax-base p, h1 { margin: 0.0em; }
@@ -265,7 +275,7 @@ display:none;
   background-color: rgba(0,0,0,0.1);
   cursor:pointer;
   line-height:1.4;
-  z-index:1;
+  z-index:999;
   position:absolute;
   text-decoration:none !important;
   color: #47373f !important; 
@@ -431,6 +441,12 @@ display:none;
 
 #lowresmsg {
  display:inline !important;
+}
+
+#sociallinks
+{
+ padding:10px;
+ text-align:center;
 }
 
 }  
