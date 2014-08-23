@@ -59,7 +59,7 @@
 	<div id="page-content">
 		<div id="preloader" class="loading">
 		   <h2 class="text-center">Shiver me timbers! I have a visitior! <br/>
-		   Please wait while i make the server clean itself up.
+		   Please wait while I make the server clean itself up.
 		   </h2>
 		</div>
     </div>
@@ -92,7 +92,7 @@
 		   data-450p="opacity: 0;"
 		  ></span>
 		  
-		  <span id="navhint1" class="navhint"
+		  <span id="navhint1" class="navhint addblack"
 		   data-anchor-target="#helper"
 		   data-0p="opacity: 1;"
 		   data-30p="opacity: 0;"
@@ -116,14 +116,25 @@
 		   data-0p="opacity: 0;"
 		   data-310p="opacity: 0;"
 		   data-360p="opacity: 1;"
-		   data-505p="opacity: 0;"
+		   data-470p="opacity: 0;"
 		  >Now scroll down to go left. Yes i am evil (-.-)</span>
 		  <span id="navhint4" class="navhint"
 		   data-anchor-target="#helper"
 		   data-0p="opacity: 0;"
 		   data-360p="opacity: 0;"
-		   data-510p="opacity: 1;"
+		   data-480p="opacity: 1;"
 		  >True Paradox.</span>
+		  
+		 <!------ section markers ----------->
+		 <div id="sitenav">
+		 <ul class="scrollnav">
+		   <li><a id="navhome"    href="#one"   data-menu-top="0p"   data-toggle="tooltip" data-placement="left" title="Home"></a></li>
+		   <li><a id="navdesigns" href="#two"   data-menu-top="120p" data-toggle="tooltip" data-placement="left" title="Designs"></a></li>
+		   <li><a id="navdemo"    href="#three" data-menu-top="240p" data-toggle="tooltip" data-placement="left" title="Work Space"></a></li>
+		   <li><a id="navtuts"    href="#four"  data-menu-top="360p" data-toggle="tooltip" data-placement="left" title="Tutorial links"></a></li>
+		   <li><a id="navend"     href="#five"  data-menu-top="480p" data-toggle="tooltip" data-placement="left" title="Paradox End"></a></li>
+		 </ul>
+		 </div>
 		  
 		
 		 <!--- Parallax begins -->
@@ -162,40 +173,49 @@
 					</p>
                  </div>
 
-			   <div class="caption addgrey"
+			   <div class="caption addblack"
 			   data-5p="opacity: 1; transform:translate(0px,0px);"
 			   data-70p="opacity: 0; transform:translate(0px,-100%);"
-			   data-520p="opacity: 1; transform:translate(0px,0px);"
+			   data-480p="opacity: 1; transform:translate(0px,0px);"
                data-anchor-target="#helper"
-               > <div class="row">
-				  <div class="col-lg-3 col-md-6 col-xs-12 text-left">  
-                   <h1>Hello mateys!</h1>
-                   <br/><br/>
-                   <h4></h4>
+               > 
+                 <div class="row">
+				  <div class="col-lg-12 col-md-12 col-xs-12">  
+                    <h1>Hello mateys!</h1>
+                    <br/><br/>
+                    <h4></h4>
                   </div>
                  </div> 
-                 <div class="row">
-                   <div class="col-lg-4 col-md-6 col-xs-12 text-justify">
-                     <p class="lead"><u>About myself</u></p>
-                     <p>I'm Kailash Sankar and welcome to my world. <br/>
-					  I write code for a living and I love what I do.
-				      While in college, like most developers, I started with C and C++. I moved on to ASP.NET MVC and thereafter dabbled with Android app development.
-				      For the past 1.5 years, I worked on Perl CGI and recently I switched to Catalyst framework.
-				      I like to make stuff ;) <br/>
-				      Scroll down to see some of my designs.</p>
-				 
-				     <p class="lead"><br/><u>Skills</u></p>
-				     <p>Perl - CGI & Catalyst, .NET C# MVC <br/>
+                 
+                 <div style="padding:2%;" class="row">
+					 
+                   <div class="col-lg-4 col-md-6 col-xs-12">
+                     <p class="lead"><u>About Myself</u></p>
+						<p>I'm Kailash Sankar and welcome to my world. <br/>
+						I write code for a living and I love what I do.
+						While in college, like most developers, I started with C and C++.
+						I moved on to ASP.NET MVC and thereafter dabbled with Android app development. <br/>
+						For the past 1.5 years, I worked on Perl CGI and recently I switched to Catalyst framework.
+						I like to make stuff ;) <br/>
+						Scroll down to see some of my designs.</p>
+				   </div>
+				   
+				   <div class="col-lg-4 col-md-6 col-xs-12">
+					 <p class="lead"><u>Skills</u></p>
+				      Perl - CGI & Catalyst, .NET C# MVC <br/>
 				      HTML5, CSS3, Bootstrap, Jquery<br/>
 				      SQL server, MySql<br/>
-				      Skroller.js, enquire.js, modernizer.js<br/>
-				      Misc: GitHub, svn, jira, trac, photoshop, DBI, HTML::Template, DBIx & Template::Toolkit</p>
-				 
-				     <p class="lead"><br/><u>Experience</u></p>
-				     <p>Associate Engineer at Symphony Teleca from Oct-2012 to present.</p>
-				   </div>
-				  </div> 
-				</div>
+				      Skroller.js, enquire.js, modernizer.js, imagesloaded.js, waypoints.js<br/>
+				      Misc: GitHub, svn, jira, trac, photoshop, DBI, HTML::Template, DBIx & Template::Toolkit
+				    </div>
+				    
+				    <div class="col-lg-4 col-md-12 col-xs-12">
+					 <p class="lead"><u>Experience</u></p>
+				     Associate Engineer at Symphony Teleca from Oct-2012 to present.
+				    </div>
+				    
+				   </div> 
+				 </div>
 			 </div>
 			 
              <div id="slide-2" class="parallax-slide">
@@ -208,8 +228,9 @@
 							 <li>Parallax design using Skrollr.js</li>
 							 <li>Fully responsive</li>
 							 <li>Separate css for mobile devices using enquire.js</li>
-							<!-- <li>Skrollr is disabled for touch devices using modernizer.js</li> -->
-							 <li>Loading screen</li>
+							 <li>Skrollr is disabled for touch devices using modernizer.js</li>
+							 <li>Loading screen until all images are loaded using imagesloaded.js</li>
+							 <li>Navigation pane on the right using waypoints.js and skrollr.menu.js</li>
 							 <li>Looks pretty!</li>
 							 <li>Tested on 320x480, 360x640, 768x1024, 800x1280, 1280x600, 1920x900 and 1920x1080 screens.</li>
 							 <li>Easy to build with the right tutorials (links are on the next slide)</li>
@@ -219,7 +240,7 @@
 				 </div>
                <div class="caption" 
                 data-90p="opacity: 0; transform:translate(0px,5%);"
-				data-135p="opacity: 1; transform:translate(0px,50%);"
+				data-120p="opacity: 1; transform:translate(0px,50%);"
 				data-150p=""
 				data-210p="opacity: 0; transform:translate(-100px,50%);"
 				data-anchor-target="#helper"
@@ -257,7 +278,15 @@
                 data-310p="opacity: 0; transform:translate(0px,-100px);"
 				data-anchor-target="#helper"
                 >
-                 <h1>Tutorial Sources</h1><br/><br/>
+                       <h3>Space reserved for CSS3 animations and angular js :)</3>
+			   </div>
+             </div>
+             <div id="slide-4" class="parallax-slide">
+               <div class="caption">
+                 <h1>Thank you!</h1>
+				 <p>Please log in/register to add comments.(coming soon)</p>
+				 <br/><br/>
+				 <h2>Tutorial Sources</h2><br/>
 				 <span class="lead">Perl</span>
 				 <ul>
 					 <li>Catalyst & DBIx 
@@ -300,23 +329,17 @@
 						 <a href="https://www.iconfinder.com" target="_blank">iconfinder.com</a>
 				      </li>
 				    </ul>
-				       
-			   </div>
-             </div>
-             <div id="slide-4" class="parallax-slide">
-               <div class="caption">
-                 <h1>Thank you!</h1>
-				 <p>Please log in/register to add comments.</p>
+				 
 			   </div>
              </div>
           </div>
         </div>
         <div id="helper">
-		  <div class="marker red"></div>
-		  <div class="marker green"></div>
-		  <div class="marker blue"></div>
-		  <div class="marker yellow"></div>
-		  <div class="marker black"></div>
+		  <div id="one" class="marker red"></div>
+		  <div id="two" class="marker green"></div>
+		  <div id="three" class="marker blue"></div>
+		  <div id="four" class="marker yellow"></div>
+		  <div id="five" class="marker black"></div>
 	   </div>
 
 	</div> 
@@ -447,10 +470,12 @@
 </div>
     <!-- Include Skrollr.js -->
    <script src="js/skrollr.min.js"></script>
+   <script src="js/skrollr.menu.js"></script>
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/enquire.min.js"></script> 
    <script src="js/imagesloaded.js"></script>
-    <script src="js/kdev.js"></script> 
+   <script src="js/waypoints.min.js"></script>
+   <script src="js/kdev.js"></script> 
 </body>
 </html>   
