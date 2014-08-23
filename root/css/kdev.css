@@ -1,9 +1,13 @@
 /* =========================================== 
  *       	 Kailash Sankar 
  * ===========================================
- */
+#TODO: * Cleanup!
+	   * write mobile css for lamp design  
+	   * remove and optmizie custom css
+*/
+
  
- /* ====== Placebo Effect theme ======== */
+ /* ====== Placebo Effect theme css======== */
 .profileblock {
   padding: 10px 20px;
   margin: 0 0 20px;
@@ -14,9 +18,6 @@
 .contentblock {
   padding: 10px 20px;
   margin: 0 0 20px;
-  /*
-  border-left: 5px solid #FFA500;
-  border-right: 5px solid #FFA500; */
 }
 
 .doublegrey {
@@ -30,7 +31,7 @@
   margin-right: auto;
 }
 
-/* ============= Lamp theme ================ */
+/* ============= Lamp theme css ================ */
 
 .squareicon {
   border-radius: 10px;
@@ -56,9 +57,8 @@
 }
 
 .regspan {
-/*
-  color:#FFFFFF;
-*/
+ 
+  /* color:#FFFFFF; */
   position: fixed;
   bottom: 40%;
   right: 5%;
@@ -95,14 +95,14 @@ html#newhome {
   background-size: cover;
 }
 
-/*  media for lamp */
+/* #TODO  media for lamp */
 @media only screen and (min-width: 800px) {
  
   
 }
 
 /* ========== common ===================== */
-/* replae add white and delete it here */
+/* replace add white and delete it here */
 .addwhite {
   color:rgba(255,255,255, 0.8);
 }
@@ -115,7 +115,9 @@ html#newhome {
   color: #47373f !important;
 }
 
-/* parallax website css, ooowhhh am exicted!! */
+/* ======================= parallax website css, ooowhhh am exicted!! ============== */
+
+/* ===common css, media queries will override whatever is required ===*/
 
 .loading {
 background: url('../static/loader.gif') no-repeat center center;
@@ -125,7 +127,7 @@ width:128px;
 height:128px;
 position:fixed;
 width:100%;
-height:100%
+height:100%;
 }
 
 .loaded {
@@ -143,7 +145,6 @@ opacity: 0;
 transition: opacity 600ms ease-out;
 }
 
-/* ====================== common css, media queries will override whatever is required ========================== */
 #parallax-base p, h1 { margin: 0.0em; }
 #parallax-base p { line-height: 1.333em; }
 
@@ -249,8 +250,8 @@ transition: opacity 600ms ease-out;
 }
 
 #navright {
-	bottom: 50%;
-	top: auto;
+	top: 20%;
+	bottom: auto;
 	right:1%;
 	left: auto;
 }
@@ -311,6 +312,41 @@ transition: opacity 600ms ease-out;
  opacity: 1;
 }
 
+.scrollnav {
+height:20%;
+top:50%;
+position:fixed;
+right:2%;
+left:auto;
+width:5%;
+z-index:9;
+transform: translateY(-50%);
+padding-right:15px;
+}
+
+.scrollnav li {
+list-style:none;
+padding:4px;
+}
+
+.scrollnav li a.active {
+background-color:#A94442;
+}
+
+.scrollnav a {
+border-radius:50%;
+border: 3px solid #FFA500;
+width:18px;
+height:18px;
+display:block;
+text-decoration: none;	
+outline:none;
+}
+.scrollnav a:hover{
+background-color:#3C763D;
+transition: all 0.3s;
+}
+
 /* ===== For large devices ====== */
 @media only screen and (min-width: 768px) {
 
@@ -338,9 +374,10 @@ transition: opacity 600ms ease-out;
     top: 40%;
     right: auto;
     left: 5%; */
-    text-align: left;
+    text-align: center;
     color: #fff;
     padding:10px;
+    font-size:16px;
 }
 
 #slide-2 .caption {
@@ -380,9 +417,10 @@ transition: opacity 600ms ease-out;
 @media only screen and (max-width: 767px)  {
 #slide-1 .caption {
     float:left;
-    text-align: left;
+    text-align: left !important;
     color: #fff;
-    padding:10px;
+    padding:0px;
+    font-size:14px !important;
 }
 
 #slide-2 .caption {
@@ -449,6 +487,16 @@ transition: opacity 600ms ease-out;
  text-align:center;
 }
 
+.scrollnav {
+display: none;
+}
+
 }  
 
 /* ============= mobile end ============= */
+
+/* ======== very low res mobile ========= */
+@media only screen and (max-width: 300px)  {
+
+
+}
