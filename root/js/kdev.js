@@ -121,7 +121,6 @@ function clearSiteNav() {
 	$('#sitenav ul li a').removeClass('active');  
 }
 
-
 function adjustWindow(){
 
 	    // Get window size
@@ -188,6 +187,10 @@ function adjustWindow(){
 	        .listen(100);
 		
 } )( jQuery );
+
+function showmenu() {
+	$( "#sociallinks" ).toggle("slow");
+}
 
 /* ==== js for lamp design ==== */
 function loginhint()
