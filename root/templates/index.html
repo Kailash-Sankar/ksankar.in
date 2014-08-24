@@ -10,9 +10,16 @@
     <!-- =======================
             Kailash Sankar
              The Paradox
-                v1.3
+                v1.5
                 
          Change log
+         v1.5
+            Redesigned slide two layout
+            Added Art section
+            Increased mobile slide height to 1000px
+         v1.4
+            Added site navigation
+            Redesinged slide one layout
          v1.3
            Corrections made based on Grammer queen's comments.
            Added a simple loading screen. I have to do better..when i get time :/
@@ -219,11 +226,17 @@
 			 </div>
 			 
              <div id="slide-2" class="parallax-slide">
-				 <div class="row addwhite">
-					 <div class="col-lg-4" style="padding-left:5%;">
-						 <h1 class=text-left"><br/><strong>Designs</strong><br/></h1>
-						 <br/>
-						 <span class="lead">The Paradox</span>
+				 <div class="row addwhite" style="padding-left:5%;"
+				        data-30p="opacity: 0; transform:translate(0px,-10%);"
+						data-120p="opacity: 1; transform:translate(0px,0);"
+						data-150p=""
+						data-210p="opacity: 0; transform:translate(-10%,0);"
+						data-anchor-target="#helper"
+				  >
+					 <h1 class=text-left"><br/><strong>Designs</strong><br/></h1>
+					 <br/>
+					 <div class="col-lg-3 col-md-6 ccol-xs-12">
+                       <span class="lead">The Paradox</span>
 						 <ul>
 							 <li>Parallax design using Skrollr.js</li>
 							 <li>Fully responsive</li>
@@ -237,37 +250,57 @@
 						 </ul>
 						 <span class="help-block">You are viewing it right now ;)</span>					
 					 </div>
+					 
+			  
+				     <div class="col-lg-3 col-lg-offset-1">
+			            <span class="lead">Placebo Effect</span>
+			            <ul><li>Fluid responsive layout with bootstrap</li>
+			            <li>Carousal always stays in the center</li>
+			            <li>Registration form via modal with HTML5 validations</li>
+			            <li>Catalyst, DBIx & Template::Toolkit</li>
+			            </ul>
+			            <p class="text-center"><span class="themebuttoninv" data-toggle="modal" data-target="#placebomodal">&nbsp;View&nbsp;</span></p>
+			         </div>
+			       
+			         <div class="col-lg-3 col-lg-offset-1">
+					    <span class="lead">Epi Center</span>
+					    <ul>
+					    <li>Simple layout</li>
+					    <li>Login and Registration via modals</li>
+					    <li>Not fully responsive(working on it :p)</li>
+					    <li>Mouseover elements to see help text</li>
+					    <li>Catalyst, DBIx & Template::Toolkit</li>
+					    </ul>
+					    <p class="text-center"><span class="themebuttoninv" data-toggle="modal" data-target="#lampmodal">&nbsp;View&nbsp;</span></p>
+     		        </div>
+                 
+              <!--   </div>  -->
+					 
 				 </div>
-               <div class="caption" 
+		        <div class="caption" 
                 data-90p="opacity: 0; transform:translate(0px,5%);"
 				data-120p="opacity: 1; transform:translate(0px,50%);"
 				data-150p=""
 				data-210p="opacity: 0; transform:translate(-100px,50%);"
 				data-anchor-target="#helper"
 			    >
-			     <div class="row">
-				   <h2 class="text-center">My Other Designs</h2>
-				   <div class="col-lg-6">
-			         <span class="lead">Placebo Effect</span>
-			         <ul><li>Fluid responsive layout</li>
-			         <li>Carousal always stays in the center</li>
-			         <li>Registration form via modal with HTML5 validations</li>
-			         <li>Catalyst, DBIx & Template::Toolkit</li>
-			        </ul>
-			         <p class="text-center"><span class="themebutton" data-toggle="modal" data-target="#placebomodal">&nbsp;View&nbsp;</span></p>
-			       </div>
-			       <div class="col-lg-6">
-					   <span class="lead">Epi Center</span>
-					   <ul>
-					   <li>Simple layout</li>
-					   <li>Login and Registration via modals</li>
-					   <li>Not fully responsive(working on it :p)</li>
-					   <li>Mouseover elements to see help text</li>
-					   <li>Catalyst, DBIx & Template::Toolkit</li>
-					   </ul>
-					   <p class="text-center"><span class="themebutton" data-toggle="modal" data-target="#lampmodal">&nbsp;View&nbsp;</span></p>
-			       </div>
-                 </div> 
+			   	  <div class="row" style="padding-left:5%;">
+				   <div class="col-lg-4"><!-- reserved for themes --></div>
+				   <div class="col-lg-4 col-lg-offset-1">
+					  <h2>Trifles with Art</h2>
+				      <span class="help-block addblack">I combine several 'free to use' .psd's & images and customize them to create what i want. I have fiddled with photoshop to create content from scratch.
+				      I use GIMP and a licensed version of photoshop elements ;)</span>
+			          <p class="text-center"><span class="themebutton" data-toggle="modal" data-target="#artmodal">&nbsp;View&nbsp;</span></p>
+			       </div>  
+			       
+			      <!-- reserved for photography section --
+			       <div class="col-lg-3 col-lg-offset-1">
+					  <h2>Photography</h2>
+				      <span class="help-block addblack"></span>
+			          <p class="text-center"><span class="themebutton" data-toggle="modal" data-target="">&nbsp;View&nbsp;</span></p>
+			       </div> 
+			       -->
+				 </div>
 			   </div>
              </div>
              <div id="slide-3" class="parallax-slide">
@@ -345,7 +378,7 @@
 	</div> 
 	<!-- end content -->   
 
-<!-- carousel  for placebo -->
+<!-- modal  for placebo -->
 <div class="modal fade designscreen" id="placebomodal" tabindex="-1" aria-labelledby="placebolabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="padding:10px;">
@@ -373,31 +406,31 @@
     <div class="item active">
       <img src="static/designs/placebo1.jpg" alt="Somebody stole my screenshot :|" class="homealign">
       <div class="carousel-caption">
-        <h1 class="addblack">Home screen</h1>
+        <h3 class="addblack">Home screen</h3>
       </div>
     </div>
  
     <div class="item">
       <img src="static/designs/placebo3.jpg" alt="Nope..nothing here.. :(" class="homealign">
       <div class="carousel-caption">
-        <h1 class="addblack">Registration</h1>
+        <h3 class="addblack">Registration</h3>
       </div>
     </div>
     <!-- more slides? -->
     <div class="item">
       <img src="static/designs/placebo2.jpg" alt="I'll keep searching..." class="homealign">
       <div class="carousel-caption">
-        <h1 class="addblack">Logged in</h1>
+        <h3 class="addblack">Logged in</h3>
       </div>
     </div>
  
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-placebo" role="button" data-slide="prev">
+  <a class="left carousel-control" data-target="#carousel-placebo" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href="#carousel-placebo" role="button" data-slide="next">
+  <a class="right carousel-control" data-target="#carousel-placebo" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
@@ -439,24 +472,24 @@
     <div class="item active">
       <img src="static/designs/lamp1.jpg" alt="Somebody stole my screenshot :|" class="homealign">
       <div class="carousel-caption">
-        <h1 class="addblack">Home screen</h1>
+        <h3 class="addgrey">Home screen</h3>
       </div>
     </div>
  
     <div class="item">
       <img src="static/designs/lamp2.jpg" alt="Nope..nothing here.. :(" class="homealign">
       <div class="carousel-caption">
-        <h1 class="addblack">Mouseover effect</h1>
+        <h3 class="addgrey">Mouseover effect</h3>
       </div>
     </div>
 
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-lamp" role="button" data-slide="prev">
+  <a class="left carousel-control" data-target="#carousel-lamp" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href="#carousel-lamp" role="button" data-slide="next">
+  <a class="right carousel-control" data-target="#carousel-lamp" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
@@ -468,6 +501,74 @@
   </div>
  </div>
 </div>
+<!-- modal end -->
+
+<!-- modal  for art stuff  -->
+<div class="modal fade designscreen" id="artmodal" tabindex="-1" aria-labelledby="artlabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="padding:10px;">
+     
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+	    <h4 class="modal-title" id="artlabel">Designs - Samples</h4>
+	    <span class="help-block">Done with photoshop elements 8.0 and GIMP</span>
+	  </div>
+     
+     <div class="modal-body">
+
+     <div id="carousel-art" class="carousel slide container-fluid" data-ride="carousel" style="margin: 0 auto; background-color:#FFFFFF">
+ 
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-art" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-art" data-slide-to="1"></li>
+    <li data-target="#carousel-art" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+ 
+    <div class="item active">
+      <img src="static/designs/art1.jpg" alt="Somebody stole my screenshot :|" class="homealign">
+      <div class="carousel-caption">
+        <h3 class="addgrey"></h3>
+      </div>
+    </div>
+ 
+    <div class="item">
+      <img src="static/designs/art2.jpg" alt="Nope..nothing here.. :(" class="homealign">
+      <div class="carousel-caption">
+        <h3 class="addgrey"></h3>
+      </div>
+    </div>
+    <!-- more slides? -->
+    <div class="item">
+      <img src="static/designs/art3.jpg" alt="I'll keep searching..." class="homealign">
+      <div class="carousel-caption">
+        <h3 class="addgrey"></h3>
+      </div>
+    </div>
+ 
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" data-target="#carousel-art" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" data-target="#carousel-art" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+<!-- carousel end -->
+</div>
+     <div class="modal-footer">
+		 <p class="text-center"><a class="btn btn-default" href="http://felhound16.deviantart.com" target="_blank">&nbsp;More&nbsp;</a></p>
+     </div>
+  </div>
+ </div>
+</div>
+<!-- modal end -->
+
     <!-- Include Skrollr.js -->
    <script src="js/skrollr.min.js"></script>
    <script src="js/skrollr.menu.js"></script>
