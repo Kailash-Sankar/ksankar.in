@@ -343,16 +343,11 @@ transition: opacity 600ms ease-out;
  left:2%;
  cursor:pointer;
  width:35px;
- height:30px;
+ height:25px;
  background-color:rgba(0,0,0,0);
  display:inline-block;
  z-index:999;
 } 
-
-#socialmenu:hover {
-transform:rotateY(180deg);
-transition: all 0.8s ease-in-out 0.1s;
-}
 
 #socialmenu span:after,
 #socialmenu span:before {
@@ -363,6 +358,9 @@ z-index:9;
 display:inline-block;
 content:"";
 position:absolute;
+-webkit-transition:all 500ms;   
+-moz-transition:all 500ms;
+transition:all 500ms;
 }
 
 #socialmenu span:after {
@@ -380,7 +378,35 @@ z-index:9;
 display:inline-block;
 padding:0px;
 position:relative;
+transition:all 1000ms;
 }
+
+#socialmenu.active span {
+background: none 0% 0% rgba(255,165,0,0);
+transition:all 500ms;	
+}
+
+#socialmenu.active span:after{
+background: none 0% 0% #A52A2A;
+-webkit-transform: translateY(-200%) rotate(45deg);
+-ms-transform: translateY(-200%) rotate(45deg);
+transform: translateY(-200%) rotate(45deg);
+-webkit-transition:all 500ms;   
+-moz-transition:all 500ms;
+transition:all 500ms;
+}
+
+#socialmenu.active span:before {
+background: none 0% 0% #A52A2A;
+-webkit-transform: translateY(200%) rotate(-45deg);
+-ms-transform: translateY(200%) rotate(-45deg);
+transform: translateY(200%) rotate(-45deg);
+-webkit-transition:all 500ms;   
+-moz-transition:all 500ms;
+transition:all 500ms;
+}
+
+
 
 .scrollnav {
 height:20%;
@@ -466,12 +492,14 @@ background-color: #47373f !important;
 
 #slide-3 .caption {
     position: absolute;
-    left: 5%;
+    left: 1%;
     right: auto;
-    top:15%;
+    top:8%;
     bottom: auto;
     color: #fff;
     text-align: left;
+    width:100%;
+    height:100%;
 }
  
 #slide-4 .caption {
@@ -562,7 +590,7 @@ background-color: #47373f !important;
  text-align:center;
  width:100%;
  position:relative;
- display:block;
+ display:block !important; 
  background-color:black;
 }
 
@@ -582,4 +610,53 @@ display:none;
 @media only screen and (max-width: 300px)  {
 
 
+}
+
+/* ======== css3 magic ================= */
+
+#hoverbox {
+position:absolute;
+top:50%;
+left:50%;
+transform: translateY(-50%) translateX(-50%);
+width:200px;
+height:200px;
+border:1px solid #FFA500;
+cursor:pointer;
+text-align:center;
+align-content: space-around;
+}
+
+#slowrider {
+position:absolute;
+left:2%;
+top:40%;
+width:100px;
+height:100px;
+-moz-border-radius: 50px;
+-webkit-border-radius: 50px;
+border-radius:50px;
+border: 10px solid #FFA500;
+background-color: rgba(255,255,255,0.4);
+transition-property: top, left;
+transition-duration: 1.5s, 1.5s;
+transition-delay: 0s, 1s;
+}
+
+#hoverbox:hover ~ #slowrider {
+top:70%;
+left:80%;
+transform:rotateX(180deg);
+background-color: rgba(255,255,255, 0.8);
+transition-property: top, left;
+transition-duration: 1.5s, 1.5s;
+transition-delay: 0s, 1s;
+
+}
+
+#hoverbox:hover{
+background-color: rgba(255,255,255, 0.4);
+transition: all 400ms ease-in-out;
+-moz-transition: all 400ms ease-in-out;
+-webkit-transition: all 400ms ease-in-out;
 }
