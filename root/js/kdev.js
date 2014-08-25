@@ -189,7 +189,15 @@ function adjustWindow(){
 } )( jQuery );
 
 function showmenu() {
-	$( "#sociallinks" ).toggle("slow");
+	$( "#sociallinks" ).toggle(800, function () { 
+		if($("#socialmenu").hasClass("active")) {
+			$("#socialmenu").removeClass("active");
+		}
+		else {
+			$("#socialmenu").addClass("active");
+		}
+		
+	});
 }
 
 /* ==== js for lamp design ==== */
