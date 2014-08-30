@@ -1,0 +1,32 @@
+[% META title = 'Blog home' %]
+[% # USE DUMPER %]
+[% # DUMPER.dump(posts) %]
+<div class="lead text-center">Posts</div>
+<p class="breakerblue"></p>
+<div>
+[% IF posts %]	
+	[% FOREACH article IN posts %]	
+	<article id ="pid_[% article.id %]"  class = "post">
+		[% IF profile.role == 0 %]
+		<span>		
+			<a class="editbutton close" href="[% c.uri_for('/blog/delete') %]" aria-hidden="true">&times;</a>
+			<a class="editbutton close" href="[% c.uri_for('/blog/edit',article.id) %]" aria-hidden="true"><img src="[% c.uri_for('/static/edit.png') %]"></a>
+		</span>
+		[% END %]
+	   <blockquote>
+	      <p>[% article.title %]</p>
+	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %]</footer>
+	   </blockquote>
+	   <div class="postcontent">
+		[% article.content %]
+	   </div>
+	   <p style="float:right; color: #777; margin-right:5px;">
+			<a class="editbutton close" style="font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">View</a>
+	   </p>
+	</article>
+	<p class="breaker"><br/><br/></p>
+	[% END %]
+[% ELSE %]
+<p class="alert alert-warning">I searched and failed..there are no posts to show.</p>
+[% END %]	
+</div>

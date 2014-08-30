@@ -90,7 +90,7 @@ __PACKAGE__->table("users");
 
   data_type: 'varchar'
   is_nullable: 0
-  size: 8
+  size: 10
 
 =cut
 
@@ -112,7 +112,7 @@ __PACKAGE__->add_columns(
   "role",
   { data_type => "integer", default_value => 1, is_nullable => 1 },
   "dob",
-  { data_type => "varchar", is_nullable => 0, size => 8 },
+  { data_type => "varchar", is_nullable => 0, size => 10 },
 );
 
 =head1 PRIMARY KEY
@@ -141,9 +141,41 @@ __PACKAGE__->set_primary_key("id");
 
 __PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 
+=head1 RELATIONS
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-02 21:48:10
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:3ebQd0YRwQ2ukGYaIWzblQ
+=head2 articles
+
+Type: has_many
+
+Related object: L<kdev::SchemaClass::Result::Article>
+
+=cut
+
+__PACKAGE__->has_many(
+  "articles",
+  "kdev::SchemaClass::Result::Article",
+  { "foreign.author_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+=head2 comments
+
+Type: has_many
+
+Related object: L<kdev::SchemaClass::Result::Comment>
+
+=cut
+
+__PACKAGE__->has_many(
+  "comments",
+  "kdev::SchemaClass::Result::Comment",
+  { "foreign.user_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-30 18:44:34
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:hqqgMTHPM++lD8IbaskKYQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

@@ -358,9 +358,9 @@ z-index:9;
 display:inline-block;
 content:"";
 position:absolute;
--webkit-transition:all 500ms;   
--moz-transition:all 500ms;
-transition:all 500ms;
+-webkit-transition:all 700ms;   
+-moz-transition:all 700ms;
+transition:all 700ms;
 }
 
 #socialmenu span:after {
@@ -383,7 +383,7 @@ transition:all 1000ms;
 
 #socialmenu.active span {
 background: none 0% 0% rgba(255,165,0,0);
-transition:all 500ms;	
+transition:all 700ms;	
 }
 
 #socialmenu.active span:after{
@@ -391,9 +391,9 @@ background: none 0% 0% #A52A2A;
 -webkit-transform: translateY(-200%) rotate(45deg);
 -ms-transform: translateY(-200%) rotate(45deg);
 transform: translateY(-200%) rotate(45deg);
--webkit-transition:all 500ms;   
--moz-transition:all 500ms;
-transition:all 500ms;
+-webkit-transition:all 700ms;   
+-moz-transition:all 700ms;
+transition:all 700ms;
 }
 
 #socialmenu.active span:before {
@@ -401,9 +401,9 @@ background: none 0% 0% #A52A2A;
 -webkit-transform: translateY(200%) rotate(-45deg);
 -ms-transform: translateY(200%) rotate(-45deg);
 transform: translateY(200%) rotate(-45deg);
--webkit-transition:all 500ms;   
--moz-transition:all 500ms;
-transition:all 500ms;
+-webkit-transition:all 700ms;   
+-moz-transition:all 700ms;
+transition:all 700ms;
 }
 
 

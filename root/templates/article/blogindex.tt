@@ -1,0 +1,12 @@
+<!-- blog right panel -->
+[% IF posts %]
+<div class="blogindex">
+	<p>Index</p>
+	<p id="quicklinks">
+		[% FOREACH article IN posts %]
+		<a href="#pid_[% article.id %]" onclick="gotopost('#pid_[% article.id %]')"> [% article.title %]</a>
+		<br/>
+		[% END %]
+	</p>
+</div>
+[% END %]
