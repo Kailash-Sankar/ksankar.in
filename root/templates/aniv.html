@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" id="parallax-base">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Happy Wedding Anniversary</title>
+    <meta name="description" content="is relavant">
+
+   <!-- Bootstrap -->
+    <link href="[% c.uri_for('css/bootstrap.min.css') %]" rel="stylesheet">
+    <link href="[% c.uri_for('css/kdev_aniv.css') %]" rel="stylesheet">
+     <script src="[% c.uri_for('js/modernizr-2.6.2.min.js') %]"></script>
+    <!-- custom -->
+    </head>
+    <body id="parallax-base">
+		<div id="preloader" class="loading">
+			<h2 class="text-center">Page is loading please wait! This will take a few seconds.<br/>
+			The page will be best viewed on 1280x720 resolution.
+		   </h2>
+		</div>
+		<div id="aniv" class="aniv text-center">
+			<br/><br/>
+		   <h2 class="text-center">May your marriage continue with joy and pure delight<br/>
+								   And may the love you have forever be bound tight.<br/>
+		   </h2>
+		   <img src="[% c.uri_for('/static/aniv/wedding_cake.png') %]" class="anivimg" onclick="magic()">
+		   <br/>
+		   <h3>Click on the wedding cake to start the magic ;)</h3>
+		</div>
+		<div id="withlove" style="display:none">
+			<h3>Happy Wedding Anniversary!!</h3>
+		   <h4>With love,<br/>Amma, Dad and Chottu</h4>
+		</div>
+   	<div id="page-content"> 
+    	<div id="parllax-container">
+			<div id="parallax-slides">
+				 <div id="slide-1" class="parallax-slide"></div>
+				 <div id="slide-2" class="parallax-slide"></div>
+				 <div id="slide-3" class="parallax-slide"></div>
+				 <div id="slide-4" class="parallax-slide"></div>
+			</div>
+           </div>
+    </div>
+    </body>
+       <script src="[% c.uri_for('js/jquery.min.js') %]"></script>
+	   <script src="[% c.uri_for('js/bootstrap.min.js') %]"></script>
+	   <script src="[% c.uri_for('js/imagesloaded.js') %]"></script>
+<script type="text/javascript">
+( function( $ ) {
+	// Setup variables
+	$window = $(window);
+	$slide = $('.parallax-slide');
+	$loader = $('#preloader');
+	$body = $('body');
+	
+	
+    //show gif loader till the page is fully loaded   
+	$body.imagesLoaded( function() {
+		setTimeout(function() {
+		      
+		      // hide the slides
+		      $('#slide-1').hide();
+		      $('#slide-2').hide();
+		      $('#slide-3').hide();
+		      $('#slide-4').hide();
+		      
+		      // remove gif loader
+		      $loader.removeClass('loading').addClass('loaded');
+		      $loader.one('transitionend', function(e) {    
+						$loader.addClass('hidden');  
+  
+				});
+			  console.log("this function is working");  
+			  
+			 			  
+		}, 800);
+		
+	var imgLoad = imagesLoaded('body');
+	imgLoad.on( 'progress', function( instance, image ) {
+    var result = image.isLoaded ? 'loaded' : 'broken';
+    console.log( 'image is ' + result + ' for ' + image.img.src );
+     });
+
+
+	});
+console.log('why isnt it working');
+} )( jQuery );
+
+function magic() {
+	$('#slide-1').show(1000);
+	$('#slide-2').show(2000);
+	$('#slide-3').show(3000);
+	$('#slide-4').show(4000);
+	$('#withlove').show(5000);
+}
+
+</script>
+
+   </html>
+    
