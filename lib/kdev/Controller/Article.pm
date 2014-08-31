@@ -44,7 +44,8 @@ sub home :Chained('blog') :PathPart('home') :Args(0) {
 		order_by => 'created_on DESC',				 		 
 		 } )->all()];
 	
-	$c->log->debug("Comments count for the first post - ".$posts->[0]->get_column('comment_count'));
+	#using accessor $posts->[0]->get_column('comment_count')
+	$c->log->debug("Loading up home page.");
 		 
 	$c->stash( template => 'article/content.tt', posts => $posts, activetag => 1 );
 }
