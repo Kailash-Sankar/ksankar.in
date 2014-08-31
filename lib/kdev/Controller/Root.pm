@@ -41,6 +41,15 @@ sub index :Path :Args(0) {
     $c->stash(no_wrapper => 1 ,  template => 'index.html');
 }
 
+sub chottu :Path('/rakesh/sindhu/nichu') :Args(0) {
+    my ( $self, $c ) = @_;
+
+    # Hello World
+    #$c->response->body( $c->welcome_message );
+    
+    $c->stash(no_wrapper => 1 ,  template => 'aniv.html');
+}
+
 sub placeboeffect :Path('/placeboeffect') :Args(0) {
     my ($self, $c) = @_;
    

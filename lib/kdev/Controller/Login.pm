@@ -78,22 +78,30 @@ sub register : Global :Args(0) {
     my $username		 = $c->request->params->{reg_username};
     my $password 	     = $c->request->params->{reg_password};
     my $confirm_password = $c->request->params->{reg_confirmpassword};
-    my $rec_code		 = $c->request->params->{reg_secque};
+    my $math		 = $c->request->params->{reg_math};
    
     warn "\n proceeding to registration";  
       
     if ($email ne $confirm_email) {
 		 warn "\n emails id's are not matching"; 
-		 c->flash->{reg_error} = 'Emails are not matching. :(';
+		 $c->flash->{reg_error} = 'Emails are not matching. :(';
 		 $c->res->redirect($c->uri_for('/blog/home'));
 		 $c->detach();
 	}
     if($password ne $confirm_password) { 
 		warn "\n passwords do not match";
-		c->flash->{reg_error} = 'Passwords do not match. :(';
+		 $c->flash->{reg_error} = 'Passwords do not match. :(';
 		 $c->res->redirect($c->uri_for('/blog/home'));
 		 $c->detach();
 	}
+    
+    if($math != 29) { 
+		warn "\n Hmmm..it's a bot!";
+		 $c->flash->{reg_error} = 'Math error?..Hmm..what do we have here..(o.O)';
+		 $c->res->redirect($c->uri_for('/blog/home'));
+		 $c->detach();
+	}
+    
     
     my $newuser = $c->model('DB::User')->create({ 
 						firstname => $firstname,
