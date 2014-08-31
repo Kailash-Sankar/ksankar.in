@@ -1,6 +1,6 @@
 [% META title = 'Blog home' %]
-[% # USE DUMPER %]
-[% # DUMPER.dump(posts) %]
+[% #USE DUMPER %]
+[% #DUMPER.dump_html(article.get_column('comment_count')) %]
 <div class="lead text-center">Posts</div>
 <p class="breakerblue"></p>
 <div>
@@ -15,13 +15,14 @@
 		[% END %]
 	   <blockquote>
 	      <p>[% article.title %]</p>
-	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %]</footer>
+	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] | Tags: [% article.tagmaps.tag.tagname || 'None' %]</footer>
 	   </blockquote>
 	   <div class="postcontent">
 		[% article.content %]
 	   </div>
-	   <p style="float:right; color: #777; margin-right:5px;">
-			<a class="editbutton close" style="font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">View</a>
+	   <p style="color: #777; margin:5px;">
+		    <a class="editbutton close" style="float:left; font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">[% article.get_column('comment_count') %]&nbsp;Comments</a>
+			<a class="editbutton close" style="float:right; font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">View</a>
 	   </p>
 	</article>
 	<p class="breaker"><br/><br/></p>

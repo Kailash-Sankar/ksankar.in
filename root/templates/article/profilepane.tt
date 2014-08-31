@@ -1,9 +1,112 @@
+[% IF profile %]
 <p class="lead">
 	<blockquote class="profileblock" >
       <p class="text-capitalize">Hello [% profile.firstname %]</p>
 	  <footer>logged in as [% profile.username %]</footer>
    </blockquote>
 </p>
+
+[% ELSE %]
+<p class="help-block" style="padding-top:20px;">Please log in/register to add comments.</p>
+[% END%]
+<br/><br/>
+[% IF 0 %]
+<div>
+	<p>Search by Tags</p>
+	<p class="breakerblue"></p>
+	<span class="label label-success text-center">Tutorials</span>&nbsp;
+	<span class="label label-warning text-center">Tech</span>&nbsp;
+	<span class="label label-info text-center">General</span>&nbsp;
+</div>
+<br/><br/>
+[% END %]
+<p class="breakerblue"></p>
+<p class="help-block">
+	<strong>Captain's Navigation Journal:</strong>
+     <ul>
+		 [% IF activetag == 4 %]
+		 <li>The comments link at the bottom left corner of the post can be used to show/hide the comments text box.</li>
+		 <li>Comments are not editable now. See #ToDo for more details. :p</li>
+		 <li>To go back to the main page, use the 'Blog' link on nav bar or use the 'Back' button on the bottom right corner of the post.</li>
+		 [% ELSE %]
+		 <li>Click on View/Comments button to see the full post.</li>
+		 <li>Click on the #SiteChangelog link below to view the chanelogs.</li>	
+		 <li>Click on the #ToDo link to see what my plans are for the site.</li> 
+		 [% END %]	 
+     </ul>
+</p>
+<br/><br/>
+<p class="breakerblue"></p>
+<div>
+	<strong class="help-block" style="cursor:pointer; display:inline;" onclick="$('#todo').hide(800); $('#changelog').toggle(800);">#SiteChangelog</strong>
+	&nbsp; | &nbsp;
+	<strong class="help-block" style="cursor:pointer; display:inline;" onclick="$('#changelog').hide(800); $('#todo').toggle(800);">#ToDo</strong>
+	<br/><br/>
+	<div id="changelog" class="changelog" style="display:none;">
+	<ul>
+		<li>Sunday Aug 31
+		<ul>
+		  <li>Used Join in DBIX to fetch comments count</li>
+		  <li>Display comments count for each post on main page</li>
+		  <li>Created tables for tags</li>
+		  <li>Now posts will have associated tags!</li>
+		  <li>Added some guidlines for site navigation</li>
+		  <li>Moved code around to make the backend cleaner</li>
+		  <li>Some more testing.</li>
+		</ul>
+	  </li>
+		
+	  <li>Saturday Aug 30
+		<ul>
+		  <li>Created add new post section with preview for Admin</li>
+		  <li>Created edit post section for Admin</li>
+		  <li>Created add comment section for logged in users</li>
+		  <li>Updated add comment to cleanup html tags</li>
+		  <li>updated myprofile section</li>
+		  <li>added edit and save for myprofile</li>
+		  <li>tested and fixed minor bugs</li>
+		  <li>it's 3:30 am ahhhh..going to sleep.</li>
+		</ul>
+	  </li>
+		
+	  <li>Firday Aug 29
+		<ul>
+		  <li>Created basic blog layout</li>
+		  <li>Created tables, models, views and controllers</li>
+		  <li>Display posts with author and time</li>
+		  <li>Created post index and hash navigation.</li>
+		  <li>Spent several hours thinking...</li>
+		  <li>Updated and cleaned up login and registration</li>
+		</ul>
+	  </li>
+	  
+	</ul>
+	</div>
+	
+	<div id="todo" class="changelog" style="display:none;">
+	<ul>
+		<li>Hopefully next weekend :p
+		<ul>
+		  <li>Add edit feature for comments</li>
+		  <li>Keep an audit log for edited comments</li>
+		  <li>Add searching based on tags</li>
+		 </ul>
+	  </li>
+	  
+	  <li>Near Future :|
+		<ul>
+		  <li>Add pagination</li>
+		  <li>Display only 5 posts per page</li>
+		  <li>Send email on registration</li>
+		  <li>Add forgot password feature</li>
+		  <li></li>
+		 </ul>
+	  </li>
+	  
+	 </ul>
+	 </div>
+	
+</div>
 <!--
 <div class="btn-group">
  <a class="btn btn-default btn-small" href="[% c.uri_for('/userbase/myprofile')%]">My Profile</a>

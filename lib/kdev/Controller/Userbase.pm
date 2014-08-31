@@ -24,6 +24,8 @@ Catalyst Controller.
 #debug flag
 my $ debug=0;
 
+#all functions in here required user to be logged in :)
+
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
   
@@ -33,7 +35,7 @@ sub index :Path :Args(0) {
 }
 
 
-#get user data and keep it in stash
+#get user data and keep it in stash (this function is now only used by admin for delete feature)
 sub getuserdata : Local : Args(1) {
 	my ($self, $c, $user_id)= @_;
     
@@ -47,6 +49,7 @@ sub getuserdata : Local : Args(1) {
 	}
 }   
 
+#view user profile
 sub myprofile :Local :Args(0) {
 	my ($self, $c, $user_id) = @_;
 	
@@ -60,6 +63,7 @@ sub myprofile :Local :Args(0) {
 	$c->stash(template => 'profile.tt', profile => $profile, activetag => 2 );
 }
 
+#update user profile
 sub updateprofile : Local : Args(0) {
     my ( $self, $c ) = @_;
 	
@@ -107,19 +111,78 @@ sub updateprofile : Local : Args(0) {
 	$c->detach();
 }
 
-sub addcomment: Path : Args(0) {
-	my ( $self, $c) = @_;
+#add new comment
+sub addcomment: Path('/blog/addcomment') : Args(1) {
+	my ( $self, $c, $article_id ) = @_;
 	
-	my $article_id = $c->request->params->{article_id};
-	my $comment    = $c->request->params->{comment};
+	my $comment 	    = $c->request->params->{comment};
 	
+	if ($comment) {
+		$c->model('DB::Comment')->create({
+			comment    => $comment,
+			article_id => $article_id,
+			user_id    => $c->user->id
+		});
+	}
+	$c->res->redirect($c->uri_for('/blog/view',$article_id, { mid => $c->set_status_msg("Comment added successfully!")}));
+    $c->detach();
 	
-	$c->model('DB::Comment')->create( {
-				comment 	=> $comment,
-				article_id 	=> $article_id,
-				user_id     => $c->user->id,		
+}
+
+#add new post - has to be moved to the admin controller later
+sub save: Path('/blog/save') : Args(0) {
+	my ( $self, $c ) = @_;
+	my ( $title, $content, $author, $newentry, $created_on);
+	
+	if($c->user->role != 0) {
+		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
+		$c->detach();
+	}
+	
+	$title 	    = $c->request->params->{title};
+	$content    = $c->request->params->{content};
+	$created_on = $c->request->params->{createdon};
+	$author 	= $c->user();
+	
+	$c->log->debug("current time"+$created_on);
+	#$created_on = DateTime->now;
+	
+	$newentry = $c->model('DB::Article')->create( {
+					author_id => $author->id,
+					title 	  => $title,
+					content   => $content,
+					created_on => $created_on			
 	});
 	
+	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully added!") } ));
+    $c->detach();
+}
+
+#edit post - has to moved to admin controller later
+sub update: Path('/blog/update') : Args(0) {
+	my ( $self, $c ) = @_;
+	my ( $title, $content, $author, $id, $newentry);
+	
+	if($c->user->role != 0) {
+		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
+		$c->detach();
+	}
+	
+	$id 	    = $c->request->params->{id};
+	$title 	    = $c->request->params->{title};
+	$content    = $c->request->params->{content};
+	#$author		= $c->user();
+	
+	$c->log->debug("author : ".Dumper($author));
+	#$created_on = DateTime->now;
+	
+	$newentry = $c->model('DB::Article')->find($id)->update( {
+					title 	  => $title,
+					content   => $content,
+	});
+	
+	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully updated!")}));
+    $c->detach();
 }
 
 =encoding utf8

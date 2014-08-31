@@ -144,9 +144,24 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 tagmaps
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-30 18:44:34
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ahFleX9Fa4DTd5dKp72zKw
+Type: has_many
+
+Related object: L<kdev::SchemaClass::Result::Tagmap>
+
+=cut
+
+__PACKAGE__->has_many(
+  "tagmaps",
+  "kdev::SchemaClass::Result::Tagmap",
+  { "foreign.article_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-31 17:18:54
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:N7L1YjTvKPAV5wWpzzUF6w
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

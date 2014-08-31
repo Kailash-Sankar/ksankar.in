@@ -16,7 +16,7 @@ border-right: 2px solid #eee;
 .postcontent {
 margin-left:5px;
 margin-right:5px;
-height:100px;
+height:200px;
 text-overflow:ellipsis;
 overflow:hidden;
 white-space:pre-line;
@@ -115,4 +115,9 @@ text-decoration: none;
 color:#000;
 cursor:pointer;
 font-weight: 700;
+}
+
+.changelog {
+height:200px;
+overflow:scroll;
 }

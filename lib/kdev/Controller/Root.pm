@@ -65,14 +65,14 @@ sub auto: Private {
 	my ($self, $c) = @_;
 	
 	# rightpanel.tt is used for placebo effect theme
-	my $rightpanel = 'article/profilepane.tt';
+	my $panel = 'article/profilepane.tt';
 	
 	#user session found
 	if ($c->user_exists) {
 		if( $c->controller eq $c->controller('Article') ) {
-			$rightpanel = 'article/profilepane.tt'; 
+			$panel = 'article/profilepane.tt'; 
 		}
-		$c->stash( profile => $c->user(), rightpanel => $rightpanel);
+		$c->stash( profile => $c->user(), leftpanel => $panel);
 	}
 		
 	#Actions in Root do not require login

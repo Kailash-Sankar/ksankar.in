@@ -9,7 +9,7 @@
     <link href="[% c.uri_for('/css/bootstrap.min.css') %]" rel="stylesheet">
     <link href="[% c.uri_for('/css/kdev_blog.css') %]" rel="stylesheet">
   </head>
-  [% DEFAULT rightpanel = 'login.tt' %]
+  [% DEFAULT leftpanel = 'article/profilepane.tt' %]
   <body id="blog_main">
 	  <div class="container-fluid">
 		<div class="row">
@@ -18,7 +18,7 @@
 				<p>“Simplicity is the ultimate sophistication.” - Leonardo da Vinci</p>
 				<span style="float-right" id="blognav">
 				   <ul class="nav nav-tabs" role="tablist">
-					<li><a href="">Portfolio</a></li>
+					<li><a href="[% c.uri_for('/') %]">Portfolio</a></li>
 					<li [% IF activetag == 1 %]class="active"[% END %]><a href="[% c.uri_for('/blog/home') %]">Blog</a></li>
 					[% IF profile %]
 						<li style="float:right"><a  href="[% c.uri_for('/logout') %]">Logout</a></li>
@@ -37,7 +37,7 @@
 		<div class="row" style="margin-top:10px;">
 			<div class="col-lg-3">
 				<!--- most liked -->
-				[%  INCLUDE $rightpanel %]
+				[%  INCLUDE $leftpanel %]
 			</div>
 			<div class="col-lg-6">
 				[% IF status_msg || c.request.params.status_msg%]
