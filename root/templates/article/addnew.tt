@@ -7,8 +7,16 @@
 <div class="lead">Add new entry</div>
 <form id="newpost" role="form" method='post' action="[% c.uri_for(action) %]">
   	  <div class="form-group">	
-             <label for="content">Title</label>
-	     <input type="text" class="form-control" id="title" name="title" placeholder="(max 100 chars)" value="[% article.title %]" required>
+             <label for="title">Title</label>
+	     <input type="text" class="form-control" id="title" name="title" placeholder="(max 100 chars)" maxlength="100" value="[% article.title %]" required>
+	  </div>
+	  <div class="form-group">	
+             <label for="tag">Tags</label>
+	     <select id="tag" name="tag" required>
+			<option value='1'>General</option>
+			<option value='2'>Tutorials</option>
+			<option value='3'>Tech</option>
+	     </select>
 	  </div>
 	  <div class="form-group">
 	    <label for="content">Content</label>
@@ -26,7 +34,7 @@
 	  <article class="post">
 	   <blockquote>
 	      <p id="pre_title"></p>
-	      <footer> by [% profile.username %] | posted on [% article.created_on || $posted_on %] [% IF article.id %]| last updated on [% $posted_on %] [% END %]</footer>
+	      <footer> by [% profile.username %] | posted on [% article.created_on || $posted_on %] [% IF article.id %]| last updated on [% $posted_on %] [% END %] | | Tags: [% article.tagmaps.tag.tagname %]<span id="pre_tag"></span></footer>
 	   </blockquote>
 	   <p id = "pre_content" class="fullcontent">
 		</p>

@@ -132,7 +132,7 @@ sub addcomment: Path('/blog/addcomment') : Args(1) {
 #add new post - has to be moved to the admin controller later
 sub save: Path('/blog/save') : Args(0) {
 	my ( $self, $c ) = @_;
-	my ( $title, $content, $author, $newentry, $created_on);
+	my ( $title, $content, $author, $newentry, $created_on, $tag);
 	
 	if($c->user->role != 0) {
 		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
@@ -142,9 +142,10 @@ sub save: Path('/blog/save') : Args(0) {
 	$title 	    = $c->request->params->{title};
 	$content    = $c->request->params->{content};
 	$created_on = $c->request->params->{createdon};
+	$tag 		= $c->request->params->{tag};
 	$author 	= $c->user();
 	
-	$c->log->debug("current time"+$created_on);
+	$c->log->debug("Saving new post at ".$created_on." with tag ".$tag);
 	#$created_on = DateTime->now;
 	
 	$newentry = $c->model('DB::Article')->create( {
@@ -153,6 +154,15 @@ sub save: Path('/blog/save') : Args(0) {
 					content   => $content,
 					created_on => $created_on			
 	});
+	
+	if ($newentry) {
+		
+		$c->model('DB::Tagmap')->create({
+			article_id => $newentry->id,
+			tag_id	   => $tag
+		});
+		
+	}
 	
 	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully added!") } ));
     $c->detach();

@@ -15,6 +15,7 @@ function blog_preview()
 		$("#preview_box").show();
 		$("#pre_title").html( $("#title").val() );
 		$("#pre_content").html( $("#content").val() );
+		$('#pre_tag').html( $("#tag :selected").text() );
 	}
 	else {
 		$("#pr_error").show();
