@@ -64,13 +64,19 @@ sub epicenter : Path('/epicenter'): Args(0) {
 sub auto: Private {
 	my ($self, $c) = @_;
 	
+	# rightpanel.tt is used for placebo effect theme
+	my $panel = 'article/profilepane.tt';
+	
 	#user session found
 	if ($c->user_exists) {
-		$c->stash( profile => $c->user(), rightpanel => 'rightpanel.tt');
+		if( $c->controller eq $c->controller('Article') ) {
+			$panel = 'article/profilepane.tt'; 
+		}
+		$c->stash( profile => $c->user(), leftpanel => $panel);
 	}
 		
 	#Actions in Root do not require login
-	if( ($c->controller eq $c->controller('Root')) || ($c->controller eq $c->controller('Login')) ) {
+	if( ! ( ($c->controller eq $c->controller('Userbase')) || ($c->controller eq $c->controller('Admin')) ) ) {
 	return 1;
     }
    

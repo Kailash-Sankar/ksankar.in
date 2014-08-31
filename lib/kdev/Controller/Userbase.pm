@@ -24,6 +24,8 @@ Catalyst Controller.
 #debug flag
 my $ debug=0;
 
+#all functions in here required user to be logged in :)
+
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
   
@@ -33,7 +35,7 @@ sub index :Path :Args(0) {
 }
 
 
-#get user data and keep it in stash
+#get user data and keep it in stash (this function is now only used by admin for delete feature)
 sub getuserdata : Local : Args(1) {
 	my ($self, $c, $user_id)= @_;
     
@@ -47,16 +49,141 @@ sub getuserdata : Local : Args(1) {
 	}
 }   
 
-sub myprofile: Local : Args(0) {
+#view user profile
+sub myprofile :Local :Args(0) {
 	my ($self, $c, $user_id) = @_;
 	
-	#if ($user_id) {
-		#$c->forward('getuserdata',$user_id);
-	#}
-	##if there is no user id then call is coming from reg method		
-	$c->stash(template => 'profile.tt');
+	$c->log->debug('fetching profile');
+	
+	#need to check why dob is not coming as part of user.
+	my $profile = $c->model('DB::User')->find($c->user->id);
+	
+	$c->load_status_msgs;
+	$c->stash( wrapper => 'article/article_wrap.tt', blogindex => 'article/blogindex.tt');			
+	$c->stash(template => 'profile.tt', profile => $profile, activetag => 2 );
 }
 
+#update user profile
+sub updateprofile : Local : Args(0) {
+    my ( $self, $c ) = @_;
+	
+	
+	##Retrieve values from the form
+    my $firstname 	     = $c->request->params->{reg_firstname};
+    my $lastname 	     = $c->request->params->{reg_lastname};
+    my $dob 		     = $c->request->params->{reg_dob};
+    my $password 	     = $c->request->params->{reg_password};
+    my $confirm_password = $c->request->params->{reg_confirmpassword};
+    my $old_password 	 = $c->request->params->{reg_oldpassword};
+    
+    $c->log->debug("about to update");
+    
+    $c->user->update({
+					firstname => $firstname,
+					lastname  => $lastname, 
+					dob 	  =>  $dob,
+    });
+    
+    if($old_password) {
+		$c->log->debug("\n inside old pass ");
+			    
+		if($old_password eq $c->user->password) {
+			$c->log->debug("\n pass check pass");
+			if( $confirm_password eq $password ) {
+				  $c->user->update({
+					password => $password,
+				});
+			}
+			else {
+				$c->log->debug("\n passwords do not match ");
+				$c->res->redirect($c->uri_for('/userbase/myprofile', { mid => $c->set_status_msg("Passwords do not match.") } ));
+				$c->detach();
+			}
+		}
+		else {
+			$c->log->debug("\n old pass is wrong ");
+			$c->res->redirect($c->uri_for('/userbase/myprofile', { mid => $c->set_status_msg("Old password is wrong.") } ));
+			$c->detach();	
+		}
+	}
+	
+	$c->res->redirect($c->uri_for('/userbase/myprofile', { mid => $c->set_status_msg("Profile Updated!") } ));
+	$c->detach();
+}
+
+#add new comment
+sub addcomment: Path('/blog/addcomment') : Args(1) {
+	my ( $self, $c, $article_id ) = @_;
+	
+	my $comment 	    = $c->request->params->{comment};
+	
+	if ($comment) {
+		$c->model('DB::Comment')->create({
+			comment    => $comment,
+			article_id => $article_id,
+			user_id    => $c->user->id
+		});
+	}
+	$c->res->redirect($c->uri_for('/blog/view',$article_id, { mid => $c->set_status_msg("Comment added successfully!")}));
+    $c->detach();
+	
+}
+
+#add new post - has to be moved to the admin controller later
+sub save: Path('/blog/save') : Args(0) {
+	my ( $self, $c ) = @_;
+	my ( $title, $content, $author, $newentry, $created_on);
+	
+	if($c->user->role != 0) {
+		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
+		$c->detach();
+	}
+	
+	$title 	    = $c->request->params->{title};
+	$content    = $c->request->params->{content};
+	$created_on = $c->request->params->{createdon};
+	$author 	= $c->user();
+	
+	$c->log->debug("current time"+$created_on);
+	#$created_on = DateTime->now;
+	
+	$newentry = $c->model('DB::Article')->create( {
+					author_id => $author->id,
+					title 	  => $title,
+					content   => $content,
+					created_on => $created_on			
+	});
+	
+	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully added!") } ));
+    $c->detach();
+}
+
+#edit post - has to moved to admin controller later
+sub update: Path('/blog/update') : Args(0) {
+	my ( $self, $c ) = @_;
+	my ( $title, $content, $author, $id, $newentry);
+	
+	if($c->user->role != 0) {
+		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
+		$c->detach();
+	}
+	
+	$id 	    = $c->request->params->{id};
+	$title 	    = $c->request->params->{title};
+	$content    = $c->request->params->{content};
+	#$author		= $c->user();
+	
+	$c->log->debug("author : ".Dumper($author));
+	#$created_on = DateTime->now;
+	
+	$newentry = $c->model('DB::Article')->find($id)->update( {
+					title 	  => $title,
+					content   => $content,
+	});
+	
+	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully updated!")}));
+    $c->detach();
+}
 
 =encoding utf8
 

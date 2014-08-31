@@ -1,0 +1,37 @@
+<!-- add new blog entry -->
+[% META title = 'Blog Add New Entry' %]
+[% USE date %]
+
+[% DEFAULT posted_on = "date.format(format = '%Y-%m-%dT%H:%M:%S')" %] 
+
+<div class="lead">Add new entry</div>
+<form id="newpost" role="form" method='post' action="[% c.uri_for(action) %]">
+  	  <div class="form-group">	
+             <label for="content">Title</label>
+	     <input type="text" class="form-control" id="title" name="title" placeholder="(max 100 chars)" value="[% article.title %]" required>
+	  </div>
+	  <div class="form-group">
+	    <label for="content">Content</label>
+	    <textarea class="form-control" rows="20" id="content" name="content" placeholder="(max 10k words)" required>[% article.content %]</textarea>	
+	  </div>
+	  <input type="hidden" name="createdon"  value="[% date.format(format = '%Y-%m-%d %H:%M:%S') %]">
+	  <input type="hidden" name="id"  value="[% article.id %]">
+	  <button class="btn btn-default" type="submit">Save</button>
+	  <span class="btn btn-default" onclick="blog_preview()">Preview</span>
+	  <a class="btn btn-default" href="[% c.uri_for('/blog/home') %]">Back</a>
+</form>
+<br/><br/>
+<p id="pre_error"></p>
+<div id="preview_box">
+	  <article class="post">
+	   <blockquote>
+	      <p id="pre_title"></p>
+	      <footer> by [% profile.username %] | posted on [% article.created_on || $posted_on %] [% IF article.id %]| last updated on [% $posted_on %] [% END %]</footer>
+	   </blockquote>
+	   <p id = "pre_content" class="fullcontent">
+		</p>
+	</article>
+	<p class="breaker"></p>
+
+</div>
+

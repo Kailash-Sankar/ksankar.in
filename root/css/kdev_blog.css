@@ -1,0 +1,123 @@
+/* css for blog 
+ ----Kailash Sankar ----
+ 
+ */
+ 
+#blog_main {
+margin: 20px;
+}
+
+.post {
+padding-bottom:10px;
+border-left: 2px solid #eee;
+border-right: 2px solid #eee;
+}
+
+.postcontent {
+margin-left:5px;
+margin-right:5px;
+height:200px;
+text-overflow:ellipsis;
+overflow:hidden;
+white-space:pre-line;
+}
+
+.fullcontent {
+margin-left:5px;
+margin-right:5px;
+white-space:pre-line;
+}
+
+article blockquote {
+border-left:0px;
+}
+
+.combadge {
+background-color:#000;
+opacity:0.3;
+}
+
+.breaker {
+height: 2px;
+background-color: rgba(255,165,0,0.8);
+margin:10px;
+}
+
+.breakerblue {
+height: 2px;
+background-color: rgba(173,216,230,0.8);
+margin:10px;
+}
+
+.comsec {
+margin:10px;
+}
+
+.blogindex {
+position:fixed;
+padding-top:20px;
+}
+
+#blognav ul li a {
+color: #47373f !important;
+}
+
+#blognav ul li {
+border-left: 0px solid #eee !important;
+border-right: 0px solid #eee !important;
+}
+
+#quicklinks a {
+color:  #777 !important;
+}
+
+span .edit {
+font-size:16px !important;
+padding-right:10px;
+}
+
+.editbutton {
+float:right;
+opacity:0.3;
+font-size:30px;
+}
+
+.editbutton img {
+width:15px;
+height:15px;
+}
+
+.editbutton:hover {
+opacity:0.7;
+}
+
+.toolinfo {
+width:12px;
+height:12px;
+text-align:center;
+border-radius:6px;
+border:1px solid #FFA500;
+position: absolute;
+margin-left:5px;
+font-size:10px;
+}
+
+.like, .comment {
+opacity:0.3;
+font-size:14px;
+text-decoration: none;
+color:#000;
+}
+
+.like:hover, .comment:hover {
+opacity:0.7;
+text-decoration: none;
+color:#000;
+cursor:pointer;
+font-weight: 700;
+}
+
+.changelog {
+height:200px;
+overflow:scroll;
+}

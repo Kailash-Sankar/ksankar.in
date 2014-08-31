@@ -1,0 +1,75 @@
+<!--- view full post content -->
+[% USE date %]
+[% USE DUMPER %]
+[% # DUMPER.dump_html(article.tagmaps.tag.tagname) %]
+
+	<article id ="pid_[% article.id %]"  class = "post">
+		[% IF profile.role == 0 %]
+		<span>		
+			<a class="editbutton close" href="[% c.uri_for('/blog/delete') %]" aria-hidden="true">&times;</a>
+			<a class="editbutton close" href="[% c.uri_for('/blog/edit',article.id) %]" aria-hidden="true"><img src="[% c.uri_for('/static/edit.png') %]"></a>
+		</span>
+		[% END %]
+	   <blockquote>
+	      <p>[% article.title %]</p>
+	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] | Tags: [% article.tagmaps.tag.tagname || 'None' %]</footer>
+	   </blockquote>
+	   <div class="fullcontent">
+		[% article.content %]
+	   </div>
+	   <p style="color:#777; margin:5px 5px 0px;">
+		  <!-- <a class="like" onclick="alert('I am working on setting this up.')" aria-hidden="true">Like</a> | -->
+		  <a class="comment" onclick="$('#commentbox').toggle(800);" aria-hidden="true">[% comments.size %]&nbsp;Comments</a>
+		  <a class="editbutton close" style="float:right; font-size:14px;" href="[% c.uri_for('/blog/home') %]">Back</a>
+		</p>
+	</article>
+	<p class="breaker"><br/><br/></p>
+	
+	<div>
+
+	[% IF comments.size %]
+		<p class="comsec text-center">Comments</p>
+		<p class="breaker"></p>
+		[% SET i = 0 %]
+		[% FOREACH comment IN comments %]
+		    <span style="float:left; color: #777;">#[% i+1 %] [% i = i + 1 %]</span>
+		       <p class="fullcontent comsec">
+				[% comment.comment %]
+				<p style="float:right; color: #777; margin-right:5px;"> [% comment.user.username %] | [% comment.added_on %]</p>
+			</p>
+			<br />
+			<p class="breakerblue"></p>
+		[% END %]
+	[% ELSE %]
+		<p class="comsec text-center">There are no comments to display.</p>
+		<p class="breaker"></p>	
+	[% END %]
+	
+	[% IF profile %]
+		<div id="commentbox">
+			<form id="addcomment" role="form" method='post' action="[% c.uri_for('/blog/addcomment',article.id) %]">
+				<div class="form-group">
+					<label for="content">Comment</label>
+					<textarea class="form-control" rows="5" id="comment" name="comment" placeholder="(max 2500 characters)" onkeyup="javascript:this.value=this.value.replace(/[<>]/g,'');" required></textarea>	
+				</div>
+				<input type="hidden" name="createdon"  value="[% date.format(format = '%Y-%m-%d %H:%M:%S') %]">
+				<input type="hidden" name="id"  value="[% article.id %]">
+				<button class="btn btn-default" type="submit">Save</button>
+				<span class="btn btn-default" onclick="comment_preview()">Preview</span>
+				<a class="btn btn-default" onclick="$('#commentbox').hide(800);" >Cancel</a>
+			</form>
+		</div>	
+	<br/>	
+	<p id="pre_error"></p>
+	<div id="preview_box">
+		<p class="breaker"></p>	
+		<div id="pre_comment" class="fullcontent">
+			[% comment.comment %]
+			<p style="float:right; color: #777; margin-right:5px;"> [% profile.username %] | [% date.format(format = '%Y-%m-%dT%H:%M:%S') %]</p>
+		</div>
+		<br/>
+	<p class="breaker"></p>
+	</div>
+    [% END %]
+	</div>
+

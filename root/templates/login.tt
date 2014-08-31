@@ -8,17 +8,17 @@
       <form id="login" role="form" method='post' action="[% c.uri_for('/login') %]">
   	  <div class="form-group">	
              <label for="emailinput">Username</label>
-	     <input type="text" class="form-control" id="email_id" name="username" placeholder="Enter Username">
+	     <input type="text" class="form-control" style="width:30%;" id="email_id" name="username" placeholder="Enter Username">
 	  </div>
 	  <div class="form-group">
 	    <label for="passwordinput">Password</label>
-	    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+	    <input type="password" class="form-control" style="width:30%;" id="password" name="password" placeholder="Enter password">
 	  </div>
 	  <button type="submit" class="btn btn-info">Sign in</button>
-	  <span>&nbsp;&nbsp;<a class="text-warning" data-toggle="popover" title="TO DO" data-content="Build a forgot password page" href="#">Forgot password?</a></span>
-	  [% IF login_error %]
+	  <span>&nbsp;&nbsp;<a class="text-warning" data-toggle="tooltip" data-placement="right" title="Will be available soon.." href="#">Forgot password?</a></span>
+	  [% IF c.flash.login_error %]
 	  <br><br>
-	  <p class="alert alert-danger">[% login_error %]</p>
+	  <p class="alert alert-danger">[% c.flash.login_error %]</p>
 	  [% END %]
       </form>
     </div>  	
@@ -32,7 +32,7 @@
 	    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="registerwindowlabel">Registration</h4>
       </div>
-       <form class="form-horizontal" role="form" method="post" action="[% c.uri_for('register') %]">
+       <form class="form-horizontal" role="form" method="post" action="[% c.uri_for('/register') %]">
        <div class="modal-body">
          <p class="col-sm-6">Please fill the below form&hellip;</p><p class="help-block text-right col-sm-6">All fields are mandatory</p>     
          <div class="form-group">
@@ -69,7 +69,7 @@
 	   <!-- first name -->
 	   <label for="username" class="col-sm-2 control-label">Username:</label>
 	   <div class="col-sm-10">
-	     <input type="text"  id="reg_username" name="reg_username" size="40" maxlength="20" placeholder="Be creative but avoid NSFW" required> 
+	     <input type="text"  id="reg_username" name="reg_username" size="40" maxlength="20" placeholder="Be creative." required> 
 	   </div>
 	 </div>
 	<!-- password -->
@@ -79,16 +79,16 @@
 	   <div class="col-sm-10">
 	     <input type="password"  id="reg_password" name="reg_password" size="40" maxlength="20" placeholder="Enter password" required> 
          <span> &nbsp; &nbsp; &nbsp; </span> 
-         <input type="password"  id="reg_confirmpassword" name="reg_confirmpassword" size="40" maxlength="25" placeholder="Confirm password" required> 
+         <input type="password"  id="reg_confirmpassword" name="reg_confirmpassword" size="40" maxlength="20" placeholder="Confirm password" required> 
 	   </div>
 	 </div>
     <!-- color picker -->
          <div class="form-group">
 	   <!-- first name -->
-	     <label for="colorpicker" class="col-sm-2 control-label">Choose a color:</label>
+	     <label for="recoveryques" class="col-sm-2 control-label">Math:</label>
 	     <div class="col-sm-10">
-	       <input type="color"  id="reg_color" name="reg_color"  placeholder="recovery" required> 
-	       <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="The color code will come in handy if you forgot your password"></span>
+	       <input type="text"  id="reg_secque" name="reg_secque" size="40" placeholder="What is 1+2+35-9" required> 
+	       <span class="toolinfo" data-toggle="tooltip" data-placement="right" title="Just making sure that you are human">?</span>
 	     </div>
 	 </div>
     <!-- reg end--> 

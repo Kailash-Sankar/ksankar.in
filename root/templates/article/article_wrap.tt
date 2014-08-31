@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- wrapper for article  -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[% template.title or 'Blog Posts' %]</title>
+    <link href="[% c.uri_for('/css/bootstrap.min.css') %]" rel="stylesheet">
+    <link href="[% c.uri_for('/css/kdev_blog.css') %]" rel="stylesheet">
+  </head>
+  [% DEFAULT leftpanel = 'article/profilepane.tt' %]
+  <body id="blog_main">
+	  <div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<span><h1>My Blog</h1></span>
+				<p>“Simplicity is the ultimate sophistication.” - Leonardo da Vinci</p>
+				<span style="float-right" id="blognav">
+				   <ul class="nav nav-tabs" role="tablist">
+					<li><a href="[% c.uri_for('/') %]">Portfolio</a></li>
+					<li [% IF activetag == 1 %]class="active"[% END %]><a href="[% c.uri_for('/blog/home') %]">Blog</a></li>
+					[% IF profile %]
+						<li style="float:right"><a  href="[% c.uri_for('/logout') %]">Logout</a></li>
+						<li style="float:right" [% IF activetag == 2 %]class="active"[% END %] ><a  href="[% c.uri_for('/userbase/myprofile')%]">My Profile</a></li> 
+						[% IF profile.role == 0 %]	
+						<li style="float:right" [% IF activetag == 3 %]class="active"[% END %] ><a  href="[% c.uri_for('/blog/addnew')%]" >Post</a></li>
+						[% END %]
+					[% ELSE %]
+						<li style="float:right"><a  href="" data-toggle="modal" data-target="#loginwindow">Login</a></li>
+						<li style="float:right"><a  href="" data-toggle="modal" data-target="#registerwindow">Register</a></li>	
+					[% END %] 
+				   </ul>
+				</span>
+			</div>
+		</div>
+		<div class="row" style="margin-top:10px;">
+			<div class="col-lg-3">
+				<!--- most liked -->
+				[%  INCLUDE $leftpanel %]
+			</div>
+			<div class="col-lg-6">
+				[% IF status_msg || c.request.params.status_msg%]
+				<div class="alert alert-info alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					[% status_msg || c.request.params.status_msg | html %]
+				</div>
+				[% END %]
+				[% content %]
+			</div>
+			<div class="col-lg-3">
+				<! -- posts -->
+				 [% INCLUDE article/blogindex.tt %]
+			</div>
+		</div>
+		<div class="row">
+			<!-- footer -->	<div style="height:100px; clear:both;"> </div>				
+		</div>	 
+	  </div>
+	  [% IF !profile %]
+	    [% INCLUDE login.tt %]
+	  [% END %]
+	 <script src="[% c.uri_for('/js/jquery.min.js') %]"></script>
+     <script src="[% c.uri_for('/js/bootstrap.min.js') %]"></script> 
+     <script src="[% c.uri_for('/js/kdev_blog.js') %]"></script> 
+     
+     [% IF c.flash.login_error %]
+	  <script type="text/javascript">
+		$('#loginwindow').modal('show');
+	  </script>
+	[% END %]
+	
+	  [% IF c.flash.reg_error %]
+	  <script type="text/javascript">
+		$('#registerwindow').modal('show');
+	  </script>
+	[% END %]
+	
+	[% IF activetag == 1 %]
+		<div class="text-center" style="height:20px; position:relative;">Kailash Sankar</div>
+	[% END %]
+  </body>
+</html>
