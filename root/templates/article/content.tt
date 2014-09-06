@@ -1,10 +1,24 @@
-[% META title = 'Blog home' %]
-[% #USE DUMPER %]
-[% #DUMPER.dump_html(article.get_column('comment_count')) %]
-<div class="lead text-center">Posts</div>
+[% META title = 'My Blog' %]
+[% # USE DUMPER %]
+[% # DUMPER.dump_html(tags.$tagid.tagname) %]
+
+<div class="lead text-center">
+[% IF activetag == 5 %]
+[% META title = 'Blog - Search results' %]
+[%  SET tagid = searchid - 1 %]
+Posts with tag - 
+ <span class="label label-default"
+	[% IF tags.$tagid.tagcolor %] style="background-color:[% tags.$tagid.tagcolor %];" [% END %]
+		>[% tags.$tagid.tagname %]</span>
+[% ELSE %]	
+Posts
+[% END %]
+</div>
+
+
 <p class="breakerblue"></p>
 <div>
-[% IF posts %]	
+[% IF posts.size %]	
 	[% FOREACH article IN posts %]	
 	<article id ="pid_[% article.id %]"  class = "post">
 		[% IF profile.role == 0 %]
@@ -15,10 +29,24 @@
 		[% END %]
 	   <blockquote>
 	      <p>[% article.title %]</p>
-	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] | Tags: [% article.tagmaps.tag.tagname || 'None' %]</footer>
+	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] | 
+	      	  Tags:[% IF article.tagmaps %] 
+					 [% FOREACH tagmap IN article.tagmaps %]
+						<a class="label label-default tagsearch" href="[% c.uri_for('/blog/search',tagmap.tag.tag_id) %]"
+						[% IF tagmap.tag.tagcolor %] style="background-color:[% tagmap.tag.tagcolor %];" [% END %]
+						>[% tagmap.tag.tagname %]</a>	
+					 [% END %]
+				   [% ELSE %]
+						None
+				   [% END %] 
+	      </footer>
 	   </blockquote>
 	   <div class="postcontent">
-		[% article.content %]
+		  [% IF article.content.length > 650 %]
+			[% article.content.substr(0,650) _ "..." %]
+		  [% ELSE %]
+		    [% article.content %]
+		  [% END %]
 	   </div>
 	   <p style="color: #777; margin:5px;">
 		    <a class="editbutton close" style="float:left; font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">[% article.get_column('comment_count') %]&nbsp;Comments</a>
@@ -28,6 +56,8 @@
 	<p class="breaker"><br/><br/></p>
 	[% END %]
 [% ELSE %]
-<p class="alert alert-warning">I searched and failed..there are no posts to show.</p>
+<p class="alert alert-warning">I searched everywhere..there are no posts to show. :(</p>
 [% END %]	
 </div>
+
+

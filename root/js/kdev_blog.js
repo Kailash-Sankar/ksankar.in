@@ -7,6 +7,7 @@
 
 
 $("#preview_box").hide();
+
 function blog_preview()
 {
 	 
@@ -15,7 +16,6 @@ function blog_preview()
 		$("#preview_box").show();
 		$("#pre_title").html( $("#title").val() );
 		$("#pre_content").html( $("#content").val() );
-		$('#pre_tag').html( $("#tag :selected").text() );
 	}
 	else {
 		$("#pr_error").show();
@@ -42,9 +42,7 @@ function gotopost(postloc) {
   console.log("scrolling to.."+postloc);
   var x = $(postloc).offset().top;
   var target = $(postloc);
-   
-  //$('html,body').animate({scrollTop: 647});
-   
+ 
   //prevent default action
   event.preventDefault();
   
@@ -55,13 +53,20 @@ function gotopost(postloc) {
 }
 
 function enableedit() {
-$('#editprofile input').attr("disabled",false);
-$('.hideonedit').hide();
-$('.showonedit').show();
+	$('#editprofile input').attr("disabled",false);
+	$('.hideonedit').hide();
+	$('.showonedit').show();
 }
 
 function canceledit() {
-$('#editprofile input').attr("disabled",true);
-$('.showonedit').hide();
-$('.hideonedit').show();
+	$('#editprofile input').attr("disabled",true);
+	$('.showonedit').hide();
+	$('.hideonedit').show();
+}
+
+function charcount(comment_box) {
+	
+	var rem = 1500 - $(comment_box).val().length;
+	console.log("counting"+ rem);
+	$('#charcount').html(rem);
 }

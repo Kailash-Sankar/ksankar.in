@@ -1,28 +1,19 @@
 [% IF profile %]
-<p class="lead">
+<div class="lead startpad">
 	<blockquote class="profileblock" >
       <p class="text-capitalize">Hello [% profile.firstname %]</p>
 	  <footer>logged in as [% profile.username %]</footer>
    </blockquote>
-</p>
+</div>
 
 [% ELSE %]
 <p class="help-block" style="padding-top:20px;">Please log in/register to add comments.</p>
 [% END%]
-<br/><br/>
-[% IF 0 %]
-<div>
-	<p>Search by Tags</p>
-	<p class="breakerblue"></p>
-	<span class="label label-success text-center">Tutorials</span>&nbsp;
-	<span class="label label-warning text-center">Tech</span>&nbsp;
-	<span class="label label-info text-center">General</span>&nbsp;
-</div>
-<br/><br/>
-[% END %]
+<br/>
+
 <p class="breakerblue"></p>
 <p class="help-block">
-	<strong>Captain's Navigation Journal:</strong>
+	<strong>Nav Guide:</strong>
      <ul>
 		 [% IF activetag == 4 %]
 		 <li>The comments link at the bottom left corner of the post can be used to show/hide the comments text box.</li>
@@ -35,7 +26,8 @@
 		 [% END %]	 
      </ul>
 </p>
-<br/><br/>
+<br/>
+
 <p class="breakerblue"></p>
 <div>
 	<strong class="help-block" style="cursor:pointer; display:inline;" onclick="$('#todo').hide(800); $('#changelog').toggle(800);">#SiteChangelog</strong>

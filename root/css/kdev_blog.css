@@ -14,18 +14,20 @@ border-right: 2px solid #eee;
 }
 
 .postcontent {
-margin-left:5px;
-margin-right:5px;
+margin-left:10px;
+margin-right:10px;
 height:200px;
 text-overflow:ellipsis;
 overflow:hidden;
 white-space:pre-line;
+text-align:justify;
 }
 
 .fullcontent {
-margin-left:5px;
-margin-right:5px;
+margin-left:10px;
+margin-right:10px;
 white-space:pre-line;
+text-align:justify;
 }
 
 article blockquote {
@@ -46,6 +48,13 @@ margin:10px;
 .breakerblue {
 height: 2px;
 background-color: rgba(173,216,230,0.8);
+margin:10px;
+}
+
+.breakerdouble {
+height: 8px;
+border-top:2px solid rgba(255,165,0,0.8);
+border-bottom:2px solid rgba(255,165,0,0.8);
 margin:10px;
 }
 
@@ -120,4 +129,17 @@ font-weight: 700;
 .changelog {
 height:200px;
 overflow:scroll;
+}
+
+.tagsearch {
+cursor:pointer;
+opacity:0.8;
+}
+
+.tagsearch:hover {
+opacity:1;
+}
+
+.startpad {
+padding-top:20px;
 }

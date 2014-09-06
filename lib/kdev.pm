@@ -17,7 +17,6 @@ use Catalyst::Runtime 5.80;
 #                 directory
 
 use Catalyst qw/
-    -Debug
     ConfigLoader
     Static::Simple
 
@@ -63,6 +62,13 @@ __PACKAGE__->config(
 
 # Start the application
 __PACKAGE__->setup();
+
+use MRO::Compat;
+sub dump_these {
+    my $c = shift;
+    my @variables = $c->next::method(@_);
+    return grep { $_->[0] ne 'Config' } @variables;
+}
 
 =encoding utf8
 

@@ -11,12 +11,14 @@
 	     <input type="text" class="form-control" id="title" name="title" placeholder="(max 100 chars)" maxlength="100" value="[% article.title %]" required>
 	  </div>
 	  <div class="form-group">	
-             <label for="tag">Tags</label>
-	     <select id="tag" name="tag" required>
-			<option value='1'>General</option>
-			<option value='2'>Tutorials</option>
-			<option value='3'>Tech</option>
-	     </select>
+             <label for="tag">Tags: </label>
+             
+             [% FOREACH tag IN tags %]
+              <span>
+				<input type="checkbox" name="tags" value="[% tag.tag_id %]"><span>&nbsp; [% tag.tagname %] &nbsp;</span>
+			  </span>
+			  &nbsp;&nbsp;&nbsp;&nbsp;
+             [% END %]     
 	  </div>
 	  <div class="form-group">
 	    <label for="content">Content</label>
@@ -34,7 +36,7 @@
 	  <article class="post">
 	   <blockquote>
 	      <p id="pre_title"></p>
-	      <footer> by [% profile.username %] | posted on [% article.created_on || $posted_on %] [% IF article.id %]| last updated on [% $posted_on %] [% END %] | | Tags: [% article.tagmaps.tag.tagname %]<span id="pre_tag"></span></footer>
+	      <footer> by [% profile.username %] | posted on [% article.created_on || $posted_on %] [% IF article.id %]| last updated on [% $posted_on %] [% END %]</footer>
 	   </blockquote>
 	   <p id = "pre_content" class="fullcontent">
 		</p>
