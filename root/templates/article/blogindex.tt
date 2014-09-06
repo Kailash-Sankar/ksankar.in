@@ -1,4 +1,18 @@
 <!-- blog right panel -->
+
+[% IF tags %]
+<div class="startpad">
+   <p>Search by Tags</p>
+      [% FOREACH tag IN tags %]
+		<a class="label label-default tagsearch" name="tags" href="[% c.uri_for('/blog/search',tag.tag_id) %]"
+		[% IF tag.tagcolor %] style="background-color:[% tag.tagcolor %];" [% END %]
+		>[% tag.tagname %]</a>&nbsp;
+	  [% END %]  	
+</div>
+<p class="breakerblue"></p>
+<br/>
+[% END %]
+
 [% IF posts %]
 <div class="blogindex">
 	<p>Index</p>

@@ -142,7 +142,7 @@ sub save: Path('/blog/save') : Args(0) {
 	$title 	    = $c->request->params->{title};
 	$content    = $c->request->params->{content};
 	$created_on = $c->request->params->{createdon};
-	$tag 		= $c->request->params->{tag};
+	$tag 		= $c->request->params->{tags};
 	$author 	= $c->user();
 	
 	$c->log->debug("Saving new post at ".$created_on." with tag ".$tag);
@@ -156,12 +156,28 @@ sub save: Path('/blog/save') : Args(0) {
 	});
 	
 	if ($newentry) {
+		#handle multiple tags. 
+		#ToDo find a better logic
+		if( ref($tag) eq "ARRAY" ) {
+			
+			foreach (@$tag) {
+			
+				$c->model('DB::Tagmap')->create({
+					article_id => $newentry->id,
+					tag_id	   => $_
+				});
+			}
+		}
 		
-		$c->model('DB::Tagmap')->create({
-			article_id => $newentry->id,
-			tag_id	   => $tag
-		});
-		
+		else {
+			
+			$c->model('DB::Tagmap')->create({
+				article_id => $newentry->id,
+				tag_id	   => $tag
+			});
+			
+			
+		}
 	}
 	
 	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully added!") } ));

@@ -12,7 +12,21 @@
 		[% END %]
 	   <blockquote>
 	      <p>[% article.title %]</p>
-	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] | Tags: [% article.tagmaps.tag.tagname || 'None' %]</footer>
+	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] |
+	      Tags:[% IF article.tagmaps %] 
+				[% FOREACH tagmap IN article.tagmaps %]
+				<a class="label label-default tagsearch"
+				href="[% c.uri_for('/blog/search',tagmap.tag.tag_id) %]"
+				[% IF tagmap.tag.tagcolor %] style="background-color:[% tagmap.tag.tagcolor %];" [% END %]
+				>
+					[% tagmap.tag.tagname %]
+				</a>
+				&nbsp;					
+			    [% END %]
+			   [% ELSE %]
+					None
+			   [% END %] 			
+		  </footer>
 	   </blockquote>
 	   <div class="fullcontent">
 		[% article.content %]
@@ -50,13 +64,17 @@
 			<form id="addcomment" role="form" method='post' action="[% c.uri_for('/blog/addcomment',article.id) %]">
 				<div class="form-group">
 					<label for="content">Comment</label>
-					<textarea class="form-control" rows="5" id="comment" name="comment" placeholder="(max 2500 characters)" onkeyup="javascript:this.value=this.value.replace(/[<>]/g,'');" required></textarea>	
+					<textarea class="form-control" rows="5" id="comment" name="comment" placeholder="(max 1500 characters)" 
+					onkeyup="javascript:this.value=this.value.replace(/[<>]/g,''); charcount(this);" maxlength="1500" required></textarea>	
 				</div>
 				<input type="hidden" name="createdon"  value="[% date.format(format = '%Y-%m-%d %H:%M:%S') %]">
 				<input type="hidden" name="id"  value="[% article.id %]">
 				<button class="btn btn-default" type="submit">Save</button>
 				<span class="btn btn-default" onclick="comment_preview()">Preview</span>
 				<a class="btn btn-default" onclick="$('#commentbox').hide(800);" >Cancel</a>
+				<span class="help-block" style="float:right;">
+					<span id="charcount" >1500</span> Characters Remaining. 
+				</span>
 			</form>
 		</div>	
 	<br/>	

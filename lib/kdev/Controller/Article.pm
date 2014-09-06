@@ -29,7 +29,9 @@ sub blog :Chained('/') :PathPart('blog') :CaptureArgs(0) {
 	my ( $self, $c ) = @_;
 	
 	$c->load_status_msgs;
-	$c->stash( wrapper => 'article/article_wrap.tt', blogindex => 'article/blogindex.tt');
+	my $tags = my $tags = [ $c->model('DB::Tag')->all ];
+	
+	$c->stash( wrapper => 'article/article_wrap.tt', blogindex => 'article/blogindex.tt', tags => $tags);
 }
 
 sub home :Chained('blog') :PathPart('home') :Args(0) {
@@ -43,7 +45,7 @@ sub home :Chained('blog') :PathPart('home') :Args(0) {
 		group_by => [qw/me.id author_id title content created_on updated_on /],
 		order_by => 'created_on DESC',				 		 
 		 } )->all()];
-	
+		 
 	#using accessor $posts->[0]->get_column('comment_count')
 	$c->log->debug("Loading up home page.");
 		 
@@ -78,7 +80,31 @@ sub edit :Chained('blog') :PathPart('edit') : Args(1) {
 	$c->stash( template => 'article/addnew.tt', action => '/blog/update', article => $article );	
 }
 
+sub search_by_tags :Chained('blog') :PathPart('search') : Args(1) {
+	my ( $self, $c, $tag_id ) = @_;
+	
+	
+	my $posts = [$c->model("DB::Article")->search( 
+		{  'tagmaps.tag_id' => $tag_id				
+		},
+	
+		{	'+select' => [ { count => 'comment', -as => 'no_of_comments' } ],
+			'+as' => [ qw/ comment_count / ], 		
+			join => ['comments', 'tagmaps'], 
+			group_by => [qw/me.id author_id title content created_on updated_on /],
+			order_by => 'created_on DESC',				 		 
+		 } )->all()];
+	
+	$c->stash( template => 'article/content.tt', posts => $posts, activetag => 5, searchid => $tag_id  );	 
+}
 
+=Active tag mapping
+1 => Home
+2 => My Profile
+3 => Post
+4 => View
+5 => Search Results
+=cut
 
 =encoding utf8
 

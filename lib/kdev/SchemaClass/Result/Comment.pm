@@ -48,7 +48,7 @@ __PACKAGE__->table("comments");
 
   data_type: 'varchar'
   is_nullable: 0
-  size: 2500
+  size: 1600
 
 =head2 article_id
 
@@ -81,7 +81,7 @@ __PACKAGE__->add_columns(
   "id",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "comment",
-  { data_type => "varchar", is_nullable => 0, size => 2500 },
+  { data_type => "varchar", is_nullable => 0, size => 1600 },
   "article_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "user_id",
@@ -142,8 +142,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-30 18:56:57
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:sasjO9M0k4W3dCEdw28IeA
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-09-06 23:10:38
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:tkjYZ5JGS90Ei+NpYtiPsw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

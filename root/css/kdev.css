@@ -276,7 +276,7 @@ transition: opacity 600ms ease-out;
   background-color: rgba(0,0,0,0.1);
   cursor:pointer;
   line-height:1.4;
-  z-index:999;
+  z-index:9999;
   text-decoration:none !important;
   color: #47373f !important; 
   transform: translateX(-50%);
@@ -488,6 +488,7 @@ background-color: #47373f !important;
     bottom:20%;
     color: #47373f;
     text-align: left;
+    display:inline;
 }
 
 #slide-3 .caption {
