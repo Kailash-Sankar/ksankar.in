@@ -2,7 +2,6 @@ package kdev::Controller::Article;
 use Moose;
 use namespace::autoclean;
 use Data::Dumper;
-use DateTime;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
@@ -29,7 +28,7 @@ sub blog :Chained('/') :PathPart('blog') :CaptureArgs(0) {
 	my ( $self, $c ) = @_;
 	
 	$c->load_status_msgs;
-	my $tags = my $tags = [ $c->model('DB::Tag')->all ];
+	my $tags = [ $c->model('DB::Tag')->all ];
 	
 	$c->stash( wrapper => 'article/article_wrap.tt', blogindex => 'article/blogindex.tt', tags => $tags);
 }

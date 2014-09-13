@@ -40,7 +40,7 @@
 				[%  INCLUDE $leftpanel %]
 			</div>
 			<div class="col-lg-6">
-				[% IF status_msg || c.request.params.status_msg%]
+				[% IF status_msg || c.request.params.status_msg %]
 				<div class="alert alert-info alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert">
 						<span aria-hidden="true">&times;</span>

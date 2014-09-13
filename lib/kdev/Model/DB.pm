@@ -6,11 +6,7 @@ use base 'Catalyst::Model::DBIC::Schema';
 __PACKAGE__->config(
     schema_class => 'kdev::SchemaClass',
     
-    connect_info => {
-        dsn => 'dbi:mysql:devdb12',
-        user => 'ksankar',
-        password => 'mugetsu',
-    }
+   # connect_info is in local conf file 
 );
 
 =head1 NAME

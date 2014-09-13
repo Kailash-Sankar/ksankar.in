@@ -5,6 +5,7 @@
 	  <footer>logged in as [% profile.username %]</footer>
    </blockquote>
 </div>
+<p><a href="[% c.uri_for('/admin/mailer') %]">Mailer</a></p>
 
 [% ELSE %]
 <p class="help-block" style="padding-top:20px;">Please log in/register to add comments.</p>
@@ -36,6 +37,14 @@
 	<br/><br/>
 	<div id="changelog" class="changelog" style="display:none;">
 	<ul>
+		<li>Sept 6 & 7th
+			<ul>
+				<li>Added Searching based on Tags</li>
+				<li>Several UI changes</li>
+				<li>Email Module for Admin</li>
+			</ul>	
+		</li>
+				
 		<li>Sunday Aug 31
 		<ul>
 		  <li>Used Join in DBIX to fetch comments count</li>

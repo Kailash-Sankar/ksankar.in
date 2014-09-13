@@ -173,9 +173,24 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 rec_passes
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-30 18:44:34
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:hqqgMTHPM++lD8IbaskKYQ
+Type: has_many
+
+Related object: L<kdev::SchemaClass::Result::RecPass>
+
+=cut
+
+__PACKAGE__->has_many(
+  "rec_passes",
+  "kdev::SchemaClass::Result::RecPass",
+  { "foreign.user_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-09-13 22:08:36
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Q+AZ5CTNjdUvK0dHsYNKDA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

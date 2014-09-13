@@ -60,6 +60,10 @@ __PACKAGE__->config(
     },
 );
 
+__PACKAGE__->config(
+ default_view => 'HTML',
+);
+
 # Start the application
 __PACKAGE__->setup();
 

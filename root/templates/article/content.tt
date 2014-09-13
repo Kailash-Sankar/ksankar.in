@@ -4,14 +4,13 @@
 
 <div class="lead text-center">
 [% IF activetag == 5 %]
-[% META title = 'Blog - Search results' %]
-[%  SET tagid = searchid - 1 %]
-Posts with tag - 
- <span class="label label-default"
-	[% IF tags.$tagid.tagcolor %] style="background-color:[% tags.$tagid.tagcolor %];" [% END %]
+	[%  SET tagid = searchid - 1 %]
+	Posts with tag - 
+		<span class="label label-default"
+		[% IF tags.$tagid.tagcolor %] style="background-color:[% tags.$tagid.tagcolor %];" [% END %]
 		>[% tags.$tagid.tagname %]</span>
 [% ELSE %]	
-Posts
+	Posts
 [% END %]
 </div>
 

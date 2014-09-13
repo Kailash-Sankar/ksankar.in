@@ -59,7 +59,7 @@ sub placeboeffect :Path('/placeboeffect') :Args(0) {
 		$rightpanel = 'rightpanel.tt';
 	}
     
-    $c->stash(template => 'welcome.tt', rightpanel => $rightpanel);
+    $c->stash(template => 'welcome.tt', rightpanel => $rightpanel, wrapper => 'wrapper.tt');
 
 }
 

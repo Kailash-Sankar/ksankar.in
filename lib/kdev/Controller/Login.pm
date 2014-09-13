@@ -2,6 +2,7 @@ package kdev::Controller::Login;
 use Moose;
 use namespace::autoclean;
 use Data::Dumper;
+use DateTime;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
@@ -101,9 +102,17 @@ sub register : Global :Args(0) {
 		 $c->res->redirect($c->uri_for('/blog/home'));
 		 $c->detach();
 	}
+	
+	my $username_exists = $c->model('DB::User')->search( { username => $username  } );
+	
+	if($username_exists != 0) {
+		warn "\n username exists! $username_exists";
+		$c->flash->{reg_error} = 'Username already exists, somebody beat you to it :p';
+		$c->res->redirect($c->uri_for('/blog/home'));
+		$c->detach();
+	}
     
-    
-    my $newuser = $c->model('DB::User')->create({ 
+    my @newuser = $c->model('DB::User')->create({ 
 						firstname => $firstname,
 						lastname  => $lastname,
 						dob 	  => $dob,
@@ -112,6 +121,14 @@ sub register : Global :Args(0) {
 						password  => $password,
 						active    => 1,						 
 	   });
+    
+	#time to sent dem mails :p
+	#forward to private mailer in admin with user object
+	if(@newuser) {
+		$c->stash( email_template => 'email_welcome.tt' );
+		my $mid = $c->forward('/admin/send_mail_now', \@newuser);
+		unless($mid) { $c->log->debug('There was an error while trying to send mail'); }
+	}	
     
      #add user data to stash and forward to my profile page
      #$c->stash( profile => $newuser, status_msg => 'You have successfully registered!'); 
@@ -129,6 +146,142 @@ sub register : Global :Args(0) {
 
 }
 
+sub forgot_password :Global :Args(0) {
+	my ( $self, $c ) = @_;
+	
+	$c->stash( template => 'forgot_password.tt' , showform => 1 );
+	
+}
+
+sub rec_password : Path('/forgot_password/rec_password') :Args(0) {
+	my ( $self, $c ) = @_;
+	
+	#if all else fails , show the user the regular password recovery form
+	#why put all data in one template? because i feel lazy about building more templates.
+	my $formcode = 1;
+	
+	my $email = $c->request->params->{rec_email};
+	
+	my $email_exists = $c->model('DB::User')->search( { email => $email  } )->single;
+
+	print STDERR "\n\n it's an array" if( ref($email_exists) eq 'ARRAY') ;
+
+	if( $email_exists ) {
+		$c->log->debug("Initiating Password Recovery for : $email");
+		
+		my $salt = DateTime->now();
+		my $rec_hash = crypt($email,$salt);
+		
+		$c->log->debug("Created rec hash : $salt : $rec_hash :".$email_exists->id);
+		
+		#disable old records if any.
+		my  $old_records = $c->model('DB::RecPass')->search({ user_id => $email_exists->id });
+		if( $old_records) { $old_records->update({ active => 0 }); }
+		
+		my $recpass =   $c->model('DB::RecPass')->create ({
+							user_id 	=> $email_exists->id,
+							saltedhash  => $rec_hash,
+							salt 		=> $salt,
+						});
+		
+		
+		if ( $recpass ) {
+			
+			#forward to mailer if the db entry was made
+			# set email_template & rec_hash
+			$c->stash( email_template => 'email_password.tt' , rec_hash => $rec_hash );
+			my $mid = $c->forward('/admin/send_mail_now',[ $email_exists ]);
+		
+			if($mid) {
+				$c->stash( status_msg => "Recovery email sent." );
+				$formcode = 2;	
+			}
+			else {
+				$c->stash( status_msg => "owwh nooo...there is a problem with the mail server. Please try again later. :(" );
+				$formcode = 0;
+			}
+		}
+		else {
+		   	$c->stash( status_msg => "Our recovery Wizard's is asleep. Please try again later." ); 
+		   	$formcode = 0;
+		}
+	}
+			
+	else {	
+		$c->stash( status_msg => "Ouch, the entered email address doesn't exist in my system." );	
+		$formcode = 0;
+	}
+	
+	$c->stash( template => 'forgot_password.tt' , showform => $formcode );
+}
+
+sub set_new_password :Path('/forgot_password/set_new_password') :Args(1) {
+	my  ( $self, $c, $rec_hash ) = @_;
+	my $formcode = 1;
+	
+	#load status messages 
+	$c->load_status_msgs;
+	
+	#Salted hash check
+	my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1 })->single; 
+	
+	if( $recpass) {
+		#allow them to reset password.
+		#i need to make a new form...argh..but if i move the password change code in my profile to a private method
+		#i might be able to achieve greatness.
+		$c->log->debug('Allowing user to reset password: '.$recpass->user_id);
+		$formcode = 3; 
+		$c->stash( rec_hash => $rec_hash );
+	}
+	else {
+		$c->stash( status_msg => "I have no record of this recovery attempt. Please try again." );
+		$formcode = 4;
+	}
+	$c->stash( template => 'forgot_password.tt' , showform => $formcode );
+} 
+
+sub change_password :Path('/forgot_password/change_password') :Args(0) {
+	my ( $self, $c ) = @_;
+	my $mid;
+	
+	my $password 	     = $c->request->params->{reg_password};
+    my $confirm_password = $c->request->params->{reg_confirmpassword};
+    my $rec_hash		 = $c->request->params->{rec_hash};
+    
+    #fetch user
+    my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1 })->single; 
+    
+    if( $password && $confirm_password ) {
+		$c->log->debug("\n changing password ");
+			    
+		if( $confirm_password eq $password ) {
+			my $pwd_update =	  $recpass->user->update({
+									password => $password,
+							   });
+			if($pwd_update) { 
+				#disable salt & redirect to home
+				$recpass->update({ active => 0 });
+				$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Password changed successfully. Please log in.") } ));
+				$c->detach();
+			}
+			else {
+				#attempt failed
+				$mid = $c->set_status_msg("Update attempt failed. Please try again later.");			
+			}	
+		}	
+		else {
+				$c->log->debug("\n passwords do not match ");
+				$mid = $c->set_status_msg("Passwords do not match.");
+		}
+	}
+	else {
+		$c->log->debug("\n Blank fields..");
+		$mid = $c->set_status_msg("Opps you left blank fields in the form.");
+	}
+		
+	$c->res->redirect($c->uri_for('/forgot_passsword/set_new_password/', $rec_hash, { mid => $mid } ));
+	$c->detach();
+}
 
 =encoding utf8
 

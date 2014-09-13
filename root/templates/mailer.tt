@@ -1,0 +1,30 @@
+[% META title = 'Admin Mailer' %]
+[% IF profile.role == 0 %]
+<div  class="text-left contentblock">
+<div class="lead text-center">Mailing</div>
+  <form id="mailer" role="form" method='post' action="[% c.uri_for('/admin/send_email') %]">
+  <p class="help block">List of Registered Users</p>
+	<table class="table table-hover"> 
+	    <thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+        <tbody>
+		[% FOREACH user IN users %]
+		<tr>
+			<td>[% loop.index + 1 %]</td><td>[% user.firstname %]</td><td>[% user.lastname %]</td><td>[% user.username %]</td><td>[% user.email %]</td><td>[% user.role %]</td>
+			<td><input type="checkbox" name='user_id' value="[% user.id %]"></td>
+        </tr>
+		[% END %]
+        </tbody>
+    </table>
+    <div>
+    <p>Email Template Placeholder</p>
+    </div>
+    <p>
+    <button class="btn btn-default" type="submit">Send</button>
+	<a class="btn btn-default" href="[% c.uri_for('/blog/home') %]">Back</a>
+    </p>  
+  </form>   
+</div>
+[% ELSE %]
+<div class="alert alert-danger">Oops!You don't have access to this page.</div>
+[% END %]
+	  
