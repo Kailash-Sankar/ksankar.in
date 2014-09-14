@@ -47,6 +47,13 @@
 			<td></td>
 			<td><button class="btn btn-default" type="submit">Save</button></td>
         </tr>
+        [% IF profile.verified == 0 %]
+        <tr>
+			<td colspan=2>
+				<br>
+         You have not verified your email address. To do so, please follow the link in the email that i sent you when you registered.</td>
+        </tr>
+        [% END %]
       </tbody>
     </table>
     </form>

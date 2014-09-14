@@ -5,7 +5,17 @@
 	  <footer>logged in as [% profile.username %]</footer>
    </blockquote>
 </div>
+
+[% IF profile.role == 0 %]
 <p><a href="[% c.uri_for('/admin/mailer') %]">Mailer</a></p>
+[% END%]
+
+[% IF profile.verified == 0 %]
+<p class="help-block">
+	Please verify your 
+  <span data-toggle="tooltip" data-placement="right" title="Go to my profile section for more info."><strong>email address</strong></span>.	
+</p>
+[% END %]
 
 [% ELSE %]
 <p class="help-block" style="padding-top:20px;">Please log in/register to add comments.</p>

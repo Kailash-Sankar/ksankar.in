@@ -1,0 +1,30 @@
+<style>
+.breakerblue {
+height: 2px;
+background-color: rgba(173,216,230,0.8);
+margin:10px;
+}
+
+.mail_content {
+margin:10px;	
+}
+</style>
+
+
+<p class="breakerblue"></p>
+<div class="mail_content"
+<br>
+<strong>Hello!</strong> 
+<br>
+<br>
+Thank you for registering at ksankar.in, to verify your email address please follow the below link,
+<br>
+<a href="[% c.uri_for('/verify_email', rec_hash ) %]">[% c.uri_for('/verify_email', rec_hash ) %]</a> ;)
+<br>
+<br>
+Thanks,
+<br>
+Kailash Sankar
+<br>
+</div>
+<p class="breakerblue"></p>

@@ -54,7 +54,7 @@ __PACKAGE__->table("rec_pass");
 
   data_type: 'varchar'
   is_nullable: 0
-  size: 45
+  size: 64
 
 =head2 salt
 
@@ -68,6 +68,12 @@ __PACKAGE__->table("rec_pass");
   default_value: 1
   is_nullable: 1
 
+=head2 type
+
+  data_type: 'varchar'
+  is_nullable: 0
+  size: 10
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -76,11 +82,13 @@ __PACKAGE__->add_columns(
   "user_id",
   { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "saltedhash",
-  { data_type => "varchar", is_nullable => 0, size => 45 },
+  { data_type => "varchar", is_nullable => 0, size => 64 },
   "salt",
   { data_type => "varchar", is_nullable => 0, size => 45 },
   "active",
   { data_type => "integer", default_value => 1, is_nullable => 1 },
+  "type",
+  { data_type => "varchar", is_nullable => 0, size => 10 },
 );
 
 =head1 PRIMARY KEY
@@ -113,8 +121,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-09-13 22:08:36
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pMq3q2yXkadsMJz8BVYMNQ
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-09-14 16:12:18
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Nuim3odtieo93ArZdxg3pg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

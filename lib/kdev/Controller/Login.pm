@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 use Data::Dumper;
 use DateTime;
+use Crypt::SaltedHash;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
@@ -64,8 +65,8 @@ sub logout : Global : Args(0) {
 }
 
 #matches to /register
-#TODO server side validation & error handling
-
+#i am checking for the common errors
+#TODO Add js validation for size on form.
 sub register : Global :Args(0) {
     my ( $self, $c ) = @_;
 	
@@ -119,13 +120,39 @@ sub register : Global :Args(0) {
 						email	  => $email,
 						username  => $username,
 						password  => $password,
-						active    => 1,						 
+						active    => 1,
+						verified  => 0,
 	   });
     
 	#time to sent dem mails :p
 	#forward to private mailer in admin with user object
 	if(@newuser) {
-		$c->stash( email_template => 'email_welcome.tt' );
+		
+		my  $old_records = $c->model('DB::RecPass')->search({ user_id => $newuser[0]->id, active => 1 , type => 'email' });
+		if( $old_records) { $old_records->update({ active => 0 }); }
+		
+		#not used as salt, just a record of generated time
+		my $salt = DateTime->now();
+		
+		#time to make a large token
+		my $csh = Crypt::SaltedHash->new(algorithm => 'SHA-256');
+		$csh->add($email);
+		my $rec_hash = $csh->generate;
+		
+		#filter token to make it url compatable
+		$rec_hash =~ s/({.*}|\W)//g;
+						
+		
+		my $recpass =   $c->model('DB::RecPass')->create ({
+							user_id 	=> $newuser[0]->id,
+							saltedhash  => $rec_hash,
+							salt 		=> $salt,
+							type  		=> 'email',
+						});
+		
+		$c->log->debug("Created email verify hash : $salt : $rec_hash");
+		
+		$c->stash( email_template => 'email_verify.tt', email_subject => 'Verify Email Address', rec_hash => $rec_hash );
 		my $mid = $c->forward('/admin/send_mail_now', \@newuser);
 		unless($mid) { $c->log->debug('There was an error while trying to send mail'); }
 	}	
@@ -137,7 +164,7 @@ sub register : Global :Args(0) {
      #Authenticate user session
      if ( $c->authenticate({username => $username, password => $password}) ) {
 		 
-          $c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You have successfully registered!")}));
+          $c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You have successfully registered! I've sent you an email with a link, please click on it to verify your email address.")}));
           $c->detach();
       } else {
 		  $c->log->debug("\nI didnt expect the code to come here");
@@ -146,6 +173,35 @@ sub register : Global :Args(0) {
 
 }
 
+
+sub verify_email :Global :Args(1){
+	my  ( $self, $c, $rec_hash ) = @_;
+	
+	#defualt to error page
+	my $formcode = 0;
+	
+	#load status messages 
+	$c->load_status_msgs;
+	
+	#Salted hash check, type must be 'email'
+	my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1, type => 'email' })->single; 
+	
+	if( $recpass) {
+		#updated verified column in users
+		#disable recpass record.
+		#redirect to main page with a warm message - redirection is handled in fron end
+		$c->log->debug('verifying email id');
+		$recpass->update( { active => 0 });
+		$recpass->user->update({ verified => 1 });
+		$formcode = 1;
+	}
+	else {
+		$c->stash( status_msg => "I have no record of this email. Please try again." );
+	}
+	$c->stash( template => 'verify_email.tt' , showform => $formcode );
+}
+
+#show form
 sub forgot_password :Global :Args(0) {
 	my ( $self, $c ) = @_;
 	
@@ -153,6 +209,7 @@ sub forgot_password :Global :Args(0) {
 	
 }
 
+#create saltedhash and send the user an email with the link to recover password
 sub rec_password : Path('/forgot_password/rec_password') :Args(0) {
 	my ( $self, $c ) = @_;
 	
@@ -164,24 +221,31 @@ sub rec_password : Path('/forgot_password/rec_password') :Args(0) {
 	
 	my $email_exists = $c->model('DB::User')->search( { email => $email  } )->single;
 
-	print STDERR "\n\n it's an array" if( ref($email_exists) eq 'ARRAY') ;
-
+	# check if email exists
 	if( $email_exists ) {
 		$c->log->debug("Initiating Password Recovery for : $email");
 		
 		my $salt = DateTime->now();
-		my $rec_hash = crypt($email,$salt);
+
+		#time to make a large token
+		my $csh = Crypt::SaltedHash->new(algorithm => 'SHA-256');
+		$csh->add($email);
+		my $rec_hash = $csh->generate;
+		
+		#filter token to make it url compatable
+		$rec_hash =~ s/({.*}|\W)//g;
 		
 		$c->log->debug("Created rec hash : $salt : $rec_hash :".$email_exists->id);
 		
 		#disable old records if any.
-		my  $old_records = $c->model('DB::RecPass')->search({ user_id => $email_exists->id });
+		my  $old_records = $c->model('DB::RecPass')->search({ user_id => $email_exists->id, active => 1 , type => 'pass' });
 		if( $old_records) { $old_records->update({ active => 0 }); }
 		
 		my $recpass =   $c->model('DB::RecPass')->create ({
 							user_id 	=> $email_exists->id,
 							saltedhash  => $rec_hash,
 							salt 		=> $salt,
+							type  		=> 'pass',
 						});
 		
 		
@@ -189,11 +253,11 @@ sub rec_password : Path('/forgot_password/rec_password') :Args(0) {
 			
 			#forward to mailer if the db entry was made
 			# set email_template & rec_hash
-			$c->stash( email_template => 'email_password.tt' , rec_hash => $rec_hash );
+			$c->stash( email_template => 'email_password.tt' , email_subject => 'Password Recovery Email', rec_hash => $rec_hash );
 			my $mid = $c->forward('/admin/send_mail_now',[ $email_exists ]);
 		
 			if($mid) {
-				$c->stash( status_msg => "Recovery email sent." );
+				$c->stash( status_msg => "Recovery email sent.");
 				$formcode = 2;	
 			}
 			else {
@@ -212,9 +276,11 @@ sub rec_password : Path('/forgot_password/rec_password') :Args(0) {
 		$formcode = 0;
 	}
 	
-	$c->stash( template => 'forgot_password.tt' , showform => $formcode );
+	$c->log->debug("code is coming here");
+	$c->stash( template => 'forgot_password.tt',  wrapper => 'article/article_wrap.tt' , showform => $formcode );
 }
 
+#if the link is valid then let the set new password
 sub set_new_password :Path('/forgot_password/set_new_password') :Args(1) {
 	my  ( $self, $c, $rec_hash ) = @_;
 	my $formcode = 1;
@@ -222,8 +288,8 @@ sub set_new_password :Path('/forgot_password/set_new_password') :Args(1) {
 	#load status messages 
 	$c->load_status_msgs;
 	
-	#Salted hash check
-	my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1 })->single; 
+	#Salted hash check, type must be 'pass'
+	my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1, type => 'pass' })->single; 
 	
 	if( $recpass) {
 		#allow them to reset password.
@@ -240,6 +306,7 @@ sub set_new_password :Path('/forgot_password/set_new_password') :Args(1) {
 	$c->stash( template => 'forgot_password.tt' , showform => $formcode );
 } 
 
+#update password
 sub change_password :Path('/forgot_password/change_password') :Args(0) {
 	my ( $self, $c ) = @_;
 	my $mid;
@@ -249,7 +316,7 @@ sub change_password :Path('/forgot_password/change_password') :Args(0) {
     my $rec_hash		 = $c->request->params->{rec_hash};
     
     #fetch user
-    my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1 })->single; 
+    my $recpass =   $c->model('DB::RecPass')->search({ saltedhash => $rec_hash, active => 1, type => 'pass' })->single; 
     
     if( $password && $confirm_password ) {
 		$c->log->debug("\n changing password ");

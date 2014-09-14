@@ -40,12 +40,12 @@
 
 
    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="[% c.uri_for('/css/bootstrap.min.css') %]" rel="stylesheet">
     <!-- custom -->
-    <link href="css/kdev.css" rel="stylesheet">
+    <link href="[% c.uri_for('/css/kdev.css') %]" rel="stylesheet">
     
     <!-- modernizr -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="[% c.uri_for('/js/modernizr-2.6.2.min.js') %]"></script>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -332,8 +332,8 @@
                 data-310p="opacity: 0; transform:translate(0px,-100px);"
 				data-anchor-target="#helper"
                 >
-                       <h3>Space reserved for CSS3 animations and angular js :)</h3>
-                       <p>I got sick and I am not getting enough time to learn new stuff but I don't want to disappoint my curious visitor, so I've put on a little show. <br/>
+                       <h3>CSS Workspace :)</h3>
+                       <p><br/>
                        Please feel free to play around with the ball ;) . And when you get bored here somethig interesting to read &nbsp;
                        <a href="http://en.wikipedia.org/wiki/Plum_pudding_model" target="_blank">Plum pudding model</a></p>
                        <span id="hoverbox">Hover over me</span>
@@ -344,51 +344,7 @@
              <div id="slide-4" class="parallax-slide">
                <div class="caption">
                  <h1>Thank you!</h1>
-				 <p>Please log in/register to add comments.(coming soon)</p>
-				 <br/><br/>
-				 <h2>Tutorial Sources</h2><br/>
-				 <span class="lead">Perl</span>
-				 <ul>
-					 <li>Catalyst & DBIx 
-					   <ul>
-						   <li><a href="http://www.linuxjournal.com/content/introduction-application-development-catalyst-and-perl" target="_blank">linuxjournal.com</a></li>
-						   <li><a href="https://metacpan.org/pod/Catalyst::Manual::Tutorial" target="_blank">metacpan.org</a></li>						  
-					   </ul>
-				     </li>
-				     
-				     <li>Template::Toolkit
-				     <ul>
-						 <li><a href="http://template-toolkit.org/docs/manual/index.html" target="_blank">template-toolkit.org</a></li>
-				     </ul>
-				     </li>				     				  				     
-				 </ul>
-				 <span class="lead">UI</span>
-				    <ul>
-				      <li>Bootstrap
-				         <ul><li><a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a></li></ul>
-				      </li>
-				      <li>HTML5, CSS and Jquery
-				        <ul><li><a href="http://www.w3schools.com/" target="_blank">w3schools.com</a></li></ul>				          
-				      </li>
-				      <li>Skrollr.js
-				        <ul><li><a href="https://ihatetomatoes.net" target="_blank">ihatetomatoes.net</a></li></ul>	
-				      </li>
-				      </ul>
-				 <span class="lead">Others</span>
-				    <ul>
-				      <li>
-				        <a href="http://lmgtfy.com/?q=when+there+is+a+will" target="_blank">When you get stuck</a>
-				      </li>
-				      <li>
-						 <a href="http://www.pirateglossary.com/Phrases.html" target="_blank">Blimey!</a>
-				      </li>
-				      <li>
-						 <a href="http://www.stackoverflow.com" target="_blank">stackoverflow.com</a>
-				      </li>
-				      <li>
-						 <a href="https://www.iconfinder.com" target="_blank">iconfinder.com</a>
-				      </li>
-				    </ul>
+				 <p>Please log in/register to share your feedback/comments. To login head over to my blog.</p>
 				 
 			   </div>
              </div>
@@ -413,7 +369,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
 	    <h4 class="modal-title" id="placebolabel">Placebo Effect - Screens</h4>
-	    <span class="help-block">Login and registration links are wokring. Setting up catalyst on the shared host was harder than i thought.</span>
+	    <span class="help-block">Login and registration links will redirect to blog. Setting up catalyst on the shared host was harder than i thought.</span>
 	  </div>
      
      <div class="modal-body">
@@ -597,13 +553,13 @@
 <!-- modal end -->
 
     <!-- Include Skrollr.js -->
-   <script src="js/skrollr.min.js"></script>
-   <script src="js/skrollr.menu.js"></script>
-   <script src="js/jquery.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/enquire.min.js"></script> 
-   <script src="js/imagesloaded.js"></script>
-   <script src="js/waypoints.min.js"></script>
-   <script src="js/kdev.js"></script> 
+   <script src="[% c.uri_for('js/skrollr.min.js') %]"></script>
+   <script src="[% c.uri_for('js/skrollr.menu.js') %]"></script>
+   <script src="[% c.uri_for('js/jquery.min.js') %]"></script>
+   <script src="[% c.uri_for('js/bootstrap.min.js') %]"></script>
+   <script src="[% c.uri_for('js/enquire.min.js') %]"></script> 
+   <script src="[% c.uri_for('js/imagesloaded.js') %]"></script>
+   <script src="[% c.uri_for('js/waypoints.min.js') %]"></script>
+   <script src="[% c.uri_for('js/kdev.js') %]"></script> 
 </body>
 </html>   

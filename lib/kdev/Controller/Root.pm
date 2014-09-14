@@ -80,7 +80,7 @@ sub auto: Private {
 	if ($c->user_exists) {
 		if( $c->controller eq $c->controller('Article') ) {
 			$panel = 'article/profilepane.tt'; 
-		}
+		}		
 		$c->stash( profile => $c->user(), leftpanel => $panel);
 	}
 		

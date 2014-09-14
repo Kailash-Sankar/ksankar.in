@@ -98,7 +98,7 @@ sub send_email :Chained('admin') :PathPart('send_email') :Args(0) {
 	#error handling is done inside send_mail
 	#encountered some issues when i passed template as a parameter along with users
 	#need to look in to it later
-	$c->stash( email_template => 'email_test.tt' );
+	$c->stash( email_template => 'email_test.tt', email_subject => 'Dev Test Email' );
 	my $mid = $c->forward('send_mail_now', $users_list);
 	
 	$c->res->redirect($c->uri_for('/admin/mailer', { mid => $mid }));
@@ -131,8 +131,8 @@ sub send_mail_now :private :args(1) {
 			to          =>  $to,
 			cc 			=>  $cc, 
 			bcc         =>  $bcc,
-			subject     =>  'Thank You.',
-			template    =>   $c->stash->{email_template},
+			subject     =>  $c->stash->{email_subject},  
+			template    =>  $c->stash->{email_template},
 		#	body => '<br><br> <span>Test Email</span> <br><br> ksankar',
 			content_type => 'text/html', 
 			charset         => 'utf-8',
@@ -166,6 +166,8 @@ sub send_mail_now :private :args(1) {
 		}	
 	}
 	
+	#re enable the wrapper
+	$c->stash( no_wrapper => 0 ); 
 	return $mid;
 }
 
