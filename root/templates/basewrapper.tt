@@ -2,7 +2,7 @@
         debug("Passing page through as text: $template.name");
         content;
     ELSE;
-        wrapper = wrapper || 'wrapper.tt';
+        wrapper = wrapper || 'article/article_wrap.tt';
         debug("Applying wrapper $wrapper to $template.name");
         content WRAPPER $wrapper;
     END;

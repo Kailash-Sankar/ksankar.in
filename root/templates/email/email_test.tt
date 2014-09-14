@@ -1,0 +1,28 @@
+<style>
+.breakerblue {
+height: 2px;
+background-color: rgba(173,216,230,0.8);
+margin:10px;
+}
+
+.mail_content {
+margin:10px;	
+}
+</style>
+
+
+<p class="breakerblue"></p>
+<div class="mail_content"
+<br>
+<strong>Ahoy!!</strong> 
+<br>
+<br>
+Dev server email....<a href="http://ksankar.in/blog/home">ksankar.in</a> ;)
+<br>
+<br>
+Thanks,
+<br>
+Kailash Sankar
+<br>
+</div>
+<p class="breakerblue"></p>

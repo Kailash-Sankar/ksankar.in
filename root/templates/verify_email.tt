@@ -1,0 +1,20 @@
+<div style="padding-top:10px;">
+[% IF showform %]	
+	<p class="lead">Thank you! Your email id has been verified.</p>
+	<span class="help-block">This page will redirect to home in 3 seconds.</span>
+
+[% ELSE %]
+
+	<p class="lead">Errors.. :(</p>
+	<span class="help-block">This page will redirect to home in 3 seconds.</span>
+[% END %]
+</div>
+
+
+<script type="text/javascript">
+function redir() {
+	window.location = "[% c.uri_for('/blog/home') %]";
+}
+
+setTimeout('redir()',3000);
+</script>

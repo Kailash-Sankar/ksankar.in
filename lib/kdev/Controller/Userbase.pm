@@ -56,6 +56,7 @@ sub myprofile :Local :Args(0) {
 	$c->log->debug('fetching profile');
 	
 	#need to check why dob is not coming as part of user.
+	#i think it's because the data held in session is minimal.
 	my $profile = $c->model('DB::User')->find($c->user->id);
 	
 	$c->load_status_msgs;

@@ -92,6 +92,12 @@ __PACKAGE__->table("users");
   is_nullable: 0
   size: 10
 
+=head2 verified
+
+  data_type: 'integer'
+  default_value: 0
+  is_nullable: 1
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -113,6 +119,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", default_value => 1, is_nullable => 1 },
   "dob",
   { data_type => "varchar", is_nullable => 0, size => 10 },
+  "verified",
+  { data_type => "integer", default_value => 0, is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
@@ -173,9 +181,24 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 rec_passes
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-08-30 18:44:34
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:hqqgMTHPM++lD8IbaskKYQ
+Type: has_many
+
+Related object: L<kdev::SchemaClass::Result::RecPass>
+
+=cut
+
+__PACKAGE__->has_many(
+  "rec_passes",
+  "kdev::SchemaClass::Result::RecPass",
+  { "foreign.user_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2014-09-14 16:17:00
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:mGHG8pjK1dptvQuCtu+3LQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

@@ -59,7 +59,7 @@ sub placeboeffect :Path('/placeboeffect') :Args(0) {
 		$rightpanel = 'rightpanel.tt';
 	}
     
-    $c->stash(template => 'welcome.tt', rightpanel => $rightpanel);
+    $c->stash(template => 'welcome.tt', rightpanel => $rightpanel, wrapper => 'wrapper.tt');
 
 }
 
@@ -80,7 +80,7 @@ sub auto: Private {
 	if ($c->user_exists) {
 		if( $c->controller eq $c->controller('Article') ) {
 			$panel = 'article/profilepane.tt'; 
-		}
+		}		
 		$c->stash( profile => $c->user(), leftpanel => $panel);
 	}
 		
