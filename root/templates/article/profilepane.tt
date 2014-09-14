@@ -13,7 +13,8 @@
 [% IF profile.verified == 0 %]
 <p class="help-block">
 	Please verify your 
-  <span data-toggle="tooltip" data-placement="right" title="Go to my profile section for more info."><strong>email address</strong></span>.	
+  <span data-toggle="tooltip" data-placement="right" title="'If' you have already verified then this message would disapper 
+  when you login next time 'else' go to my profile section for more info."><strong>email address</strong></span>.	
 </p>
 [% END %]
 
@@ -47,11 +48,32 @@
 	<br/><br/>
 	<div id="changelog" class="changelog" style="display:none;">
 	<ul>
-		<li>Sept 6 & 7th
+		<li>Sunday Sept 14th
+			<ul>
+				<li>Made the token larger with SHA-256</li>
+				<li>Added email verification</li>
+				<li>Lots of exception handling..</li>
+			</ul>
+		</li>
+		
+		<li>Saturday Sept 13th
+			<ul>
+			 <li>Completed Password Recovery with token hash</li>
+			 <li>Added welcome email</li>
+			 <li>UI changes on login form</li>
+			</ul>
+		</li>
+		
+		<li>Sunday Sept 7th
+			<ul>
+			  <li>Added an Email testing section for Admin</li>
+			</ul>
+		</li>
+		
+		<li>Saturday Sept 6th
 			<ul>
 				<li>Added Searching based on Tags</li>
 				<li>Several UI changes</li>
-				<li>Email Module for Admin</li>
 			</ul>	
 		</li>
 				
@@ -96,21 +118,20 @@
 	
 	<div id="todo" class="changelog" style="display:none;">
 	<ul>
-		<li>Hopefully next weekend :p
-		<ul>
-		  <li>Add edit feature for comments</li>
-		  <li>Keep an audit log for edited comments</li>
-		  <li>Add searching based on tags</li>
-		 </ul>
-	  </li>
-	  
-	  <li>Near Future :|
+  
+	  <li>Next Weekend!
 		<ul>
 		  <li>Add pagination</li>
 		  <li>Display only 5 posts per page</li>
-		  <li>Send email on registration</li>
-		  <li>Add forgot password feature</li>
-		  <li></li>
+	    </ul>
+	  </li>
+	  
+	  	<li>Near future.
+		<ul>
+		  <li>Add edit link for comments</li>
+		  <li>Keep an audit log for edited comments</li>
+		  <li>js validaitons for the forms</li>
+		  <li>Code cleanup :/</li>
 		 </ul>
 	  </li>
 	  
