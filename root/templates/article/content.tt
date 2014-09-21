@@ -3,8 +3,8 @@
 [% # DUMPER.dump_html(tags.$tagid.tagname) %]
 
 <div class="lead text-center">
-[% IF activetag == 5 %]
-	[%  SET tagid = searchid - 1 %]
+[% IF pgd.activetag == 5 %]
+	[%  SET tagid = pgd.searchid - 1 %]
 	Posts with tag - 
 		<span class="label label-default"
 		[% IF tags.$tagid.tagcolor %] style="background-color:[% tags.$tagid.tagcolor %];" [% END %]
@@ -53,6 +53,26 @@
 	   </p>
 	</article>
 	<p class="breaker"><br/><br/></p>
+	[% END %]
+	[% IF pgd.nop > 1 %]
+	<div class="text-center">
+	 		<ul class="pagination">
+			<li [% IF activepage == 1 %] class="disabled" [% END %]>
+				<a href="[% c.uri_for('/blog/home/page', pgd.activepage - 1) %]">&laquo;</a>
+			</li>
+			 [% SET i = 0 %]
+			 [% WHILE i <= pgd.nop %]
+			 
+			     [% SET i = i + 1 %]
+				  <li [% IF i == pgd.activepage %] class="active" [% END %] > 
+					  <a href="[% c.uri_for('/blog/home/page',i) %]">[% i %]</a>
+				  </li>  
+			 [% END %] 
+			<li [% IF pgd.activepage == i %] class="disabled" [% END %] >
+				<a href="[% c.uri_for('/blog/home/page', activepage + 1 ) %]">&raquo;</a>
+			</li>
+		</ul>
+	</div>	
 	[% END %]
 [% ELSE %]
 <p class="alert alert-warning">I searched everywhere..there are no posts to show. :(</p>
