@@ -166,8 +166,10 @@ function adjustWindow(){
 
 			// Init Skrollr
 			var s = skrollr.init();
-			//scrolling doesn't happen the way we want on touch 
-			s.destroy();
+			//scrolling doesn't happen the way we want on touch
+			//till i write seperate css for touch
+			//i am enabling skroller.
+			//s.destroy();
 	   	}
 
 	}

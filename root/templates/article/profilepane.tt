@@ -7,7 +7,7 @@
 </div>
 
 [% IF profile.role == 0 %]
-<p><a href="[% c.uri_for('/admin/mailer') %]">Mailer</a></p>
+<p><a href="[% c.uri_for('/admin/mailer') %]">Mailer</a> | <a href="[% c.uri_for('/admin/users_list') %]">Users List</a> </p>
 [% END%]
 
 [% IF profile.verified == 0 %]
@@ -33,6 +33,7 @@
 		 <li>To go back to the main page, use the 'Blog' link on nav bar or use the 'Back' button on the bottom right corner of the post.</li>
 		 [% ELSE %]
 		 <li>Click on View/Comments button to see the full post.</li>
+		 <li>Use the posts index on the right side to quickly scroll to a post on this page</li>
 		 <li>Click on the #SiteChangelog link below to view the chanelogs.</li>	
 		 <li>Click on the #ToDo link to see what my plans are for the site.</li> 
 		 [% END %]	 
@@ -48,6 +49,13 @@
 	<br/><br/>
 	<div id="changelog" class="changelog" style="display:none;">
 	<ul>
+		<li>Sunday Sept 21st
+		  <ul>
+			<li>Add pagination, 5 posts per page :)</li>
+			<li>Few UI changes on portfolio page</li>
+		  </ul>
+		</li>
+		
 		<li>Sunday Sept 14th
 			<ul>
 				<li>Made the token larger with SHA-256</li>
@@ -121,16 +129,17 @@
   
 	  <li>Next Weekend!
 		<ul>
-		  <li>Add pagination</li>
-		  <li>Display only 5 posts per page</li>
+		  <li>Add edit link for comments</li>
+		  <li>Keep an audit log for edited comments</li>
+		  <li>js validaitons for the forms</li>
 	    </ul>
 	  </li>
 	  
 	  	<li>Near future.
 		<ul>
-		  <li>Add edit link for comments</li>
-		  <li>Keep an audit log for edited comments</li>
-		  <li>js validaitons for the forms</li>
+		  <li>UI overhaul on portfolio page</li>
+		  <li>Optimize blog for mobile</li>
+		  <li>Pagination on search results</li>
 		  <li>Code cleanup :/</li>
 		 </ul>
 	  </li>
