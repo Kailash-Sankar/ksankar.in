@@ -10,12 +10,19 @@
 	  [% END %]  	
 </div>
 <p class="breakerblue"></p>
+[% IF pgd %]
+  <div class="text-center help-block">
+	<span>Posts: [% pgd.nofpos %]</span> 
+	&nbsp; | &nbsp;
+	<span>Comments: [% pgd.nofcom %]</span>
+  </div>
+[% END %]
 <br/>
 [% END %]
 
 [% IF posts %]
 <div class="blogindex">
-	<p>Index</p>
+	<p>Posts on this page:</p>
 	<p id="quicklinks">
 		[% FOREACH article IN posts %]
 		<a href="#pid_[% article.id %]" onclick="gotopost('#pid_[% article.id %]')"> [% article.title %]</a>

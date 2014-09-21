@@ -33,10 +33,17 @@ sub blog :Chained('/') :PathPart('blog') :CaptureArgs(0) {
 	$c->stash( wrapper => 'article/article_wrap.tt', blogindex => 'article/blogindex.tt', tags => $tags);
 }
 
+#home sweet home.
 sub home :Chained('blog') :PathPart('home') :Args(0) {
     my ( $self, $c ) = @_;
-	my ($posts);
-	
+
+	#redirect to pagination function with page as 1
+	$c->stash({ activepage => 1 });
+	$c->forward('/article/pagination');
+	$c->detach();
+		
+=head 
+#this can be used if user wants to see all posts in one page	
 	$posts = [$c->model("DB::Article")->search(undef, {			
 		'+select' => [ { count => 'comment', -as => 'no_of_comments' } ],
 		'+as' => [ qw/ comment_count / ], 		
@@ -44,11 +51,79 @@ sub home :Chained('blog') :PathPart('home') :Args(0) {
 		group_by => [qw/me.id author_id title content created_on updated_on /],
 		order_by => 'created_on DESC',				 		 
 		 } )->all()];
-		 
+	 	 			 
 	#using accessor $posts->[0]->get_column('comment_count')
 	$c->log->debug("Loading up home page.");
 		 
 	$c->stash( template => 'article/content.tt', posts => $posts, activetag => 1 );
+=cut
+	
+}
+
+sub pager :Chained('blog') :PathPart('home/page') :Args(1) {
+	my ($self, $c, $page) = @_;
+	
+	$c->stash({ activepage => $page });
+	$c->forward('/article/pagination');
+	$c->detach();
+}	
+
+
+#pagination supreme. 
+#each page will have 5 posts.
+sub pagination :Private {
+	my ($self, $c) = @_;
+	
+	my $page = $c->stash->{activepage};
+	my $posts;
+	
+	#get all the post ids
+	my @nop = $c->model("DB::Article")->search(undef, { 'select' =>['id'] , order_by => 'created_on DESC'})->get_column('id')->all();
+	
+	$c->log->debug('fetching articles'.Dumper(\@nop));
+	
+	#now to fetch the posts based on page
+	if( $page ) {
+		
+		#calculate index based on page
+		my $index = (5 * $page) - 1; 
+		my $start_id = $index - 4;
+		my $end_id = ( $index  < (scalar @nop - 1) )? $index : (scalar @nop - 1) ;
+		
+		$c->log->debug("Start id: $start_id , End_id : $end_id");
+	
+		#list of ids to fetch
+		my @ids = @nop[$start_id .. $end_id];
+		
+		$c->log->debug("fetching posts for page: $page ID's: ".Dumper(\@ids));
+		
+		#fetch details of the post with count of comments
+		$posts = [$c->model("DB::Article")->search( 
+			{ 
+				'me.id' => { -in => \@ids }		
+			},
+			{			
+			'+select' => [ { count => 'comment', -as => 'no_of_comments' } ],
+			'+as' => [ qw/ comment_count / ], 		
+			join => 'comments', 
+			group_by => [qw/me.id author_id title content created_on updated_on /],
+			order_by => 'created_on DESC',				 		 
+			})->all()];
+	
+    }
+    
+    my $nofcom =  $c->model("DB::Comment")->search(undef, { 'select' => ['id'] })->count;
+    
+    $c->log->debug("Total Posts: ".scalar @nop." , Total Comments: $nofcom");
+    
+    my $pagedetails = { activetag => 1, 
+						nop => (scalar @nop)/ 5,
+						activepage => $page, 
+					    nofcom => $nofcom,
+					    nofpos => scalar @nop,
+					  };
+	
+	$c->stash( template => 'article/content.tt' , posts => $posts, pgd => $pagedetails );
 }
 
 sub view :Chained('blog') :PathPart('view') : Args(1) {
@@ -94,7 +169,9 @@ sub search_by_tags :Chained('blog') :PathPart('search') : Args(1) {
 			order_by => 'created_on DESC',				 		 
 		 } )->all()];
 	
-	$c->stash( template => 'article/content.tt', posts => $posts, activetag => 5, searchid => $tag_id  );	 
+	my $pagedetails = { activetag => 5, searchid => $tag_id };
+	
+	$c->stash( template => 'article/content.tt', posts => $posts, pgd => $pagedetails );	 
 }
 
 =Active tag mapping
