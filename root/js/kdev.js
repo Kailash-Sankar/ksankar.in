@@ -202,6 +202,58 @@ function showmenu() {
 	});
 }
 
+/* === design showcase */
+
+
+$(".design_box").click(function() {
+
+var id = $(this).attr('data-val');
+var url = $(this).attr('data-url');
+
+if ( id ) {
+ 
+	$('#trans_bg').show();
+
+	console.log('showing placebo effect');
+	$('#t'+ id).show();
+	setTimeout("dispatch('" + url + "')", 4000);
+}	
+	
+});
+
+function dispatch(strUrl) {
+	// window.open('/placeboeffect','_blank'); getting blocked as popup.
+	
+	if ( strUrl ) {
+		console.log('redir to '+ strUrl);
+	
+		//alternate method
+		var evLink = document.createElement('a');
+		evLink.href = strUrl;
+		evLink.target = '_blank';
+		document.body.appendChild(evLink);
+	
+		//evLink.dispatchEvent((function(e){
+		//e.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0,
+                    //false, false, false, false, 0, null);
+		//return e
+		//}(document.createEvent('MouseEvents'))));
+	
+	
+		evLink.click();
+		// Now delete it
+		evLink.parentNode.removeChild(evLink);
+	}
+	
+	$('.redir_bg').hide();
+	$('#trans_bg').hide();
+}
+
+function redir() {
+	window.target="_BLANK";
+	window.location = "[% c.uri_for('/blog/home') %]";
+}
+
 /* ==== js for lamp design ==== */
 function loginhint()
 {
