@@ -140,7 +140,7 @@
 		   <li><a id="navhome"    href="#one"   data-menu-top="0p"   data-toggle="tooltip" data-placement="left" title="Home"></a></li>
 		   <li><a id="navdesigns" href="#two"   data-menu-top="120p" data-toggle="tooltip" data-placement="left" title="Designs"></a></li>
 		   <li><a id="navdemo"    href="#three" data-menu-top="240p" data-toggle="tooltip" data-placement="left" title="Magic"></a></li>
-		   <li><a id="navtuts"    href="#four"  data-menu-top="360p" data-toggle="tooltip" data-placement="left" title="Links"></a></li>
+		   <li><a id="navtuts"    href="#four"  data-menu-top="360p" data-toggle="tooltip" data-placement="left" title="Thanks"></a></li>
 		   <li><a id="navend"     href="#five"  data-menu-top="480p" data-toggle="tooltip" data-placement="left" title="Paradox"></a></li>
 		 </ul>
 		 </div>
@@ -152,7 +152,10 @@
 		
 		<!-- social links -->
 		<div id="sociallinks">
-				    <div>
+				      <div class="btn-group left-links">
+						<a href="[% c.uri_for('/') %]"><img class="img_override_lg" src="static/icons/portfolio.png"></a>  <!-- overriding width only for portfolio link -->
+				        <a href="[% c.uri_for('/blog/home') %]"><img src="static/icons/blog.png"></a> 
+				      </div>
 					  <div  class="btn-group">
 						   <a href="https://plus.google.com/+kailashsankar"><img  src="static/icons/google.png"></a>
 				           <a href="https://twitter.com/felhound16"><img  src="static/icons/twitter.png"></a>
@@ -161,7 +164,7 @@
 	                       <a href="mailto:kailash.sankar@outlook.com"><img  src="static/icons/mail.png"></a>
 	                       <a href="https://github.com/Kailash-Sankar"><img  src="static/icons/github.png"></a>
 	                  </div>
-	                 </div>
+
 	    </div>	
 	    
 	
@@ -184,7 +187,7 @@
 					  <button type="button" class="close" data-dismiss="alert">
 				 	    <span aria-hidden="true">&times;</span>
 				      </button>
-				      This site is best viewed on a device with at least 1280 x 720 resolution.
+				      This site is best viewed on a non touch device with at least 1280 x 720 resolution.
 					</p>
                  </div>
 
@@ -233,14 +236,15 @@
 				   <div class="row">
 						<div class="col-lg-12 text-center">
 						   <p class="lead">
-							   I just made a blog from scratch! Please take a <a style="text-decoration:none;color:#FFA500;" href="[% c.uri_for('/blog/home') %]" target="_blank">look</a>.</p>
+							   I just made a blog from scratch! Take a <a style="text-decoration:none;color:#FFA500;" href="[% c.uri_for('/blog/home') %]" target="_blank">look</a>.</p>
 						</div>
 				   </div>
 				 </div>
 			 </div>
 			 
              <div id="slide-2" class="parallax-slide">
-				 <div class="row addwhite" style="padding-left:5%;"
+				 
+				<div class="row addblack" style="padding-left:5%;width:90%;font-size:16px;"
 				        data-30p="opacity: 0; transform:translate(0px,-10%);"
 						data-120p="opacity: 1; transform:translate(0px,0);"
 						data-150p=""
@@ -248,58 +252,66 @@
 						data-anchor-target="#helper"
 				  >
 					 <h1 class=text-left"><br/><strong>Designs</strong><br/></h1>
+					 <p>I mostly do backend development at my job. I wanted to learn more on the front end and this is how I started.</p>
 					 <br/>
-					 <div class="col-lg-3 col-md-6 ccol-xs-12">
-                       <span class="lead">The Paradox</span>
-						 <ul>
-							 <li>Parallax design using Skrollr.js</li>
-							 <li>Fully responsive</li>
-							 <li>Separate css for mobile devices using enquire.js</li>
-							 <li>Skrollr is disabled for touch devices using modernizer.js</li>
-							 <li>Loading screen until all images are loaded using imagesloaded.js</li>
-							 <li>Navigation pane on the right using waypoints.js and skrollr.menu.js</li>
-							 <li>Navigation, menu, close & transitions are done with pure css using psedo elements and a lot of time :p</li>
-							 <li>Tested on 320x480, 360x640, 768x1024, 800x1280, 1280x600, 1920x900 and 1920x1080 screens.</li>
-							 <li>Easy to build with the right tutorials (links are on my blog).</li>
-						 </ul>
-						 <span class="help-block">You are viewing it right now ;)</span>					
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_placebo" class="design_box" data-val="1" data-url="[% c.uri_for('/placeboeffect') %]">
+							<p class="de_text"> #1 Placebo Effect
+								<br>	
+							</p>
+						</div>
 					 </div>
-					 
-			  
-				     <div class="col-lg-3 col-lg-offset-1 col-md-6 col-md-offset-0">
-			            <span class="lead">Placebo Effect</span>
-			            <ul><li>Fluid responsive layout with bootstrap</li>
-			                <li>Carousal always stays in the center</li>
-			                <li>Registration form via modal with HTML5 validations</li>
-			            </ul>
-			            <p class="text-center"><span class="themebuttoninv" data-toggle="modal" data-target="#placebomodal">&nbsp;View&nbsp;</span></p>
-			            <br/>
-			            <span class="lead">Singularity</span>
-			            <ul><li>Very light blog theme with bootsrap</li>
-			            <li>Hash navigation for posts</li>
-			            <li>Fully functional! Register and take a look around.</li>
-			            <li>Responsive, read posts easily from your mobile :)</li>
-						<li>Search based on tags</li>
-			            <li>Catalyst, DBIx & Template::Toolkit</li>
-			            </ul>
-			            <p class="text-center"><a class="themebuttoninv" href="[% c.uri_for('/blog/home') %]" target="_blank">&nbsp;View&nbsp;</a></p>
-			         </div>
-			       
-			         <div class="col-lg-3 col-lg-offset-1 col-md-6 col-md-offset-0">
-					    <span class="lead">Epi Center</span>
-					    <ul>
-					    <li>Simple layout</li>
-					    <li>Login and Registration via modals</li>
-					    <li>Not fully responsive(working on it :p)</li>
-					    <li>Mouseover elements to see help text</li>
-					    <li>Single page layout.</li>
-					    </ul>
-					    <p class="text-center"><span class="themebuttoninv" data-toggle="modal" data-target="#lampmodal">&nbsp;View&nbsp;</span></p>
-     		        </div>
-                 
-              <!--   </div>  -->
-					 
-				 </div>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_epicenter" class="design_box" data-val="2" data-url="[% c.uri_for('/epicenter') %]">
+							<p class="de_text">#2 Epicenter
+								<br>
+							</p>
+						</div>
+					 </div>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_paradox" class="design_box" data-val="3" data-url="[% c.uri_for('/') %]">
+							<p class="de_text">#3 Paradox
+								<br>
+								
+							</p>
+						</div>
+					 </div>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_blog" class="design_box" data-val="4" data-url="[% c.uri_for('/blog/home') %]">
+							<p class="de_text">#4 Singularity
+								<br>
+								
+							</p>
+						</div>
+					 </div>
+				     
+				     <div class="col-lg-12"><br/><br/></div>
+                     
+                     <h1 class=text-left"><br/><strong>Trifles with Art</strong><br/></h1>
+					 <p>Usually I combine 'free to use' .psd's & images and customize them to create what I want. Sometimes I fiddle with Photoshop Elements and GIMP to create content from scratch.
+				       ;)
+				       <br/>
+				       Liked the background pics? The pics have been reduced to very low quality to decrease size. To see the original pics and more follow the link to my flickr page.
+				       </p>
+					 <br/>
+
+                     
+					 <div class="col-lg-3 col-md-6 col-xs-12">
+						<div id="de_art" class="design_box" data-toggle="modal" data-target="#artmodal">
+							<p class="de_text"> Art
+								<br>	
+							</p>
+						</div>
+					 </div>
+					 <div class="col-lg-3 col-md-6 col-xs-12">
+						<div id="de_photo" class="design_box" data-val="12" data-url="https://www.flickr.com/photos/felhound16/">
+							<p class="de_text">Photography
+								<br>
+							</p>
+						</div>
+					 </div>
+				</div>
+				 
 		        <div class="caption" 
                 data-90p="opacity: 0; transform:translate(0px,5%);"
 				data-120p="opacity: 1; transform:translate(0px,50%);"
@@ -307,24 +319,9 @@
 				data-210p="opacity: 0; transform:translate(-100px,50%);"
 				data-anchor-target="#helper"
 			    >
-			   	  <div class="row" style="padding-left:5%;">
-				   <div class="col-lg-4 col-md-6"><!-- reserved for themes --></div>
-				   <div class="col-lg-4 col-lg-offset-1 col-md-6 col-md-offset-0">
-					  <h2>Trifles with Art</h2>
-				      <span class="help-block addblack">I combine several 'free to use' .psd's & images and customize them to create what i want. I have fiddled with photoshop to create content from scratch.
-				      I use GIMP and a licensed version of photoshop elements ;)</span>
-			          <p class="text-center"><span class="themebutton" data-toggle="modal" data-target="#artmodal">&nbsp;View&nbsp;</span></p>
-			       </div>  
-			       
-			      <!-- reserved for photography section --
-			       <div class="col-lg-3 col-lg-offset-1">
-					  <h2>Photography</h2>
-				      <span class="help-block addblack"></span>
-			          <p class="text-center"><span class="themebutton" data-toggle="modal" data-target="">&nbsp;View&nbsp;</span></p>
-			       </div> 
-			       -->
-				 </div>
+			   	  
 			   </div>
+			   
              </div>
              <div id="slide-3" class="parallax-slide">
                <div class="caption addgrey"
@@ -334,21 +331,36 @@
                 data-310p="opacity: 0; transform:translate(0px,-100px);"
 				data-anchor-target="#helper"
                 >
-                       <h3>CSS Workspace :)</h3>
-                       <p><br/>
-                       I know it's quite empty. I've been busy :( . For now you can play around with the ball ;) . And when you get bored here somethig interesting to read &nbsp;
+					<div class="row">
+					   <a href="[% c.uri_for('/blog/home') %]" class="addgrey"><h1 class=text-left"><br/><strong>My Blog</strong><br/></h1></a>
+                       <p>I write posts on perl & web among other things.</p>
+                       <p>Quick links to a few of my posts:</p>
+						<ul>
+							<li><a href="http://ksankar.in/blog/view/5">Perl @INC</a></li>
+							<li><a href="http://ksankar.in/blog/view/3">The shebang line</a></li>
+						</ul>
+                       <h1 class="text-left"><br/><strong data-toggle="tooltip" data-placement="right" title="Under Development">Lab</strong><br/></h1>
+                       <p>This is where I try out cool new stuff! It's a work in progress. For now you can play around with the ball, it's pure CSS ;) .And when you get bored here's somethig interesting to read 
                        <a href="http://en.wikipedia.org/wiki/Plum_pudding_model" target="_blank">Plum pudding model</a></p>
                        <span id="hoverbox">Hover over me</span>
                        <span id="slowrider"></span>
-                       
+                    </div>   
+                    
 			   </div>
              </div>
              <div id="slide-4" class="parallax-slide">
-               <div class="caption">
+               <div class="caption addblack">
                  <h1>Thank you!</h1>
 				 <p>Please log in/register to share your feedback/comments. To login head over to my blog.</p>
-				 <p class="help-block">And yes I took all the background pics.</p>
-			   </div>
+				 <p class="help-block"></p>
+				
+				 
+				 <div class="row">
+					 
+					 
+				 </div>
+				 
+				</div> 
              </div>
           </div>
         </div>
@@ -366,7 +378,66 @@
 	</div> 
 	<!-- end content -->   
 
-<!-- modal  for placebo -->
+<!-- transparent bg -->
+<div id="trans_bg" style="display:none;">
+	<span class="closebutton" onclick="dispatch()" >&times;</span>
+	
+	<div id="t1" class="redir_bg" style="display:none;">
+	        <span class="lead">Placebo Effect</span>
+		    <ul><li>I made this layout while learning bootstrap.</li>
+		    </ul>
+	</div>
+	
+	<div id="t3" class="redir_bg" style="display:none;">
+		<span class="lead">The Paradox</span>
+		 <ul>
+			<li>Parallax design using Skrollr.js</li>
+			<li>Fully responsive</li>
+			<li>Separate css for mobile devices using enquire.js</li>
+			<li>Skrollr is disabled for touch devices using modernizer.js</li>
+			<li>Loading screen until all images are loaded using imagesloaded.js</li>
+			<li>Navigation pane on the right using waypoints.js and skrollr.menu.js</li>
+			<li>Navigation, menu, close & transitions are done with pure css using psedo elements and a lot of time :p</li>
+			<li>Tested on 320x480, 360x640, 768x1024, 800x1280, 1280x600, 1920x900 and 1920x1080 screens.</li>
+			<li>Easy to build with the right tutorials (links are on my blog).</li>
+		 </ul>
+		<span class="help-block">You are viewing it right now ;)</span>
+	</div>
+	
+	<div id="t4" class="redir_bg" style="display:none;">
+		<span class="lead">Singularity</span>
+		<ul>
+			<li>Very light blog theme with bootsrap</li>
+			<li>Hash navigation for posts</li>
+			<li>Fully functional! Register and take a look around.</li>
+			<li>Responsive, read posts easily from your mobile :)</li>
+			<li>Search based on tags</li>
+			<li>Catalyst, DBIx & Template::Toolkit</li>
+		</ul>
+	</div>
+	
+	<div id="t2" class="redir_bg" style="display:none;">
+	    <span class="lead">Epi Center</span>
+		<ul>
+		    <li>Simple layout</li>
+		    <li>Login and Registration via modals</li>
+		    <li>Not fully responsive(working on it :p)</li>
+		    <li>Mouseover elements to see help text</li>
+		    <li>Single page layout.</li>
+		</ul>
+	</div>
+	
+	<div id="t12" class="redir_bg" style="display:none;">
+		Redirecting to my Flickr stream.
+	</div>
+	
+	<div class="trans_footer">
+		This screen will open the theme link in a new tab(ensure popups are enabled) and close in 4 seconds.
+	</div>
+
+</div>
+
+<!-- modal  for placebo 
 <div class="modal fade designscreen" id="placebomodal" tabindex="-1" aria-labelledby="placebolabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="padding:10px;">
@@ -381,14 +452,14 @@
 
      <div id="carousel-placebo" class="carousel slide container-fluid" data-ride="carousel" style="margin: 0 auto; background-color:#FFFFFF">
  
-  <!-- Indicators -->
+  <!-- Indicators 
   <ol class="carousel-indicators">
     <li data-target="#carousel-placebo" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-placebo" data-slide-to="1"></li>
     <li data-target="#carousel-placebo" data-slide-to="2"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+  <!-- Wrapper for slides
   <div class="carousel-inner">
  
     <div class="item active">
@@ -404,7 +475,7 @@
         <h3 class="addblack">Registration</h3>
       </div>
     </div>
-    <!-- more slides? -->
+    <!-- more slides?
     <div class="item">
       <img src="static/designs/placebo2.jpg" alt="I'll keep searching..." class="homealign">
       <div class="carousel-caption">
@@ -414,7 +485,7 @@
  
   </div>
 
-  <!-- Controls -->
+  <!-- Controls 
   <a class="left carousel-control" data-target="#carousel-placebo" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
@@ -422,7 +493,7 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
-<!-- carousel end -->
+<!-- carousel end
 </div>
      <div class="modal-footer">
 		 <p class="text-center"><a class="btn btn-default" href="/placeboeffect" target="_blank">&nbsp;Live Demo&nbsp;</a></p>
@@ -432,7 +503,7 @@
 </div>
 <!-- modal end -->
 
-<!-- lamp modal -->
+<!-- lamp modal --
 <div class="modal fade designscreen" id="lampmodal" tabindex="-1" aria-labelledby="lamplabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="padding:10px;">
@@ -447,14 +518,14 @@
 
      <div id="carousel-lamp" class="carousel slide container-fluid" data-ride="carousel" style="margin: 0 auto; background-color:#FFFFFF">
  
-  <!-- Indicators -->
+  <!-- Indicators --
   <ol class="carousel-indicators">
     <li data-target="#carousel-lamp" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-lamp" data-slide-to="1"></li>
-   <!-- <li data-target="#carousel-lamp" data-slide-to="2"></li> -->
+   <!-- <li data-target="#carousel-lamp" data-slide-to="2"></li> --
   </ol>
 
-  <!-- Wrapper for slides -->
+  <!-- Wrapper for slides --
   <div class="carousel-inner">
  
     <div class="item active">
@@ -473,7 +544,7 @@
 
   </div>
 
-  <!-- Controls -->
+  <!-- Controls --
   <a class="left carousel-control" data-target="#carousel-lamp" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
@@ -481,7 +552,7 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
-<!-- carousel end -->
+<!-- carousel end --
 </div>
      <div class="modal-footer">
 		 <p class="text-center"><a class="btn btn-default" href="/epicenter" target="_blank">&nbsp;Live Demo&nbsp;</a></p>
@@ -568,13 +639,14 @@
    <script src="[% c.uri_for('js/kdev.js') %]"></script> 
    <!-- google analytics data -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+/*  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-55007172-1', 'auto');
   ga('send', 'pageview');
+ */ 
 </script>
 </body>
 </html>   

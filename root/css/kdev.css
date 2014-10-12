@@ -324,9 +324,13 @@ transition: opacity 600ms ease-out;
  right:0%;
  top:0%;
  z-index:9;
- width:480px;
- height:64px;
+ /*width:480px; */
+  height:64px;
  text-align: right;
+ 
+ /* experiment */
+ background-color:black;
+ width:100%;
 }
 
 #sociallinks img {
@@ -339,7 +343,7 @@ transition: opacity 600ms ease-out;
 
 #socialmenu {
  position:fixed;
- top:2%;
+ /* top:2%; */
  left:2%;
  cursor:pointer;
  width:35px;
@@ -347,6 +351,9 @@ transition: opacity 600ms ease-out;
  background-color:rgba(0,0,0,0);
  display:inline-block;
  z-index:999;
+ 
+ top: 32px;
+ transform: translateY(-50%);
 } 
 
 #socialmenu span:after,
@@ -455,7 +462,7 @@ background-color: #47373f !important;
 /* ===== For large devices ====== */
 @media only screen and (min-width: 768px) {
 #slide-2 {
-     padding-top:20px;
+     padding-top:35px;
     -webkit-transform: translate(0,100%);
     -ms-transform: translate(0,100%);
     transform: translate(0,100%);
@@ -463,6 +470,7 @@ background-color: #47373f !important;
 }
 
 #slide-3 {
+
     -webkit-transform: translate(100%,100%);
     -ms-transform: translate(100%,100%);
     transform: translate(100%,100%);
@@ -493,29 +501,39 @@ background-color: #47373f !important;
 
 #slide-3 .caption {
     position: absolute;
-    left: 1%;
+    left: 5%;
     right: auto;
-    top:8%;
+    top:60px;
     bottom: auto;
     color: #fff;
     text-align: left;
-    width:100%;
+    width:90%;
     height:100%;
+    font-size:16px;
 }
  
 #slide-4 .caption {
     position: absolute;
     right: auto;
     left: 5%;
-    top: 5%;
+    top: 75px;
     bottom: auto;
     color: #fff;
     text-align: left;
+    width:95%;
+    padding-right:5%;
+    font-size:16px;
 }
 
 #sociallinks {
  display:none;
  }
+ 
+ .left-links {
+ float:left; 
+ padding-left:100px;
+ }
+ 
 } 
 /* ===== large media end ======= */
 
@@ -595,6 +613,10 @@ background-color: #47373f !important;
  background-color:black;
 }
 
+.img_override_lg {
+width:64px !important;
+}
+
 .scrollnav {
 display: none;
 }
@@ -607,11 +629,127 @@ display:none;
 
 /* ============= mobile end ============= */
 
-/* ======== very low res mobile ========= */
+/* ======== very low res mobile ========= 
 @media only screen and (max-width: 300px)  {
+ * do i need this?
+ * NO! 
+}
+*/
 
-/* do i need this? */
+/* Designs showcase */
+.design_box {
+width:90%;
+height:250px;
+border:1px solid #FFA500;
+cursor:pointer;
+align-content: space-around;
+opacity:0.5;
+color:rgba(255,165,0,0);
+padding:2px;
+}
 
+.design_box:hover{
+transition: all 400ms ease-in-out;
+-moz-transition: all 400ms ease-in-out;
+-webkit-transition: all 400ms ease-in-out;
+opacity:1;
+color:rgba(255,165,0,1);
+}
+
+.de_text {
+opacity:1;
+text-align:left;
+background-color:rgba(255,165,0,0);
+}
+
+#de_placebo
+{
+background: url('../static/designs/placebo1.jpg') no-repeat center center;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+
+#de_epicenter
+{
+background: url('../static/designs/lamp1.jpg') no-repeat center center;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+
+#de_paradox
+{
+background: url('../static/designs/paradox1.png') no-repeat center center;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+
+#de_blog
+{
+background: url('../static/designs/blog1.png') no-repeat center center;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+
+#de_art
+{
+background: url('../static/designs/art1.jpg') no-repeat center center;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+
+#de_photo
+{
+background: url('../static/photo1.jpg') no-repeat center center;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+
+#trans_bg {
+width:100%;
+height:100%;
+background-color: rgba(0,0,0, 0.7);
+z-index:999;
+position:fixed;
+color:rgba(255,255,255, 0.8);
+}
+
+.redir_bg {
+position:absolute;
+top:50%;
+left:50%;
+transform: translateY(-50%) translateX(-50%);
+}
+
+.trans_footer {
+position:absolute;
+bottom:5%;
+left:50%;
+transform: translateX(-50%);
+}
+
+.closebutton {
+float:right;
+opacity:0.8;
+font-size:50px;
+color:red;
+cursor:pointer;
+transform:translateY(-15%) translateX(-15%);
+}
+
+.closebutton:hover {
+opacity:1;
 }
 
 /* ======== css3 magic ================= */
