@@ -7,7 +7,10 @@
 </div>
 
 [% IF profile.role == 0 %]
-<p><a href="[% c.uri_for('/admin/mailer') %]">Mailer</a> | <a href="[% c.uri_for('/admin/users_list') %]">Users List</a> </p>
+<p> <a href="[% c.uri_for('/admin/mailer') %]">Mailer</a> |
+	<a href="[% c.uri_for('/admin/users_list') %]">Users List</a> |
+	<a href="[% c.uri_for('/admin/drafts') %]">Drafts</a>
+</p>
 [% END%]
 
 [% IF profile.verified == 0 %]

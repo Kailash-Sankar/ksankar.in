@@ -27,6 +27,8 @@ Catalyst Controller.
 sub blog :Chained('/') :PathPart('blog') :CaptureArgs(0) {
 	my ( $self, $c ) = @_;
 	
+	$c->log->debug("blog base - loading tags");
+	
 	$c->load_status_msgs;
 	my $tags = [ $c->model('DB::Tag')->all ];
 	
@@ -36,6 +38,12 @@ sub blog :Chained('/') :PathPart('blog') :CaptureArgs(0) {
 #home sweet home.
 sub home :Chained('blog') :PathPart('home') :Args(0) {
     my ( $self, $c ) = @_;
+
+	#  testing the numerous possibilites of code that i am yet to explore.
+	#my $ksan = $c->model('ResultSet::Article');
+	#$ksan->get_article_details();
+
+	$c->log->debug("blog home");
 
 	#redirect to pagination function with page as 1
 	$c->stash({ activepage => 1 });
@@ -78,7 +86,7 @@ sub pagination :Private {
 	my $posts;
 	
 	#get all the post ids
-	my @nop = $c->model("DB::Article")->search(undef, { 'select' =>['id'] , order_by => 'created_on DESC'})->get_column('id')->all();
+	my @nop = $c->model("DB::Article")->search( { 'draft' => 0 }, { 'select' =>['id'] , order_by => 'created_on DESC'})->get_column('id')->all();
 	
 	$c->log->debug('fetching articles'.Dumper(\@nop));
 	
@@ -112,7 +120,8 @@ sub pagination :Private {
 	
     }
     
-    my $nofcom =  $c->model("DB::Comment")->search(undef, { 'select' => ['id'] })->count;
+    #total no of comments was including draft comments. Fixed with join. Is it worth the db join cost?
+    my $nofcom =  $c->model("DB::Comment")->search( { 'article.draft' => 0 } , { 'select' => ['id'], join => 'article' })->count;
     
     $c->log->debug("Total Posts: ".scalar @nop." , Total Comments: $nofcom");
     
