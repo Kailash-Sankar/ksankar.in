@@ -52,6 +52,12 @@
 	<br/><br/>
 	<div id="changelog" class="changelog" style="display:none;">
 	<ul>
+		<li>Sunday Dec 14th
+		  <ul>
+			<li>Drat posts for Admin</li>
+		  </ul>
+		</li>
+		
 		<li>Sunday Sept 21st
 		  <ul>
 			<li>Add pagination, 5 posts per page :)</li>

@@ -1,0 +1,20 @@
+<div class="flip_box">
+  <div class="flip-container">
+ 
+    <div class="content front-info">
+		Make a Flipping Card with info on the back.
+    </div>
+  
+    <div class="content back-info">
+      <h4><strong>The tutorial is to do the effect that you just saw.</strong></h4>
+      <!-- div style="text-align:left;">
+		<ul><li>It's smooth and clean.</li></ul>
+		<ul><li>Looks damn good.</li></ul>
+      </div -->
+      P.S:This was my first experiment.
+      <br/><br/>
+      <span>Click to Begin</span>
+   </div>
+  
+ </div>
+</div>

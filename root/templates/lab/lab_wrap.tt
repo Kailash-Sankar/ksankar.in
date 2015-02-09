@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- wrapper for article  -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[% template.title or 'Lab' %]</title>
+    <link href="[% c.uri_for('/css/bootstrap.min.css') %]" rel="stylesheet">
+    <link href="[% c.uri_for('/css/kdev_lab.css') %]" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+  </head>
+  <body id="lab_main">
+  		
+  <div id="left_tag" class="lab_nav_bar">
+	<div class="lab_nav_text">Menu</div>
+	<div class="lab_nav_links">
+	   <a href="[% c.uri_for('/') %]">Portfolio</a>
+	   <a href="[% c.uri_for('/blog/home') %]">Blog</a>
+	   <a href="[% c.uri_for('/lab/home') %]">Lab</a> 
+	 </div>
+  </div>	
+  
+  <div id="right_tag" class="lab_nav_bar">
+	<div class="lab_nav_text">Social</div>
+	<div class="lab_nav_links">
+	   <a>ToDO</a>
+	   <a>Later</a> 
+	 </div>
+  </div>
+  
+	<div id="content_div">		
+		[% content %]
+	</div>
+	
+  </body>
+  	 <script src="[% c.uri_for('/js/jquery.min.js') %]"></script>
+     <script src="[% c.uri_for('/js/bootstrap.min.js') %]"></script> 
+     <script src="[% c.uri_for('/js/angular.min.js') %]"></script> 
+ </html> 
+  
+  
+  

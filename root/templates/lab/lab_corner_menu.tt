@@ -1,0 +1,19 @@
+<div class="flip_box">
+  <div class="flip-container">
+ 
+    <div class="content front-info">
+		Make a corner menu like the ones on the corner. ;)
+    </div>
+  
+    <div class="content back-info">
+      <h4><strong>Around and Around we go.</strong></h4>
+      <!-- div style="text-align:left;">
+		<ul><li></li></ul>
+	
+      </div -->
+      <br/><br/>
+      <span>Click to Begin</span>
+   </div>
+  
+ </div>
+</div>

@@ -1,0 +1,226 @@
+/* lab project css . Dec 14, 7:42pm */
+
+#lab_main  {
+background-color:#47373F;
+width:100%;
+height:100%;
+color:rgba(255,255,255, 0.8);
+font-family: 'Shadows Into Light Two', cursive;
+overflow-x: hidden;
+}
+
+.addgrey {
+  color:rgba(255,255,255, 0.8) !important;
+}
+
+.lab_title {
+font-family: 'Shadows Into Light Two', cursive;
+text-align:center
+}
+
+.center_stage {
+text-align:center
+}
+
+/* epic menu */
+
+.lab_nav_bar {
+font-size:17px;
+display:inline-block;
+background-color:#FFA500;
+width:200px;
+height:200px;
+border-radius:100px;
+position:absolute;
+text-align:center;
+z-index:99;
+transition:all 500ms linear;
+cursor:pointer;
+}
+
+.lab_nav_text {
+width:100px;
+height:100px;
+position:absolute;
+color:#47373F;
+z-index:999;
+font-size:26px;
+font-weight:500;
+padding:10px;
+transition:all 500ms linear;
+}
+
+.lab_nav_links{
+display:block;
+position:absolute;
+z-index:999;
+width:100px;
+height:100px;
+transform:translateX(-5%) translateY(-5%);
+border-radius:50px;
+text-align:left;
+padding:20px;
+}
+
+.lab_nav_links a {
+display:block;
+color:rgba(71, 55, 63, 0);
+transition:all 700ms linear;
+}
+
+.lab_nav_bar:hover .lab_nav_text {
+color:rgba(71, 55, 63, 0);
+}
+
+/*
+.lab_nav_bar:hover .lab_nav_links {
+display:block;
+}
+*/
+
+.lab_nav_bar:hover .lab_nav_links a {
+color:rgba(71, 55, 63, 1);
+}
+
+/* custom locations */
+
+#left_tag {
+top:0%;
+left:0%;
+box-shadow: 2px 2px 3px 4px #1D1F20;
+transform: translateX(-50%) translateY(-50%);
+}
+
+#left_tag .lab_nav_text {
+top:50%;
+left:50%;
+transform:rotate(-45deg);
+}
+
+#left_tag .lab_nav_links {
+top:50%;
+left:50%;
+text-align:left;
+}
+
+#left_tag:hover {
+transform: translateX(-50%) translateY(-50%) scale(1.5,1.5);
+box-shadow: 2px 2px 4px 5px #1D1F20;
+}
+
+
+#right_tag {
+top:0%;
+right:0%;
+box-shadow: -2px 2px 3px 4px #1D1F20;
+transform: translateX(50%) translateY(-50%);
+}
+
+#right_tag .lab_nav_links {
+top:50%;
+right:50%;
+text-align:right;
+}
+
+#right_tag .lab_nav_text {
+top:50%;
+right:50%;
+transform:rotate(45deg);
+}
+
+#right_tag:hover {
+box-shadow: -2px 2px 4px 5px #1D1F20;
+transform: translateX(50%) translateY(-50%) scale(1.5,1.5);
+}
+
+
+/* ------ Flipper ------ */
+
+.flip_box {
+  width:240px;
+  height:200px;
+  position:relative;
+  transition: all 800ms linear;
+  perspective: 1000;
+  z-index:1;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor:pointer;
+}
+
+.flip-container {
+  background-color:#333;
+  text-align:center;
+  margin:10px;
+  padding:10px;
+  box-shadow: 3px 3px 4px 5px #1D1F20;
+  border-radius:4px;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+  display: block;
+ }
+
+.flip_box:hover .flip-container {
+  transform: rotateY(180deg);
+  box-shadow: -3px 3px 4px 5px #1D1F20;
+ }
+
+.flip-container .content {
+  backface-visibility: hidden;
+  position:absolute;
+  width:100%;
+  height:100%;
+  text-align:center;
+  top:0%;
+  left:0%;
+}
+
+.front-info {
+ font-size:30px;
+ left:50% !important;
+ transform:translateX(-50%);
+ text-align:center;
+}
+
+.back-info {
+  transform: rotateY(180deg);
+  color:#FFA500;
+  box-sizing: border-box;
+  display:block;
+  text-align:center;
+  border-radius:4px;
+  font-style: italic;
+  font-size:16px;
+  font-weight:400px;
+  margin:5px;
+}
+
+.back-info ul {
+ list-style-type:circle;
+}
+
+/*------ Flipper End ------ */
+
+
+/* ------ Work Bench ------- */
+.bench_top {
+min-height:800px;
+border-left:1px solid #1D1F20;
+border-right:1px solid #1D1F20;
+padding:10px;
+}
+
+.bench_data {
+padding:10px;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size:16px;
+}
+
+.codepen_box {
+border: 1px solid rgba(221, 221, 221, 0.2);
+border-radius: 2px;
+}
+/* ------ Work Bench End ------ */
+
