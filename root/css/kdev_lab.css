@@ -130,7 +130,7 @@ transform:rotate(45deg);
 
 #right_tag:hover {
 box-shadow: -2px 2px 4px 5px #1D1F20;
-transform: translateX(50%) translateY(-50%) scale(1.5,0);
+transform: translateX(50%) translateY(-50%) scale(1.5,1.5);
 }
 
 #ml_tag {
