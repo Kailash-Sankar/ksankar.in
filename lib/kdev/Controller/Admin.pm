@@ -171,6 +171,27 @@ sub send_mail_now :private :args(1) {
 	return $mid;
 }
 
+sub drafts :Chained('admin') :Local :Args(0) {
+	my ( $self, $c ) = @_;
+	
+	my $posts;
+	
+	#this can be used if user wants to see all posts in one page	
+	$posts = [$c->model("DB::Article")->search( { draft => 1 }, {			
+		'+select' => [ { count => 'comment', -as => 'no_of_comments' } ],
+		'+as' => [ qw/ comment_count / ], 		
+		join => 'comments', 
+		group_by => [qw/me.id author_id title content created_on updated_on /],
+		order_by => 'created_on DESC',				 		 
+		 } )->all()];
+	 	 			 
+	#using accessor $posts->[0]->get_column('comment_count')
+	$c->log->debug("Loading up drafts page");
+		 
+	$c->stash( template => 'article/content.tt', posts => $posts );
+	
+}
+
 =encoding utf8
 
 =head1 AUTHOR

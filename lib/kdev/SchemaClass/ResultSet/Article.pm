@@ -18,11 +18,7 @@ sub datesearch {
 sub get_article_details {
 	my ( $self, $article_id) = @_;
 	
-	$self->search({
-		
-		
-	});
-	
+	print STDERR "\n\n hello world, i was always here.";	
 	
 }
 

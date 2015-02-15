@@ -133,7 +133,7 @@ sub addcomment: Path('/blog/addcomment') : Args(1) {
 #add new post - has to be moved to the admin controller later
 sub save: Path('/blog/save') : Args(0) {
 	my ( $self, $c ) = @_;
-	my ( $title, $content, $author, $newentry, $created_on, $tag);
+	my ( $title, $content, $author, $newentry, $created_on, $tag, $draft);
 	
 	if($c->user->role != 0) {
 		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
@@ -145,15 +145,19 @@ sub save: Path('/blog/save') : Args(0) {
 	$created_on = $c->request->params->{createdon};
 	$tag 		= $c->request->params->{tags};
 	$author 	= $c->user();
+	$draft		= $c->request->params->{draft} ? 1 : 0;	
+	
+	
 	
 	$c->log->debug("Saving new post at ".$created_on." with tag ".$tag);
 	#$created_on = DateTime->now;
 	
 	$newentry = $c->model('DB::Article')->create( {
-					author_id => $author->id,
-					title 	  => $title,
-					content   => $content,
-					created_on => $created_on			
+					author_id  => $author->id,
+					title 	   => $title,
+					content    => $content,
+					created_on => $created_on,			
+					draft	   => $draft,	
 	});
 	
 	if ($newentry) {
@@ -188,7 +192,7 @@ sub save: Path('/blog/save') : Args(0) {
 #edit post - has to moved to admin controller later
 sub update: Path('/blog/update') : Args(0) {
 	my ( $self, $c ) = @_;
-	my ( $title, $content, $author, $id, $newentry);
+	my ( $title, $content, $author, $id, $newentry, $draft);
 	
 	if($c->user->role != 0) {
 		$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("You don't have the required permissions. Good try.") } ));
@@ -198,6 +202,7 @@ sub update: Path('/blog/update') : Args(0) {
 	$id 	    = $c->request->params->{id};
 	$title 	    = $c->request->params->{title};
 	$content    = $c->request->params->{content};
+	$draft      = $c->request->params->{draft} ? 1 : 0;
 	#$author		= $c->user();
 	
 	$c->log->debug("author : ".Dumper($author));
@@ -206,6 +211,7 @@ sub update: Path('/blog/update') : Args(0) {
 	$newentry = $c->model('DB::Article')->find($id)->update( {
 					title 	  => $title,
 					content   => $content,
+					draft     => $draft,
 	});
 	
 	$c->res->redirect($c->uri_for('/blog/home', { mid => $c->set_status_msg("Post successfully updated!")}));

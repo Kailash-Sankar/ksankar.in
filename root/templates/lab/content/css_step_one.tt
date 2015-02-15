@@ -1,0 +1,116 @@
+<!--- css step one -->
+
+<style>
+.box_one {
+width:100px;
+height:100px;
+background-color:rebeccapurple;
+text-align:left;
+color:#FFA500;
+border:2px solid #10B6EC;
+font-weight:600;
+}
+.box_two {
+width:33.33%;
+height:130px;
+background-color:tomato;
+text-align:center;
+color: rgba(128,0,128,0.8);
+font-size:25px;
+border-bottom: 2px dashed orange;
+}
+.box_three {
+width:90%;
+height:5%;
+background-color:rgb(139,69,19);
+position:absolute;
+text-align:right;
+cursor:pointer;
+color:snow;
+}
+</style>
+
+
+<div class="row">
+<h3> CSS: Basic Properties I	</h3>
+<div class="bench_data" style="text-align:left">  </br>
+
+<div class="col-lg-4">
+
+<div class="pre_cont">
+
+<pre class="col-lg-12 prettyprint lang-css" data-title="CSS - Box One">
+.box_one {
+width:100px;
+height:100px;
+background-color:rebeccapurple;
+text-align:left;
+color: #FFA500;
+border:2px solid #10B6EC;
+font-weight:600;
+}
+</pre>
+
+<pre class="col-lg-12 prettyprint lang-css" data-title="CSS - Box Two">
+.box_two {
+width:33.33%;
+height:130px;
+background-color:tomato;
+text-align:center;
+color: rgba(128,0,128,0.8);
+font-size:25px;
+border-bottom: 2px dashed orange;
+}
+</pre>
+
+<pre class="col-lg-12 prettyprint lang-css" data-title="CSS - Box Three">
+.box_three {
+width:90%;
+height:5%;
+background-color:rgb(139,69,19);
+position:absolute;
+text-align:right;
+cursor:pointer;
+color:snow;
+}
+</pre>
+
+</div>
+
+<div class="pre_html">
+<pre data-title="HTML" class="prettyprint">
+&lt;div class="box_one">Box One&lt;/div&gt;	
+&lt;div class="box_two">Box Two&lt;/div&gt; 
+&lt;div class="box_three">Box Three&lt;/div&gt;
+</pre>
+</div>
+
+</div>	
+	
+<div class="col-lg-8">
+ <pre data-title="Result"><div class="box_one">Box One</div>	<div class="box_two">Box Two</div> 
+ <div class="box_three">Box Three</div>
+
+
+</pre>
+</div>
+
+<div class="col-lg-8">
+Notes:
+<ul>
+<li>If height is not specified in pixels an element will be as high as it's content.</li>
+<li>By default, width depends on the element. div,p etc are block elements and have 100% width. span,a etc are inline elements and occupies content width. </li>
+<li> If we are specifying the height in percent then the element must have position as absolute. </li>
+<li>Color can be given in hex,rgb,rgba or just as a name - hex to rgb(a) converter http://hex2rgba.devoth.com/</li>
+
+</ul>
+</div>
+		
+	
+			
+</div> 
+  
+</div>
+<div class="row codepen_box">
+	</div>
+  <div class="sig">ksankar --- 14 Feb 2015</div>

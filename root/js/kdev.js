@@ -214,7 +214,7 @@ if ( id ) {
  
 	$('#trans_bg').show();
 
-	console.log('showing placebo effect');
+	console.log('showing design');
 	$('#t'+ id).show();
 	setTimeout("dispatch('" + url + "')", 4000);
 }	

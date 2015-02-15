@@ -1,0 +1,24 @@
+<!--- flipper tutorial -->
+
+<div>
+	<h3> It's Flippin time. </h3>
+	
+	<div class="bench_data" style="text-align:left"> Here's what you have to do: </br>
+		<ul>
+			<li>Make a container of fixed size to hold our setup. We are going to trigger the flip when user mouse overs this container. - .main_box </li>
+			<li>Add a div to hold our front and back sides. Apply backgrounds, colors and styles to this div</li>
+			<li>Make two divs inside, one will be the front side and the other the back</li>
+			<li>The most important style here is backface-visibility: hidden; This style makes the element hidden when it rotates 180 degree.</li>
+			<li>Now we add a 180 degree rotation to our back side, and hover properties to our main_box</li>
+		</ul>	
+		
+		<div class="codepen_box">
+		<p data-height="300" data-theme-id="12117" data-slug-hash="gbXzxg" data-default-tab="result" data-user="kailash-sankar" class='codepen'>
+			See the Pen 
+			<a href='http://codepen.io/kailash-sankar/pen/gbXzxg/'>Flipping!</a> by Kailash Sankar 
+			(<a href='http://codepen.io/kailash-sankar'>@kailash-sankar</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+			<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+		</div>
+			
+	 </div>
+</div>

@@ -1,0 +1,268 @@
+<!--- css step twp -->
+
+<style>
+
+[data-name='space'] {
+	width:600px;
+	height:300px;
+	border-style:dotted;
+	border-width:1px;
+	border-color:#7F7F7F;
+}
+
+#solar_system {
+background-color:Moccasin;
+height:150px;
+color:#47373F;
+}
+
+.planet {
+width:80px;
+height:80px;	
+display:inline-block;
+padding:10px;
+}
+
+aloha {
+color:blue;
+}
+
+#solar_system #sun {
+background-color:firebrick;	
+}
+
+div#solar_system #earth {
+background-color:greenyellow ;
+	
+}
+
+div.planet#jupiter {
+background-color:peru;
+ 
+}
+
+.galaxy .planet {
+border:2px solid #AF6FAF;	
+}
+
+.round {
+border-radius:40px;
+}
+
+.shape1 {
+border-radius:20px 20px 0px 0px;
+}
+
+.shape2 {
+border-radius:0px 20px 0px 20px !important;
+}
+
+
+#sw_system {
+height:100px;
+background-color:LightSteelBlue;	
+margin:10px;
+color:#333;
+}
+
+#hoth,
+#bespin {
+box-shadow:1px 1px 3px 3px #7F7F7F;	
+}
+
+div#sw_system > span {
+width:70px;
+height:70px;
+border-radius:35px;	
+display:inline-block;
+border:2px solid OliveDrab;
+padding:15px;
+}
+
+span#naboo + a,
+span#bespin ~ a {
+width:10px;
+height:10px;
+border-radius:5px;
+display:inline-block;
+background-color:snow;	
+}
+
+</style>
+
+
+<div class="row">
+	<h3> CSS: Targeting & Basic Properties II </h3>
+	
+	<div class="bench_data" style="text-align:left"></br>
+
+<div class="col-lg-4">
+	
+<div class="pre_cont">
+	
+<pre data-title="CSS selectors" class="col-lg-12 prettyprint lang-css">
+[data-name='space'] {
+ width:600px;
+ height:300px;
+ border-style:dotted;
+ border-width:1px;
+ border-color:#7F7F7F;
+}
+
+#solar_system {
+ background-color:Moccasin;
+ height:150px;
+ color:#47373F;
+}
+
+.planet {
+ width:80px;
+ height:80px;	
+ display:inline-block;
+ padding:10px;
+}
+
+aloha {
+ color:blue;
+}
+
+
+
+
+
+</pre>
+
+<pre data-title="CSS" class="col-lg-12 prettyprint lang-css">
+#solar_system #sun {
+background-color:firebrick;	
+}
+
+div#solar_system #earth {
+background-color:greenyellow ;
+	
+}
+
+div.planet#jupiter {
+background-color:peru;
+ 
+}
+
+.galaxy .planet {
+border:2px solid #AF6FAF;	
+}
+
+.round {
+border-radius:40px;
+}
+
+.shape1 {
+border-radius:20px 20px 0px 0px;
+}
+
+.shape2 {
+border-radius:0px 20px 0px 20px !important;
+}
+</pre>
+
+<pre data-title="CSS" class="col-lg-12 prettyprint lang-css">
+#sw_system {
+height:100px;
+background-color:LightSteelBlue;	
+margin:10px;
+color:#333;
+}
+
+#hoth,
+#bespin {
+box-shadow:1px 1px 3px 3px #7F7F7F;	
+}
+
+div#sw_system > span {
+width:70px;
+height:70px;
+border-radius:35px;	
+display:inline-block;
+border:2px solid OliveDrab;
+padding:15px;
+}
+
+span#naboo + a,
+span#bespin ~ a {
+width:10px;
+height:10px;
+border-radius:5px;
+display:inline-block;
+background-color:snow;	
+}
+</pre>
+
+</div>
+
+<div class="pre_html">
+<pre data-title="HTML" class="prettyprint" id="pre_output">
+</pre>
+</div>
+
+</div>
+
+
+
+<div class="col-lg-8">
+ <div class="pre" data-title='Result' id="pre_input">
+<div data-name="space">
+<div class="galaxy"> 
+    <div id="solar_system"> Solar System
+	  <div class="planet round" id="sun">Sun</div>
+	  <div class="planet round shape1" id="earth"> 
+		  <aloha>Earth</aloha> 
+	  </div>	
+	  <div class="planet round shape1 shape2" id="jupiter">
+		  Jupiter
+	  </div>
+    </div>
+	
+    <div id="sw_system"> SW system
+	  <span class="" id="naboo">Naboo</span>
+	  <a></a>
+	  <a></a>
+	  <a></a>
+	  <span class="" id="hoth">Hoth</span>	
+	  <span class="" id="kessel"> <span>Kessel</span> </span>
+	  <span class="" id="bespin">Bespin</span>
+	  <a></a>
+	  <a></a>
+	  <a></a>
+   </div>	
+   <a></a>
+</div>	
+</div>
+</div>
+</div>
+
+<script>makeResult('pre_input','pre_output');</script>
+
+  <div class="col-lg-8">Notes:
+		<ul>
+			<li>'name' is not an accpeted property of a div, so it is always better to use data attributes as selectors.</li>
+			<li>Blank space for multilevel and concat for mutiple.</li>
+			<li> for '#abc .def' to work, def doesn't have to be the direct child, it just needs to be inside #abc.</li>
+			<li>write the same selectors multiple times and the properties just add up.</li>
+			<li>If you use multiple classes with same properties on the same element then the one that comes last in code gets preference.</li>
+			<li>'!important' comes above all.</li>
+			<li>Multiple elements can be given the same css by seperating with comma.</li>
+			<li>Padding makes space on the inside and margin does it on the outside of the element.</li>
+			<li>'>' is used to target the first level of child elements.</li>
+			<li>'+' hits the first preceeding element.</li>
+			<li>'~' hits all the preceeding siblings</li>
+			
+		</ul>	
+  </div>
+		
+		
+		
+	 </div>
+	 
+</div>
+<div class="row codepen_box">
+		</div>
+	 <div class="sig">ksankar --- 15 Feb 2015</div>	
