@@ -1,22 +1,51 @@
+<script>
+	/* populate html from result in to pre */
+function htmlEncode( input ) {
+    return String(input)
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function makeResult(inp,out) {
+  var input = $('#'+inp).html();
+  var output = htmlEncode(input);
+  $('#'+out).html(output);
+  
+}
+</script>
+
+
 <div class="row" style="padding:20px;margin:20px;text-align:center;">
 	<h3>Work Bench</h3>
 </div>
 
 <div class="row center_stage">
 
-	<div class="col-lg-3 col-md-2 col-xs-1">	
+<!--	<div class="col-lg-2 col-md-2 col-xs-1">	
 		left bar			
 	</div>
+-->	
 
-	<div class="col-lg-6 col-md-8 col-xs-10">	
-		<div class="bench_top">
-			[% INCLUDE 'lab/content/flipper.tt' %]
+	<div class="col-lg-12 col-md-12 col-xs-12" style="padding:50px;">	
+		<div class="bench_mid">
+			[% INCLUDE $exp %]
 		</div>
 	</div>
 	
-	<div class="col-lg-3 col-md-2 col-xs-1">	
+<!--	<div class="col-lg-2 col-md-2 col-xs-1">	
 		right bar
 	</div>
-	
+-->	
 
 </div>
+
+<!--
+<div id="ml_tag" class="lab_nav_bar">
+	<div class="lab_nav_text">Tuts</div>
+	<div class="lab_nav_links">
+	   <a href="[% c.uri_for('/lab/bench/css_step_one') %]">CSS I</a>
+	   <a href="[% c.uri_for('/lab/bench/css_step_two') %]">CSS II</a>
+	   <a href="[% c.uri_for('/lab/bench/css_step_three') %]">CSS III</a> 
+	 </div>
+  </div>	
+-->

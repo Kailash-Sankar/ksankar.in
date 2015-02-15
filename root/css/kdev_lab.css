@@ -130,7 +130,32 @@ transform:rotate(45deg);
 
 #right_tag:hover {
 box-shadow: -2px 2px 4px 5px #1D1F20;
-transform: translateX(50%) translateY(-50%) scale(1.5,1.5);
+transform: translateX(50%) translateY(-50%) scale(1.5,0);
+}
+
+#ml_tag {
+top: 50%;
+left: 0%;
+box-shadow: 2px 2px 3px 4px #1D1F20;
+transform: translateX(-80%) translateY(-50%);
+}
+
+#ml_tag .lab_nav_text {
+top: 50%;
+left: 75%;
+transform: translateY(-50%) rotate(-90deg);
+}
+
+#ml_tag .lab_nav_links {
+top:50%;
+left:55%;
+text-align:right;
+transform: translateY(-50%);
+}
+
+#ml_tag:hover {
+box-shadow: -2px 2px 4px 5px #1D1F20;
+transform: translateX(-80%) scale(1.5,1.5);
 }
 
 
@@ -197,7 +222,8 @@ transform: translateX(50%) translateY(-50%) scale(1.5,1.5);
   margin:5px;
 }
 
-.back-info ul {
+.back-info ul,
+.bench_data ul {
  list-style-type:circle;
 }
 
@@ -205,11 +231,15 @@ transform: translateX(50%) translateY(-50%) scale(1.5,1.5);
 
 
 /* ------ Work Bench ------- */
-.bench_top {
+.bench_mid {
 min-height:800px;
 border-left:1px solid #1D1F20;
 border-right:1px solid #1D1F20;
 padding:10px;
+}
+
+.bench_mid h3 {
+padding-bottom: 10px;
 }
 
 .bench_data {
@@ -221,6 +251,77 @@ font-size:16px;
 .codepen_box {
 border: 1px solid rgba(221, 221, 221, 0.2);
 border-radius: 2px;
+margin: 10px;
 }
 /* ------ Work Bench End ------ */
 
+/* make pre prettier */
+
+#lab_main pre {
+background-color: rgba(0, 0, 0, 0.14);
+color: rgba(255, 255, 255, 0.8);
+border: 1px solid rgba(75, 73, 73, 0.91);
+position:relative;
+}
+
+#lab_main pre[data-title] {
+padding-top: 30px;
+}
+
+#lab_main pre[data-title]:before {
+content:attr(data-title);
+position:absolute;
+padding:0px 10px;
+top:0px;
+right:0px;
+left:0px;
+background-color:#FFA500;
+color:#333;
+cursor:pointer;
+}
+
+/* div to simulate pre */
+
+div.pre {
+background-color: rgba(0, 0, 0, 0.14);
+color: rgba(255, 255, 255, 0.8);
+border: 1px solid rgba(75, 73, 73, 0.91);
+position:relative;
+font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+border-radius:4px;
+padding: 9.5px;
+margin: 0px 0px 10px;
+font-size: 13px;
+line-height: 1.42857;
+}
+
+div.pre[data-title] {
+padding-top: 30px;
+}
+
+div.pre[data-title]:before {
+content:attr(data-title);
+position:absolute;
+padding:0px 10px;
+top:0px;
+right:0px;
+left:0px;
+background-color:#FFA500;
+color:#333;
+}
+
+.pre_cont {
+height:600px;
+overflow:auto;
+margin-bottom:20px;
+}
+
+.pre_html {
+height:300px;
+overflow:auto;
+}
+
+pre {
+overflow:visible;
+width:100%;
+}

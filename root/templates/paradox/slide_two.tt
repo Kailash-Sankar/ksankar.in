@@ -1,0 +1,77 @@
+				<div class="row addblack" style="padding-left:5%;width:90%;font-size:16px;"
+				        data-30p="opacity: 0; transform:translate(0px,-10%);"
+						data-120p="opacity: 1; transform:translate(0px,0);"
+						data-150p=""
+						data-210p="opacity: 0; transform:translate(-10%,0);"
+						data-anchor-target="#helper"
+				  >
+					 <h1 class=text-left"><br/><strong>Designs</strong><br/></h1>
+					 <p>I mostly do backend development at my job. I wanted to learn more on the front end and this is how I started.</p>
+					 <br/>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_placebo" class="design_box" data-val="1" data-url="[% c.uri_for('/placeboeffect') %]">
+							<p class="de_text"> #1 Placebo Effect
+								<br>	
+							</p>
+						</div>
+						<br/>
+					 </div>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_epicenter" class="design_box" data-val="2" data-url="[% c.uri_for('/epicenter') %]">
+							<p class="de_text">#2 Epicenter
+								<br>
+							</p>
+						</div>
+						<br/>
+					 </div>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_paradox" class="design_box" data-val="3" data-url="[% c.uri_for('/') %]">
+							<p class="de_text">#3 Paradox
+								<br>
+								
+							</p>
+						</div>
+					 </div>
+					 <div class="col-lg-3 col-md-3 col-xs-6">
+						<div id="de_blog" class="design_box" data-val="4" data-url="[% c.uri_for('/blog/home') %]">
+							<p class="de_text">#4 Singularity
+								<br>
+								
+							</p>
+						</div>
+					 </div>
+				     
+				     <div class="col-lg-12"><br/><br/></div>
+                     
+                     <h1 class=text-left"><br/><strong>Trifles with Art</strong><br/></h1>
+					 <p>Usually I combine 'free to use' .psd's & images and customize them to create what I want. Sometimes I fiddle with Photoshop Elements and GIMP to create content from scratch.
+				       ;)
+				       <br/>
+				       Liked the background pics? The pics have been reduced to very low quality to decrease size. To see the original pics and more follow the link to my flickr page.
+				       </p>
+					 <br/>
+
+                     
+					 <div class="col-lg-3 col-md-6 col-xs-6">
+						<div id="de_art" class="design_box" data-toggle="modal" data-target="#artmodal">
+							<p class="de_text"> Art
+								<br>	
+							</p>
+						</div>
+					 </div>
+					 <div class="col-lg-3 col-md-6 col-xs-6">
+						<div id="de_photo" class="design_box" data-val="12" data-url="https://www.flickr.com/photos/felhound16/">
+							<p class="de_text">Photography
+								<br>
+							</p>
+						</div>
+					 </div>
+				</div>
+				 
+		        <div class="caption" 
+                data-90p="opacity: 0; transform:translate(0px,5%);"
+				data-120p="opacity: 1; transform:translate(0px,50%);"
+				data-150p=""
+				data-210p="opacity: 0; transform:translate(-100px,50%);"
+				data-anchor-target="#helper"
+			    >

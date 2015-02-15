@@ -158,146 +158,14 @@
            >
            <div id="slide-1" class="parallax-slide">			    
 			                      
-	             <div class="row" id="lowresmsg"  style="display:none">
-					<p class="alert alert-success alert-dismissible squareicon">
-					  <button type="button" class="close" data-dismiss="alert">
-				 	    <span aria-hidden="true">&times;</span>
-				      </button>
-				      This site is best viewed on a non touch device with at least 1280 x 720 resolution.
-					</p>
-                 </div>
-
-			   <div class="caption addblack"
-			   data-5p="opacity: 1; transform:translate(0px,0px);"
-			   data-70p="opacity: 0; transform:translate(0px,-100%);"
-			   data-480p="opacity: 1; transform:translate(0px,0px);"
-               data-anchor-target="#helper"
-               > 
-                 <div class="row">
-				  <div class="col-lg-12 col-md-12 col-xs-12">  
-                    <h1><strong>Hello mateys!</strong></h1>
-                    <br/><br/>
-                    <h4></h4>
-                  </div>
-                 </div> 
-                 
-                 <div style="padding:2%;" class="row">
-					 
-                   <div class="col-lg-4 col-md-6 col-xs-12">
-                     <p class="lead"><u>About Myself</u></p>
-						<p>I'm Kailash Sankar and welcome to my world. <br/>
-						I write code for a living and I love what I do.
-						While in college, like most developers, I started with C and C++.
-						I moved on to ASP.NET MVC and thereafter dabbled with Android app development. <br/>
-						For the past 1.5 years, I worked on Perl CGI and recently I switched to Catalyst framework.
-						I like to make stuff ;) <br/>
-						Scroll down to see some of my designs.</p>
-				   </div>
-				   
-				   <div class="col-lg-4 col-md-6 col-xs-12">
-					 <p class="lead"><u>Skills</u></p>
-				      Perl - CGI & Catalyst, .NET C# MVC <br/>
-				      HTML5, CSS3, Bootstrap, Jquery<br/>
-				      SQL server, MySql<br/>
-				      Skroller.js, enquire.js, modernizer.js, imagesloaded.js, waypoints.js<br/>
-				      Misc: GitHub, svn, jira, trac, photoshop, DBI, HTML::Template, DBIx & Template::Toolkit
-				    </div>
-				    
-				    <div class="col-lg-4 col-md-12 col-xs-12">
-					 <p class="lead"><u>Experience</u></p>
-				     Associate Engineer at Symphony Teleca from Oct-2012 to present.
-				    </div>
-				    
-				   </div> 
-				   <div class="row">
-						<div class="col-lg-12 text-center">
-						   <p class="lead">
-							   <a class="klink" href="[% c.uri_for('/static/docs/resume_ksankar(20141020).pdf') %]" target="_blank">Download Resume</a> <br/>
-							   I just made a blog from scratch! Take a <a class="klink" href="[% c.uri_for('/blog/home') %]" target="_blank">look</a>.</p>
-						</div>
-				   </div>
-				 </div>
-			 </div>
-			 
-             <div id="slide-2" class="parallax-slide">
+	             [% INCLUDE 'paradox/slide_one.tt' %]
+	       </div>      
+	             
+           <div id="slide-2" class="parallax-slide">
 				 
-				<div class="row addblack" style="padding-left:5%;width:90%;font-size:16px;"
-				        data-30p="opacity: 0; transform:translate(0px,-10%);"
-						data-120p="opacity: 1; transform:translate(0px,0);"
-						data-150p=""
-						data-210p="opacity: 0; transform:translate(-10%,0);"
-						data-anchor-target="#helper"
-				  >
-					 <h1 class=text-left"><br/><strong>Designs</strong><br/></h1>
-					 <p>I mostly do backend development at my job. I wanted to learn more on the front end and this is how I started.</p>
-					 <br/>
-					 <div class="col-lg-3 col-md-3 col-xs-6">
-						<div id="de_placebo" class="design_box" data-val="1" data-url="[% c.uri_for('/placeboeffect') %]">
-							<p class="de_text"> #1 Placebo Effect
-								<br>	
-							</p>
-						</div>
-					 </div>
-					 <div class="col-lg-3 col-md-3 col-xs-6">
-						<div id="de_epicenter" class="design_box" data-val="2" data-url="[% c.uri_for('/epicenter') %]">
-							<p class="de_text">#2 Epicenter
-								<br>
-							</p>
-						</div>
-					 </div>
-					 <div class="col-lg-3 col-md-3 col-xs-6">
-						<div id="de_paradox" class="design_box" data-val="3" data-url="[% c.uri_for('/') %]">
-							<p class="de_text">#3 Paradox
-								<br>
-								
-							</p>
-						</div>
-					 </div>
-					 <div class="col-lg-3 col-md-3 col-xs-6">
-						<div id="de_blog" class="design_box" data-val="4" data-url="[% c.uri_for('/blog/home') %]">
-							<p class="de_text">#4 Singularity
-								<br>
-								
-							</p>
-						</div>
-					 </div>
-				     
-				     <div class="col-lg-12"><br/><br/></div>
-                     
-                     <h1 class=text-left"><br/><strong>Trifles with Art</strong><br/></h1>
-					 <p>Usually I combine 'free to use' .psd's & images and customize them to create what I want. Sometimes I fiddle with Photoshop Elements and GIMP to create content from scratch.
-				       ;)
-				       <br/>
-				       Liked the background pics? The pics have been reduced to very low quality to decrease size. To see the original pics and more follow the link to my flickr page.
-				       </p>
-					 <br/>
-
-                     
-					 <div class="col-lg-3 col-md-6 col-xs-12">
-						<div id="de_art" class="design_box" data-toggle="modal" data-target="#artmodal">
-							<p class="de_text"> Art
-								<br>	
-							</p>
-						</div>
-					 </div>
-					 <div class="col-lg-3 col-md-6 col-xs-12">
-						<div id="de_photo" class="design_box" data-val="12" data-url="https://www.flickr.com/photos/felhound16/">
-							<p class="de_text">Photography
-								<br>
-							</p>
-						</div>
-					 </div>
-				</div>
-				 
-		        <div class="caption" 
-                data-90p="opacity: 0; transform:translate(0px,5%);"
-				data-120p="opacity: 1; transform:translate(0px,50%);"
-				data-150p=""
-				data-210p="opacity: 0; transform:translate(-100px,50%);"
-				data-anchor-target="#helper"
-			    >
+				[% INCLUDE 'paradox/slide_two.tt' %]
 			   	  
-			   </div>
+ 		   </div>
 			   
              </div>
              <div id="slide-3" class="parallax-slide">
@@ -412,7 +280,11 @@
 		This screen will open the theme link in a new tab(ensure popups are enabled) and close in 4 seconds.
 	</div>
 
+	
+
 </div>
+
+<div class="grad_fade"></div>
 
 <!-- modal  for placebo 
 <div class="modal fade designscreen" id="placebomodal" tabindex="-1" aria-labelledby="placebolabel" aria-hidden="true">

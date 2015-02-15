@@ -1,0 +1,311 @@
+<!--- menu icon tutorial -->
+
+<style>
+.bubble_container {
+ position:relative;
+ border:1px solid tomato;
+ height:500px;
+}	
+	
+.bubble {
+ border:1px solid #E6E6FA;
+ background-color:transparent;
+ width:50px;
+ height:50px;
+ border-radius:25px;
+}
+
+#one {
+ left:10%;
+ bottom:10%;
+ position:absolute;
+ border-radius:0px;
+}
+
+#two {
+ right:10%;
+ top:43%;
+ position:absolute;
+ z-index:-1;
+ background-color:#b1cd5f;
+}
+
+#three {
+ top:50%;
+ left:50%;
+ transform: translate(-50%,-50%);	
+ position:absolute;
+ z-index:9;
+ background-color:#372e27;
+}
+
+#four {
+position:relative;
+top:25px;
+left:15px;
+background-color:#62b0d6;
+}
+
+#five {
+position:absolute;
+top:60%;
+right:40%;
+transform:rotate(45deg);
+border-radius:0px;
+}
+
+#one:hover {
+ border-radius:20px;
+}
+
+div.bubble_container p {
+  	position:relative;
+	top:50%;
+	transform:translateY(-50%);
+	padding:0px;
+	text-align:center;
+}
+
+.bubble_container:before {
+	content:'';
+	position:absolute;
+	width:2px;
+	height:100%;
+	border-left:1px dashed #eee;
+	left:50%;
+	top:0%;
+}
+
+.bubble_container:after  {
+	content:'';
+	position:absolute;
+	height:2px;
+	border-top:1px dashed #eee;
+	top:50%;
+	left:0%;
+	width:100%;
+}
+
+#heart {
+	position:absolute;
+	width:50px;
+	height:50px;
+	left:50%;
+	top:20%;
+	transform:translateX(-50%) rotate(45deg);
+	border:1px solid #CC0000;
+	background-color:#E60000;
+	border-top-left-radius: 35px;
+	transition:all 500ms linear;
+	cursor:pointer;
+}
+
+#heart:before {
+	content:'';
+	position:absolute;
+	width:40px;
+	height:40px;
+	border-radius:20px;
+	left: 20%;
+	top: -29%;
+	background-color:#E60000;
+	
+}
+
+#heart:after {
+	content:'';
+	position:absolute;
+	width:40px;
+	height:40px;
+	border-radius:20px;
+	right :45%;
+	top:20%;
+	background-color:#E60000;
+}
+
+#heart:hover {
+	transform: translate(-50%,-50%) rotate(45deg) scale(2,2);
+}
+
+</style>
+
+<div class="row">
+ <h3> CSS: Positioning & HTML psuedo elements </h3>
+	
+ <div class="bench_data" style="text-align:left"> </br>
+		
+<div class="col-lg-4">
+	<div class="pre_cont">	
+<pre data-title="CSS" class="col-lg-12 prettyprint lang-css">
+.bubble_container {
+ position:relative;
+ border:1px solid tomato;
+ height:500px;
+}	
+	
+.bubble {
+ border:1px solid #E6E6FA;
+ background-color:transparent;
+ width:50px;
+ height:50px;
+ border-radius:25px;
+}
+
+div.bubble_container p {
+ position:relative;
+ top:50%;
+ transform:translateY(-50%);
+ padding:0px;
+ text-align:center;
+}
+
+.bubble_container:before {
+ content:'';
+ position:absolute;
+ width:2px;
+ height:100%;
+ border-left:1px dashed #eee;
+ left:50%;
+ top:0%;
+}
+
+.bubble_container:after  {
+ content:'';
+ position:absolute;
+ height:2px;
+ border-top:1px dashed #eee;
+ top:50%;
+ left:0%;
+ width:100%;
+}			
+		</pre>
+		<pre data-title="CSS" class="col-lg-12 prettyprint lang-css">
+#one {
+ left:10%;
+ bottom:10%;
+ position:absolute;
+ border-radius:0px;
+}
+
+#two {
+ right:10%;
+ top:43%;
+ position:absolute;
+ z-index:-1;
+ background-color:#b1cd5f;
+}
+
+#three {
+ top:50%;
+ left:50%;
+ transform: translate(-50%,-50%);	
+ position:absolute;
+ z-index:9;
+ background-color:#372e27;
+}
+			
+#four {
+ position:relative;
+ top:25px;
+ left:15px;
+ background-color:#62b0d6;
+}
+
+#five {
+ position:absolute;
+ top:60%;
+ right:40%;
+ transform:rotate(45deg);
+ border-radius:0px;
+}
+
+#one:hover {
+ border-radius:20px;
+}
+
+		</pre>
+		<pre data-title="CSS" class="col-lg-12 prettyprint lang-css">
+#heart {
+ position:absolute;
+ width:50px;
+ height:50px;
+ left:50%;
+ top:20%;
+ transform:translateX(-50%) rotate(45deg);
+ border:1px solid #CC0000;
+ background-color:#E60000;
+ border-top-left-radius: 35px;
+ transition:all 500ms linear;
+ cursor:pointer;
+}
+
+#heart:before {
+ content:'';
+ position:absolute;
+ width:40px;
+ height:40px;
+ border-radius:20px;
+ left: 20%;
+ top: -29%;
+ background-color:#E60000;
+	
+}
+
+#heart:after {
+ content:'';
+ position:absolute;
+ width:40px;
+ height:40px;
+ border-radius:20px;
+ right :45%;
+ top:20%;
+ background-color:#E60000;
+}
+
+#heart:hover {
+ transform: translate(-50%,-50%) rotate(45deg) scale(2,2);
+}
+</pre>
+  </div>
+
+<div class="pre_html">
+<pre data-title="HTML" class="prettyprint" id="pre_output">
+</pre>
+</div>
+	
+</div>
+  
+  <div class="col-lg-8 "> 		
+	<div data-title="Result " class="pre prettyprint" id="pre_input">
+<div class="bubble_container">
+	Position:Relative
+	<div id="one" class="bubble"><p>1A</p></div>
+	<div id="two" class="bubble"><p>2A</p></div>
+	<div id="three" class="bubble"><p>3A</p></div>
+	<div id="four" class="bubble"><p>4R</p></div>
+	<div id="five" class="bubble"><p>5A</p></div>
+	<div id="heart"></div>
+</div>
+	</div>		
+  </div>
+  <script>makeResult('pre_input','pre_output');</script>		
+	<div class="col-lg-8">Notes:
+		<ul>
+			<li>Absolute elements can be placed anywhere we want. They are in a different plane.</li>
+			<li>The position values of absolute elements will be based on it's relative container.</li>
+			<li>Relative elements move w.r.t to their current position.</li>
+			<li>transfrom:translate property can be used to move the elment based on it's dimensions.</li>
+			<li>An element position always begins at the top left corner of the element.</li>
+			<li>psuedo elements(:before and :after) combined with transform can be used to create cool shapes</li>
+			<li>psuedo elements are not part of DOM, and they cannot be manipulated with jquery.</li>
+			<li>The element with the highest z-index will be on top of the plane.</li>
+			<li>transition property is used to set the delay, timing function and the property on which it should work.</li>
+			
+		</ul>	
+	</div>	
+		
+	 </div>
+</div>
+<div class="codepen_box">
+</div>
+	 <div class="sig">ksankar --- 15 Feb 2015</div>	

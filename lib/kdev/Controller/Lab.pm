@@ -33,10 +33,12 @@ sub lab_main : Chained('lab_base') :PathPart('home') :Args(0) {
 	$c->stash({ template => 'lab/lab_main.tt'});
 }
 
-sub lab_bench : Chained('lab_base') :PathPart('bench') :Args(0) {
-	my ( $self, $c ) = @_;	
+sub lab_bench : Chained('lab_base') :PathPart('bench') :Args(1) {
+	my ( $self, $c, $exp ) = @_;	
 	
-	$c->stash({ template => 'lab/lab_bench.tt'});
+	my $page = 'lab/content/' . $exp . '.tt';
+	
+	$c->stash({ template => 'lab/lab_bench.tt', exp => $page });
 }
 
 =encoding utf8

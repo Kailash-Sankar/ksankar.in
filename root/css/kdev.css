@@ -4,6 +4,7 @@
 #TODO: * Cleanup!
 	   * write mobile css for lamp design  
 	   * remove and optmizie custom css
+	   * Get your SHIT together.
 */
 
  
@@ -548,6 +549,7 @@ background-color: #47373f !important;
     color: #fff;
     padding:0px;
     font-size:14px !important;
+    z-index:1;
 }
 
 #slide-2 .caption {
@@ -558,6 +560,8 @@ background-color: #47373f !important;
     float:left;
     color: #fff;
     text-align: left;
+    padding-left: 5%;
+	width: 90%;
 }
  
 #slide-4 .caption {
@@ -628,6 +632,11 @@ display: none;
 display:none;
 }
 
+.design_box {
+width: 200px !important;
+height: 160px !important;
+}
+
 }  
 
 /* ============= mobile end ============= */
@@ -639,16 +648,20 @@ display:none;
 }
 */
 
-/* Designs showcase */
+/* ------------ Designs showcase --------------------- */
 .design_box {
 width:90%;
 height:250px;
-border:1px solid #FFA500;
+border:2px solid #FFA500;
 cursor:pointer;
 align-content: space-around;
 opacity:0.5;
 color:rgba(255,165,0,0);
 padding:2px;
+box-shadow: 3px 3px 4px 5px #1D1F20;
+border-radius: 2px;
+width: 300px;
+height: 260px;
 }
 
 .design_box:hover{
@@ -803,3 +816,16 @@ transition: all 400ms ease-in-out;
 -moz-transition: all 400ms ease-in-out;
 -webkit-transition: all 400ms ease-in-out;
 }
+
+
+/*  redesign 14 Feb 2015 */
+
+.grad_fade {
+width:100%;
+height:100%;
+z-index:-1;
+position:fixed;
+background: linear-gradient(rgba(0,0,0,0) , rgba(0,0,0,0.8) );
+
+}
+

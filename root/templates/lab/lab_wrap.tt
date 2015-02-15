@@ -9,8 +9,10 @@
     <link href="[% c.uri_for('/css/bootstrap.min.css') %]" rel="stylesheet">
     <link href="[% c.uri_for('/css/kdev_lab.css') %]" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+	<link href="[% c.uri_for('/css/prettify.css') %]" rel="stylesheet">
+	<script src="[% c.uri_for('/js/jquery.min.js') %]"></script>
   </head>
-  <body id="lab_main">
+  <body id="lab_main" onload="prettyPrint()">
   		
   <div id="left_tag" class="lab_nav_bar">
 	<div class="lab_nav_text">Menu</div>
@@ -34,9 +36,10 @@
 	</div>
 	
   </body>
-  	 <script src="[% c.uri_for('/js/jquery.min.js') %]"></script>
      <script src="[% c.uri_for('/js/bootstrap.min.js') %]"></script> 
      <script src="[% c.uri_for('/js/angular.min.js') %]"></script> 
+     <script src="[% c.uri_for('/js/kdev_lab.js') %]"></script>
+     <script src="[% c.uri_for('/js/prettify.js') %]"></script> 
  </html> 
   
   
