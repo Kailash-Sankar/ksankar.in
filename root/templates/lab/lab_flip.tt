@@ -1,5 +1,5 @@
 <div class="flip_box">
-  <div class="flip-container" data-exp='[% exp %]'>
+  <a class="flip-container" data-exp='[% exp %]' href='[% c.uri_for('/lab/bench', exp ) %]'>
  
     <div class="content front-info">
 		[% front %]
@@ -10,7 +10,7 @@
       <span>Click to Begin</span>
    </div>
   
- </div>
+ </a>
  <a href='[% c.uri_for('/lab/bench', exp ) %]' id="[% exp %]" class="hidden"></a>
 </div>
 
