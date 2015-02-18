@@ -540,6 +540,13 @@ background-color: #47373f !important;
  
 } 
 /* ===== large media end ======= */
+@media only screen and (max-width: 1408px)  {
+.design_box {
+width: 250px !important;
+height: 200px !important;
+}
+
+}
 
 /* =================for mobile============================= */
 @media only screen and (max-width: 767px)  {
@@ -641,12 +648,13 @@ height: 160px !important;
 
 /* ============= mobile end ============= */
 
-/* ======== very low res mobile ========= 
-@media only screen and (max-width: 300px)  {
- * do i need this?
- * NO! 
+/* ======== very low res mobile ========= */ 
+@media only screen and (max-width: 550px)  {
+.right-links {
+	display:none;
+ }
 }
-*/
+
 
 /* ------------ Designs showcase --------------------- */
 .design_box {

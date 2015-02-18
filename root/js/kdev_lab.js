@@ -3,7 +3,7 @@
  * 14 Feb 2015
  */
  
- 
+ /*
  $(".flip-container").on('click', function() {
 	 
 	
@@ -11,6 +11,7 @@
 	console.log('opening card' + exp);
 	$('a#' + exp)[0].click();
  });
+ * /
 
 
 			
