@@ -52,6 +52,13 @@
 	<br/><br/>
 	<div id="changelog" class="changelog" style="display:none;">
 	<ul>
+		
+		<li>Sunday Feb 15th
+		  <ul>
+			<li>Bug Fixes</li>
+		  </ul>
+		</li>
+		
 		<li>Sunday Dec 14th
 		  <ul>
 			<li>Drat posts for Admin</li>
@@ -139,7 +146,7 @@
 	  <li>Next Weekend!
 		<ul>
 		  <li>Add edit link for comments</li>
-		  <li>Keep an audit log for edited comments</li>
+		  <li>Keep an audit log </li>
 		  <li>js validaitons for the forms</li>
 	    </ul>
 	  </li>

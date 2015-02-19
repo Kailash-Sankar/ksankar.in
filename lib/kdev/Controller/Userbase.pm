@@ -59,9 +59,11 @@ sub myprofile :Local :Args(0) {
 	#i think it's because the data held in session is minimal.
 	my $profile = $c->model('DB::User')->find($c->user->id);
 	
+	 my $pagedetails = { activetag => 2 }; 
+	
 	$c->load_status_msgs;
 	$c->stash( wrapper => 'article/article_wrap.tt', blogindex => 'article/blogindex.tt');			
-	$c->stash(template => 'profile.tt', profile => $profile, activetag => 2 );
+	$c->stash(template => 'profile.tt', profile => $profile, pgd => $pagedetails );
 }
 
 #update user profile
