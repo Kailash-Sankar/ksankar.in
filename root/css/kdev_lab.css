@@ -219,7 +219,7 @@ transform: translateX(-80%) scale(1.5,1.5);
   font-style: italic;
   font-size:16px;
   font-weight:400px;
-  margin:5px;
+  padding:5px;
 }
 
 .back-info ul,

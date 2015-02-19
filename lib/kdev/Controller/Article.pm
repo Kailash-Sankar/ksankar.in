@@ -150,8 +150,9 @@ sub view :Chained('blog') :PathPart('view') : Args(1) {
 
 sub addnew :Chained('blog') :PathPart('addnew') : Args(0) {
 	my ( $self, $c ) = @_;
-	
-	$c->stash( template => 'article/addnew.tt', action => '/blog/save', activetag => 3 );	
+	  
+	my $pagedetails = { activetag => 3 }; 
+	$c->stash( template => 'article/addnew.tt', action => '/blog/save', pgd => $pagedetails );	
 }
 
 sub edit :Chained('blog') :PathPart('edit') : Args(1) {

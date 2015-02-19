@@ -20,9 +20,9 @@
 
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
-		   front = 	'Make a Flipping Card with info on the back.'
+		   front = 	'Flipping Card with info on the back.'
 		   back =  '  <h4><strong>The tutorial is to do the effect that you just saw.</strong></h4>	
-					  P.S:This was my first experiment.
+					  
 					  <br/><br/>'
 		   exp = 'flipper'
 		 %]
@@ -30,8 +30,8 @@
 
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
-		   front = 	'Make a corner menu like the ones on the corner. ;)'
-		   back =  '<h4><strong>Around and Around we go.</strong></h4>
+		   front = 	'Corner menu'
+		   back =  '<h4><strong>Like the ones on the corner. ;)</strong></h4>
 					<br/><br/>'
 		   exp = 'corner_menu'			
 		 %]
@@ -41,9 +41,7 @@
 		[% PROCESS 'lab/lab_flip.tt'
 		   front = 	'Make a menu icon with just CSS!'
 		   back =  ' <h4><strong>Just like the one on my portfolio page.</strong></h4>
-					<!-- div style="text-align:left;">
-					<ul><li></li></ul>
-					</div -->
+					 P.S:This was my first experiment.
 					<br/><br/>'
 		   exp = 'css_menu_icon'			
 		 %]
@@ -51,12 +49,9 @@
 	
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
-		   front = 	'Make a progress bar with CSS!'
-		   back =  ' <h4><strong></strong></h4>
-					<!-- div style="text-align:left;">
-					<ul><li></li></ul>
-					</div -->
-					<br/><br/>'
+		   front = 	'CSS Progress bar'
+		   back =  ' <h4><strong>Hmm..</strong></h4>
+					<br/><br/>' 
 		   exp = 'css_progress_bar'			
 		 %]
 	</div>
@@ -74,7 +69,7 @@
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
 		   front = 	'CSS Basic Properties'
-		   back =  '  <h4><strong></strong></h4>	
+		   back =  '  <h4><strong>width, height, color, text-align, border...</strong></h4>	
 					 
 					  <br/><br/>'
 		   exp = 'css_step_one'
@@ -84,7 +79,7 @@
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
 		   front = 	'CSS: Targeting & Basic Properties II '
-		   back =  '<h4><strong></strong></h4>
+		   back =  '<h4><strong>selectors, border-radius, display, !important ...</strong></h4>
 					<br/><br/>'
 		   exp = 'css_step_two'			
 		 %]
@@ -93,7 +88,7 @@
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
 		   front = 	'CSS: Positioning & HTML psuedo elements'
-		   back =  ' <h4><strong></strong></h4>
+		   back =  ' <h4><strong>position, transform, transition, z-index, :before, :after ...</strong></h4>
 					<br/><br/>'
 		   exp = 'css_step_three'			
 		 %]
@@ -102,7 +97,7 @@
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
 		   front = 	'CSS Animation: Solar System'
-		   back =  ' <h4><strong>Make an animated solar system with CSS!</strong></h4>
+		   back =  ' <h4><strong>animation, @keyframes ...</strong></h4>
 					<br/><br/>'
 		   exp = 'css_step_four'			
 		 %]

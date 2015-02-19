@@ -19,6 +19,7 @@
 				<span style="float-right" id="blognav">
 				   <ul class="nav nav-tabs" role="tablist">
 					<li><a href="[% c.uri_for('/') %]">Portfolio</a></li>
+					<li><a href="[% c.uri_for('/lab/home') %]">Lab</a></li>
 					<li [% IF pgd.activetag == 1 %]class="active"[% END %]><a href="[% c.uri_for('/blog/home') %]">Blog</a></li>
 					[% IF profile %]
 						<li style="float:right"><a  href="[% c.uri_for('/logout') %]">Logout</a></li>
