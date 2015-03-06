@@ -1,28 +1,120 @@
-<!--- flipper tutorial -->
+<!--- css step four -->
 
-<div>
-	<h3> CSS Animate: Let's Roll. </h3>
+<style>
+.obi {
+	width:200px;
+	min-height:100px;
+	border:1px solid snow;
+}
+
+#wan,#kenobi {
+min-width:150px;
+height:100px;
+border:1px solid #000;
+}
+
+#wan {
+ float:right;
+}
+
+#kenobi {
+float:left;
+}
+
+#bane {
+clear:both;
+width:120px;
+height:30px;
+border:1px solid salmon;
+}
+</style>
+
+
+<div class="row">
+<h3> CSS: Floats & Misc	</h3>
+<div class="bench_data" style="text-align:left">  </br>
+
+<div class="col-lg-4">
+
+<div class="pre_cont">
+
+<pre class="col-lg-12 prettyprint lang-css" data-title="CSS - Box One">
+.obi {
+ width:200px;
+ min-height:100px;
+ border:1px solid snow;
+}
+
+#wan,#kenobi {
+ min-width:150px;
+ height:100px;
+ border:1px solid #000;
+}
+
+#wan {
+ float:right;
+}
+
+#kenobi {
+float:left;
+}
+
+#bane {
+clear:both;
+width:120px;
+height:30px;
+border:1px solid salmon;
+}
+</pre>
+
+</div>
+
+<div class="pre_html">
+ <pre data-title="HTML" class="prettyprint" id="pre_output">
+ </pre>
+</div> 
+
+</div>	
 	
-	<div class="bench_data" style="text-align:left"> Here's what you have to do: </br>
-		<ul>
-			<li>Make a round div with transparent background and a border.</li>
-			<li>Add a :before and :after element to it and adjust their positions to make orbits.</li>
-			<li>Add Sun to the center.</li>
-			<li>Add planets, place in the center first and translateX to put them in orbit.</li>
-			<li>Build a keyframe with retains the same translateX value but changes degree form 0 to 360.</li>
-			<li>Add animation to a planet's CSS, build more keyframes for others.</li>
-			<li>Build a keyframe for sun, add shades of red at each level like 0%, 25%..and get back to first shade at 100%.</li>
-		</ul>	
+  <div class="col-lg-8 "> 		
+	<div data-title="Result " class="pre prettyprint" id="pre_input">
+<div class="obi"> Hello World.  </div>
+<div class="obi"> 
+Schrödinger's cat is a thought experiment, 
+sometimes described as a paradox, devised by 
+Austrian physicist Erwin Schrödinger in 1935.[1]
+It illustrates what he saw as the problem of 
+the Copenhagen interpretation of quantum 
+mechanics applied to everyday objects.
+</div>
+	
+<div style="position:relative;height:150px;text-align:center;">
+ Just being relative.
+  <div id="wan">Float Right.</div>
+  <div id="kenobi">Float left and grow bigger.....</div>	
+  <div id="bane"> </div>
+</div>	
+ 
+</div>
+</div>
+  
+  <script>makeResult('pre_input','pre_output');</script>	
+
+<div class="col-lg-8">
+Notes:
+<ul>
+<li>min-height: element will have a minimun height and will grow based on content.</li>
+<li>min-width works in the same way for width</li>
+<li>float elements work just like absolute elements</li>
+<li>clear property is used to clear floats</li>
+</ul>
+</div>
 		
-		<div class="codepen_box">
-			<p data-height="517" data-theme-id="12117" data-slug-hash="zxpGmK" data-default-tab="result" data-user="kailash-sankar" class='codepen'>See the Pen 
-			<a href='http://codepen.io/kailash-sankar/pen/zxpGmK/'>zxpGmK</a> by Kailash Sankar (<a href='http://codepen.io/kailash-sankar'>@kailash-sankar</a>) 
-			on <a href='http://codepen.io'>CodePen</a>.</p>
-			<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-		</div>
+	
 			
-	 </div>
+</div> 
+  
 </div>
-<div class="codepen_box">
-</div>
-<div class="sig">ksankar --- 15 Feb 2015</div>	
+<div class="row codepen_box">
+	</div>
+  <div class="sig">ksankar --- 6 Mar 2015</div>
