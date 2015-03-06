@@ -109,6 +109,7 @@ div.bubble_container p {
 	left: 20%;
 	top: -29%;
 	background-color:#E60000;
+	transition:all 500ms linear;
 	
 }
 
@@ -121,10 +122,28 @@ div.bubble_container p {
 	right :45%;
 	top:20%;
 	background-color:#E60000;
+	transition:all 500ms linear;
 }
 
 #heart:hover {
 	transform: translate(-50%,-50%) rotate(45deg) scale(2,2);
+}
+
+#heart.brk {
+
+}
+
+#heart.brk:after {
+ transform: translateX(-89%);	
+}
+
+#heart.brk:before {
+ transform: translateY(-90%);	
+}
+
+#five:hover {
+ background-color:saddlebrown;	
+ cursor:pointer;
 }
 
 </style>
@@ -309,3 +328,7 @@ div.bubble_container p {
 <div class="codepen_box">
 </div>
 	 <div class="sig">ksankar --- 15 Feb 2015</div>	
+
+<script>
+$('#five').click( function() { $('#heart').toggleClass('brk'); });
+</script>
