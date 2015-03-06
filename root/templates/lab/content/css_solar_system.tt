@@ -1,0 +1,28 @@
+<!--- flipper tutorial -->
+
+<div>
+	<h3> CSS Animate: Let's Roll. </h3>
+	
+	<div class="bench_data" style="text-align:left"> Here's what you have to do: </br>
+		<ul>
+			<li>Make a round div with transparent background and a border.</li>
+			<li>Add a :before and :after element to it and adjust their positions to make orbits.</li>
+			<li>Add Sun to the center.</li>
+			<li>Add planets, place in the center first and translateX to put them in orbit.</li>
+			<li>Build a keyframe with retains the same translateX value but changes degree form 0 to 360.</li>
+			<li>Add animation to a planet's CSS, build more keyframes for others.</li>
+			<li>Build a keyframe for sun, add shades of red at each level like 0%, 25%..and get back to first shade at 100%.</li>
+		</ul>	
+		
+		<div class="codepen_box">
+			<p data-height="517" data-theme-id="12117" data-slug-hash="zxpGmK" data-default-tab="result" data-user="kailash-sankar" class='codepen'>See the Pen 
+			<a href='http://codepen.io/kailash-sankar/pen/zxpGmK/'>zxpGmK</a> by Kailash Sankar (<a href='http://codepen.io/kailash-sankar'>@kailash-sankar</a>) 
+			on <a href='http://codepen.io'>CodePen</a>.</p>
+			<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+		</div>
+			
+	 </div>
+</div>
+<div class="codepen_box">
+</div>
+<div class="sig">ksankar --- 15 Feb 2015</div>	

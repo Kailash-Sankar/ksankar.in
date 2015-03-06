@@ -129,16 +129,12 @@ div.bubble_container p {
 	transform: translate(-50%,-50%) rotate(45deg) scale(2,2);
 }
 
-#heart.brk {
-
-}
-
 #heart.brk:after {
- transform: translateX(-89%);	
+ transform: translateX(-100%);	
 }
 
 #heart.brk:before {
- transform: translateY(-90%);	
+ transform: translateY(-100%);	
 }
 
 #five:hover {
@@ -284,6 +280,19 @@ div.bubble_container p {
 #heart:hover {
  transform: translate(-50%,-50%) rotate(45deg) scale(2,2);
 }
+
+#heart.brk:after {
+ transform: translateX(-100%);	
+}
+
+#heart.brk:before {
+ transform: translateY(-100%);	
+}
+
+#five:hover {
+ background-color:saddlebrown;	
+ cursor:pointer;
+}
 </pre>
   </div>
 
@@ -296,7 +305,7 @@ div.bubble_container p {
   
   <div class="col-lg-8 "> 		
 	<div data-title="Result " class="pre prettyprint" id="pre_input">
-<div class="bubble_container">
+		<div class="bubble_container">
 	Position:Relative
 	<div id="one" class="bubble"><p>1A</p></div>
 	<div id="two" class="bubble"><p>2A</p></div>
@@ -304,10 +313,12 @@ div.bubble_container p {
 	<div id="four" class="bubble"><p>4R</p></div>
 	<div id="five" class="bubble"><p>5A</p></div>
 	<div id="heart"></div>
-</div>
+		</div>
 	</div>		
   </div>
-  <script>makeResult('pre_input','pre_output');</script>		
+  
+  <script>makeResult('pre_input','pre_output');</script>	
+  	
 	<div class="col-lg-8">Notes:
 		<ul>
 			<li>Absolute elements can be placed anywhere we want. They are in a different plane.</li>
