@@ -136,8 +136,8 @@
 					  <div  class="btn-group right-links">
 						   <a href="https://plus.google.com/+kailashsankar"><img  src="static/icons/google.png"></a>
 				           <a href="https://twitter.com/felhound16"><img  src="static/icons/twitter.png"></a>
-				           <a href=""><img  src="static/icons/linkedin.png"></a>
-	                       <a href="https://www.facebook.com/kailash.sankar"><img  src="static/icons/facebook.png"></a>
+				           <a href="https://in.linkedin.com/pub/kailash-sankar/58/b0b/a1a"><img  src="static/icons/linkedin.png"></a>
+	                       <a href="http://codepen.io/kailash-sankar/"><img  src="static/icons/codepen.png"></a>
 	                       <a href="mailto:kailash.sankar@outlook.com"><img  src="static/icons/mail.png"></a>
 	                       <a href="https://github.com/Kailash-Sankar"><img  src="static/icons/github.png"></a>
 	                  </div>
@@ -178,17 +178,24 @@
 				data-anchor-target="#helper"
                 >
 					<div class="row">
-					   <a href="[% c.uri_for('/blog/home') %]" class="addgrey"><h1 class=text-left"><br/><strong>My Blog</strong><br/></h1></a>
-                       <p>I write posts on perl & web among other things.</p>
-                       <p>Quick links to a few of my posts:</p>
-						<ul>
-							<li><a href="http://ksankar.in/blog/view/5">Perl @INC</a></li>
-							<li><a href="http://ksankar.in/blog/view/3">The shebang line</a></li>
-						</ul>
-                       <h1 class="text-left"><br/><strong data-toggle="tooltip" data-placement="right" title="Under Development">Lab</strong><br/></h1>
-                       <p>This is where I try out cool new stuff! It's a work in progress. For now you can play around with the ball, it's pure CSS ;) .And when you get bored here's somethig interesting to read 
-                       <a href="http://en.wikipedia.org/wiki/Plum_pudding_model" target="_blank">Plum pudding model</a></p>
-                       <span id="hoverbox">Hover over me</span>
+						<div class="col-lg-3 col-lg-offset-1">
+							<a href="[% c.uri_for('/blog/home') %]" class="addgrey"><h1 class=text-left"><br/><strong>My Blog</strong><br/></h1></a>
+							<p>I write posts on perl & web among other things.</p>
+							<p>Quick links to a few of my posts:</p>
+								<ul>
+									<li><a href="http://ksankar.in/blog/view/5">Perl @INC</a></li>
+									<li><a href="http://ksankar.in/blog/view/3">The shebang line</a></li>
+								</ul>
+						</div>
+						<div class="col-lg-3 col-lg-offset-1">		
+							<a href="[% c.uri_for('/lab/home') %]" class="addgrey"><h1 class=text-left"><br/><strong>My Lab</strong><br/></h1></a>
+							<p>This is where I try out cool new stuff! I have built a Jquery+CSS plugin and am currently working on a vanilla js plugin.</p>
+                        </div>
+                       <div class="col-lg-3 col-lg-offset-1">
+							<a href="http://codepen.io/kailash-sankar/" class="addgrey"><h1 class=text-left"><br/><strong>Front End Showcase</strong><br/></h1></a>
+							<p>Codepen is another place where i try new things. </p>
+                       </div>
+                       <span id="hoverbox">Hover over me. <br/> Just an interesting placeholder.</span>
                        <span id="slowrider"></span>
                     </div>   
                     
