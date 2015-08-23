@@ -1,0 +1,76 @@
+<style>
+pre {
+ overflow-x: auto;	
+}
+</style>
+
+<!-- move to head later -->	
+	<script src="[% c.uri_for('/js/progbtn.js') %]"></script>
+	<link href="[% c.uri_for('/css/progbtn.css') %]" rel="stylesheet">
+
+<div class="row">
+	<h3> Button Utility Plugin </h3>
+	<div class="lead">  A jquery plugin to improve user experiance for Ajax and post calls. </div>
+	
+	<div class="bench_data" style="text-align:left">
+		<div class="plugin-info">
+			<div class="col-lg-12">
+				<div class="plugin-nav">
+					<!-- Indicates a successful or positive action -->
+					<a class="btn btn-danger active" href="#slide-demo">Demo</a>
+
+					<!-- Contextual button for informational alert messages -->
+					<a class="btn btn-danger " href="#slide-doc">Doc</a>
+
+					<!-- Indicates caution should be taken with this action -->
+					<a class="btn btn-danger " href="#slide-log">Log</a>
+
+					<!-- Indicates a dangerous or potentially negative action -->
+					<a class="btn btn-danger " href="#slide-download">Download</a>
+
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="col-lg-12 plugin-slide" id="slide-demo">
+			[% PROCESS 'lab/content/cases/case-1.tt' %]
+
+			[% PROCESS 'lab/content/cases/case-2.tt' %]
+			
+			[% PROCESS 'lab/content/cases/case-3.tt' %]
+			
+			[% PROCESS 'lab/content/cases/case-4.tt' %]
+			
+			[% PROCESS 'lab/content/cases/case-5.tt' %]
+		</div>
+		
+		<div class="col-lg-12 plugin-slide" id="slide-doc">
+			[% PROCESS 'lab/content/cases/doc.tt' %]	
+		</div>
+		
+		<div class="col-lg-12 plugin-slide" id="slide-log">
+			<div class="demo-co">
+				<div class="lead"><span class="label label-warning">Comng soon. It's nap nap time now.</span></div>
+			</div>	
+		</div>
+		
+		<div class="col-lg-12 plugin-slide" id="slide-download">
+			<div class="demo-co">
+				<div class="lead">
+					I will be uploading the minified versions soon after some cleanup.
+					Till then view and download the files from  <a href="https://github.com/Kailash-Sankar/btn-utility-plugin/tree/master">
+							<img src="[% c.uri_for('/static/icons/github_text.png') %]">
+						</a>
+				</div>		
+			</div>
+		</div>
+
+	</div>
+    </div>
+  
+</div>
+
+<div class="row codepen_box"></div>
+<div class="sig">ksankar --- 23 Aug 2015</div>
+<script src="[% c.uri_for('/js/plugin_demo.js') %]"></script>

@@ -1,0 +1,89 @@
+			<div class="demo-co">
+			
+			<div class="lead"><span class="label label-warning">#0. Setup</span></div>
+				<pre>
+	//include jquery inside head tag
+	<span class="com">&ltscript src="js/jquery.min.js"&gt&lt/script&gt</span>			
+				
+	//include the css and js file inside head tag
+	<span class="com">&ltscript src="js/progbtn.js"&gt&lt/script&gt</span>
+	<span class="com">&ltlink href="css/progbtn.css" rel="stylesheet"&gt</span>	
+	
+	//write your scripts in footer or at end of page content.
+				</pre>
+				
+				<div class="lead"><span class="label label-warning">#1. Initialize the button</span></div>
+				<pre>
+<strong class="tag">Action:</strong>				
+	<span class="com">ele.progbtn() :</span>	accepts input as a json string. 
+<strong class="tag">Accepted params:</strong>
+	<span class="lit">rate:</span> The rate at which the bar should progress. Safe range: 0.06 - 0.2 | Default: 0.1 
+	<span class="lit">enable_zblock:</span> if set, appends the html required for the zBlock feature to the body tag | Default: 0.
+	<span class="lit">minimal_mode:</span> if set, the plugin will not add the svg required for progress bar. Set to 1 if you are using only the z-block feature. | Default 0.
+				</pre>
+						
+			<div class="lead"><span class="label label-warning">#2. set[---] Methods</span></div>
+				<pre>
+<strong class="tag">Action:</strong>				
+	<span class="com">ele_handle.setProgress() :</span>	 
+		Start the progress bar. 
+		Changes the container class of the button to in-progress
+	<span class="com">ele_handle.setSuccess() :</span>	
+		Stops progress.
+		Changes container class to success-btn.
+		Shows html symbol for success in button text.
+		Returns to original state after 1s.	 
+	<span class="com">ele_handle.setError() :</span>
+		Stops progress. 
+		Changes container class to error-btn.
+		Shows html symbol for error in button text.
+		Returns to original state after 1s.
+<strong class="tag">Accepted params:</strong>
+		None.
+				</pre>
+			
+
+			<div class="lead"><span class="label label-warning">#3. zBlock & zUnblock </span></div>
+				<pre>
+<strong class="tag">Action:</strong>				
+	<span class="com">ele_handle.zBlock() :</span>	 
+		Blocks the page with a transparent z-index layer which has fixed positioning.
+		Displays default or custom message at the center of the screen.
+		Default: 'Please wait while page loads.'
+<strong class="tag">Accepted params:</strong>		
+		Custom message directly as a string (no json object)
+				</pre>
+				<pre>
+	<span class="com">ele_handle.zUnblock() :</span>	
+		Unblocks the page.
+		Default unblock delay is 1s.
+<strong class="tag">Accepted params:</strong>		
+		Accept delay as a direct integer. (no json object).
+				</pre>
+				
+				
+			<div class="lead"><span class="label label-warning">#4. showAlert </span></div>
+				<pre>
+<strong class="tag">Action:</strong>				
+	<span class="com">ele_handle.showAlert() :</span>	 
+		Shows a default or custom alert message.
+		Based on params, returns the value to user to trigger next action.
+		Can chain to setProgress or zBlock
+<strong class="tag">Accepted params:</strong>		
+		<span class="lit">msg:</span> The message for alert. Defaults to 'Are you sure?'.
+		<span class="lit">zmsg:</span> The message for zBlock. Defaults to 'Please wait while page loads.'
+		<span class="lit">event:</span> The current windows event, used to prevent default action of the form or button. !Important!
+		<span class="lit">ontrue:</span> What should happen when the user says yes/ok. Accepted values are 'setProgress' or 'zBlock'.
+		<span class="lit">return:</span> Tells the plugin to return the users input to alert message. The control is returned back immediatly without triggering other events. Defaults to undefined.
+				</pre>
+
+		<div class="lead"><span class="label label-warning">#5. Util handles </span></div>	
+				 <pre>
+<strong class="tag">Action:</strong>					 
+	<span class="com">ele_handle.isActive() :</span>	
+		Returns 1 if the instance is in active state.
+		The instance is active if zBlock or setProgress was called and a finishing function hasn't been called yet.
+<strong class="tag">Accepted params:</strong>		
+		None.
+				</pre>
+		</div>
