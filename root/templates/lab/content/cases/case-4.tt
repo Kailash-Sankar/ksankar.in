@@ -1,0 +1,70 @@
+        <div class="demo-co col-lg-12">
+			<div class="col-lg-12">
+				<div class="case-header alert alert-danger">Example 4: Your input button + Alert + zBlock + Progress</div>	
+			</div>
+			<div class="col-lg-4">
+
+				<div class="pre_cont_">					
+					<pre class="col-lg-12 prettyprint lang-html" data-title="HTML" id="pre_output4"></pre>
+				</div>
+
+			</div>	
+		
+			<div class="col-lg-4 result-co" id="pre_input4">				
+<div class="case-container">				
+   <div id="one" class="btn-co">
+    <input type="button" class="inp-btn" id="inp_btn1" value="Submit"> 
+   </div>
+				 
+  <div class="spacer"></div>
+					
+   <div id="two" class="btn-co">
+    <input type="button" class="inp-btn" id="inp_btn2" value="Save">
+   </div>
+</div>		
+			</div>
+			
+  <script>makeResult('pre_input4','pre_output4');</script>	
+  
+			<div class="col-lg-4">
+			<pre class="col-lg-12 prettyprint lang-js" data-title="script">
+//create button object and append zblock html to body
+$('.example-3').progbtn({ enable_zblock:1 });
+
+//for Submit
+$('#inp_btn1').click( function(e) { 
+	
+  var ele_handle = $(this).data('progbtn');
+
+  //show alert and tell the plugin what to do next
+  ele_handle.showAlert({ 
+	  ontrue: 'zBlock', 
+	  msg: 'Make a sandwich?', 
+	  zmsg: 'Your sandwitch is being made...', 
+	  event: e 
+	  });
+
+  //unblock on return of ajax
+  ele_handle.zUnblock(400);  
+});		
+
+//for Save
+$('#inp_btn2').click( function(e) {
+
+  var ele_handle = $(this).data('progbtn');
+
+  //works differently for input button.	
+  ele_handle.showAlert({ 
+	  ontrue: 'setProgress', 
+	  msg: 'Make amends?', 
+	  event: e 
+	  });
+ 
+  //set success or error after ajax
+  ele_handle.setError();
+});	
+			</pre>
+			</div>
+
+			
+	</div> 

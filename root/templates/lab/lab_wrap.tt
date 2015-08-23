@@ -11,6 +11,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
 	<link href="[% c.uri_for('/css/prettify.css') %]" rel="stylesheet">
 	<script src="[% c.uri_for('/js/jquery.min.js') %]"></script>
+	<script src="[% c.uri_for('/js/kdev_lab.js') %]"></script>
   </head>
   <body id="lab_main" onload="prettyPrint()">
   		
@@ -38,7 +39,6 @@
   </body>
      <script src="[% c.uri_for('/js/bootstrap.min.js') %]"></script> 
      <script src="[% c.uri_for('/js/angular.min.js') %]"></script> 
-     <script src="[% c.uri_for('/js/kdev_lab.js') %]"></script>
      <script src="[% c.uri_for('/js/prettify.js') %]"></script> 
  </html> 
   

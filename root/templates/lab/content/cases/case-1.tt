@@ -1,0 +1,56 @@
+<div class="demo-co col-lg-12">
+			<div class="col-lg-12">
+				<div class="case-header alert alert-danger">Example 1: Default button style + Progress bar</div>	
+			</div>
+			
+			<div class="col-lg-4">
+				<div class="pre_cont_">					
+					<pre class="col-lg-12 prettyprint lang-html" data-title="HTML" id="pre_output1"></pre>
+				</div>
+			</div>	
+		
+			<div class="col-lg-4 result-co" id="pre_input1">				
+<div class="case-container">				
+   <div id="one" class="btn-co">
+     <div class="prog-btn example-1" id="prog_btn1">Hocus</div>  
+   </div>
+				 
+  <div class="spacer"></div>
+					
+   <div id="two" class="btn-co">
+     <div class="prog-btn example-1" id="prog_btn2">Pocus</div>
+   </div>
+</div>		
+			</div>
+			
+  <script>makeResult('pre_input1','pre_output1');</script>	
+  
+<div class="col-lg-4">
+			<pre class="col-lg-12 prettyprint lang-js" data-title="script">
+//create button object
+$('.example-1').progbtn();
+ 
+$('.example-1').click( function(e) {
+   
+  //get the handle
+  var ele_handle = $(this).data('progbtn');
+
+  //do validations if any
+  
+  //star progress
+  ele_handle.setProgress();
+  
+  //run ajax (=.=)
+
+  //on ajax success	
+  ele_handle.setSuccess();
+  
+  //on ajax error
+  ele_handle.setError();
+  
+});			
+			</pre>
+</div>
+		
+		</div>	
+

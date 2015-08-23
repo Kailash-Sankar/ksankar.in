@@ -339,3 +339,31 @@ width: 20%;
 margin-left: auto;
 margin-right: auto;
 }
+
+.demo-co {
+    border-top: 1px solid #1D1F20;;
+    padding: 25px;
+}
+
+.case-header {
+	display:inline-block;
+}
+
+.case-container {
+	text-align:center;
+}
+
+.plugin-nav a {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	margin-right: 3px;
+}
+
+.plugin-slide {
+display:none;
+}
+
+.result-co {
+min-height:100px;
+margin-top:30px;
+}

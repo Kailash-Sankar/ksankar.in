@@ -1,0 +1,62 @@
+        <div class="demo-co col-lg-12">
+			<div class="col-lg-12">
+				<div class="case-header alert alert-danger">Example 3: Default button style + Alert + Z-index Block(default/custom) + UnBlock(delay)</div>	
+			</div>
+			<div class="col-lg-4">
+
+				<div class="pre_cont_">					
+					<pre class="col-lg-12 prettyprint lang-html" data-title="HTML" id="pre_output3"></pre>
+				</div>
+
+			</div>	
+		
+			<div class="col-lg-4 result-co" id="pre_input3">				
+<div class="case-container">				
+   <div id="one" class="btn-co">
+     <div class="prog-btn example-3" id="prog_btn5">Dexter</div>  
+   </div>
+				 
+  <div class="spacer"></div>
+					
+   <div id="two" class="btn-co">
+     <div class="prog-btn example-3" id="prog_btn6">Dee Dee</div>
+   </div>
+</div>		
+			</div>
+			
+  <script>makeResult('pre_input3','pre_output3');</script>	
+  
+			<div class="col-lg-4">
+			<pre class="col-lg-12 prettyprint lang-js" data-title="script">
+//create button object and append zblock html to body
+$('.example-3').progbtn({ enable_zblock:1, minimal_mode:1 });
+
+//for Dexter
+$('#prog_btn5').click( function(e) { 
+	
+  var ele_handle = $(this).data('progbtn');
+
+  //show alert and tell the plugin what to do next
+  ele_handle.showAlert({ ontrue: 'zBlock', event: e });
+
+  //unblock on return of ajax
+  ele_handle.zUnblock();  
+});		
+
+//for Dee Dee
+$('#prog_btn6').click( function(e) {
+
+  var ele_handle = $(this).data('progbtn');
+
+  //Block the page without any alert. 
+  //because some clicks need to done with haste.	
+  ele_handle.zBlock('Blocked without an alert.');
+ 
+  //unblock with a delay of 100ms. Default is 1000ms.
+  ele_handle.zUnblock(100); 
+});	
+			</pre>
+			</div>
+
+			
+	</div> 

@@ -1,0 +1,65 @@
+        <div class="demo-co col-lg-12">
+			<div class="col-lg-12">
+				<div class="case-header alert alert-danger">Example 2: Default button style + Alert(default/custom) + Progress bar</div>	
+			</div>
+			<div class="col-lg-4">
+
+				<div class="pre_cont_">					
+					<pre class="col-lg-12 prettyprint lang-html" data-title="HTML" id="pre_output2"></pre>
+				</div>
+
+			</div>	
+		
+			<div class="col-lg-4 result-co" id="pre_input2">				
+<div class="case-container">				
+   <div id="one" class="btn-co">
+     <div class="prog-btn example-2" id="prog_btn3">Jack</div>  
+   </div>
+				 
+  <div class="spacer"></div>
+					
+   <div id="two" class="btn-co">
+     <div class="prog-btn example-2" id="prog_btn4">Jill</div>
+   </div>
+</div>		
+			</div>
+			
+  <script>makeResult('pre_input2','pre_output2');</script>	
+  
+			<div class="col-lg-4">
+			<pre class="col-lg-12 prettyprint lang-js" data-title="script">
+//create button object
+$('.example-2').progbtn();
+
+//for jack 
+$('#prog_btn3').click( function(e) { 
+	
+  var ele_handle = $(this).data('progbtn');
+
+  //show alert and tell the plugin what to do next
+  ele_handle.showAlert({ ontrue: 'setProgress', event : e });
+
+  //run ajax and set success or error
+  ele_handle.setSuccess();  
+});		
+
+//for jill
+$('#prog_btn4').click( function(e) {
+
+  var ele_handle = $(this).data('progbtn');
+
+  //want to pass a custom message? do this.
+  ele_handle.showAlert({ 
+			ontrue: 'setProgress', 
+			msg: 'Because you can.', 
+			event: e 
+			});
+
+  //run ajax and set success or error
+  ele_handle.setError();
+  
+});	
+			</pre>
+			</div>
+			
+	</div> 

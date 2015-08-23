@@ -1,0 +1,75 @@
+        <div class="demo-co col-lg-12">
+			<div class="col-lg-12">
+				<div class="case-header alert alert-danger">Example 5: Flexibility.</div>	
+			</div>
+			<div class="col-lg-4">
+
+				<div class="pre_cont_">					
+					<pre class="col-lg-12 prettyprint lang-html" data-title="HTML" id="pre_output5"></pre>
+				</div>
+
+			</div>	
+		
+			<div class="col-lg-4 result-co" id="pre_input5">				
+<div class="case-container">				
+ <div id="one" class="btn-co">
+     <div class="select">
+	<label>
+	  Choose:
+	</label>
+	<select class="example-5" id="select-1" style="color:#000">
+		<option>From</option>
+		<option>Dusk</option>
+		<option>Till</option>
+		<option>Dawn</option>
+	</select>
+     </div> 
+   </div>
+				 
+  <div class="spacer"></div>
+					
+   <div id="two" class="btn-co">
+	<div class="checkbox">
+	  <label>
+	   <input class="example-5" type="checkbox" id="checkbox-1"> Check me out
+	  </label>
+	</div>
+   </div>
+</div>		
+			</div>
+			
+  <script>makeResult('pre_input5','pre_output5');</script>	
+  
+			<div class="col-lg-4">
+			<pre class="col-lg-12 prettyprint lang-js" data-title="script">
+//go for minimal mode, we don't/can't use svg here.				
+$(".example-5").progbtn({ enable_zblock:1, minimal_mode:1 });	
+			
+//for Dropdown
+$('#select-1').change( function(e) { 
+	
+  var ele_handle = $(this).data('progbtn');
+
+  //these handles will work on any element	
+  ele_handle.showAlert({ ontrue: 'zBlock', zmsg: 'It works even without a button...', event: e });
+  
+  ele_handle.zUnblock(400);
+
+});	
+
+//for checkbox
+$('#checkbox-1').change( function(e) { 
+	
+  var ele_handle = $(this).data('progbtn');
+
+  //these handles will work on any element	
+  ele_handle.zBlock('Your action is being saved. Please remain calm and stop clicking all over the page.');
+  
+  ele_handle.zUnblock(600);
+});	
+
+			</pre>
+			</div>
+
+			
+	</div> 
