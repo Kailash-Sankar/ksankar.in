@@ -1,0 +1,61 @@
+<div class="demo-co col-lg-12">
+			<div class="col-lg-12">
+				<div class="case-header alert alert-danger">Special Example: Cry me a River.</div>
+				<br/>
+				You scrolled till the end and that means a lot to me so i made this. ;)
+				<br/>		
+			</div>
+			<div class="col-lg-4">
+
+				<div class="pre_cont_">					
+					<pre class="col-lg-12 prettyprint lang-html" data-title="HTML" id="pre_output6"></pre>
+				</div>
+				<div>
+				Also to justify my childish impulses, this example shows how easy it is to scale the plugin to suit your needs.	
+				The rain's mostly css with a bit of js to get the clouds pouring, inspired by the work of Aurélien Lemesre.
+				</div>
+			</div>	
+		
+			<div class="col-lg-4 result-co" id="pre_input6">				
+<div class="case-container">				
+   <div id="one" class="btn-co">
+     <div class="prog-btn example-6" id="rain_btn1">Let it Rain</div>  
+   </div>
+				 
+  <div class="spacer"></div>
+					
+   <div id="two" class="btn-co">
+     <div class="prog-btn example-6" id="rain_btn2">Break the Spell</div>
+   </div>
+</div>		
+			</div>		
+  <script>makeResult('pre_input6','pre_output6');</script>	
+  
+			<div class="col-lg-4">
+			<pre class="col-lg-12 prettyprint lang-js" data-title="script">
+//create button object
+$('.example-6').progbtn();
+
+//Let it Rain!
+$('#rain_btn1').click( function(e) { 
+	
+  var ele_handle = $(this).data('progbtn');
+
+  //Cry me a River
+  ele_handle.cryMeARiver(800);
+
+});		
+
+//Break the Spell!
+$('#rain_btn2').click( function(e) {
+
+  var ele_handle = $(this).data('progbtn');
+
+  //Break the Spell.
+  ele_handle.breakTheSpell();
+  
+});	
+			</pre>
+			</div>
+			
+	</div> 

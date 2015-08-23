@@ -49,6 +49,13 @@ $('.prog-btn, .inp-btn, #checkbox-1').click( function(e) {
 		ele_handle.showAlert({ ontrue: 'setProgress', msg: 'Make amends?', event: e });
 		setTimeout( function()  {  ele_handle.setError(); }, 3000 ); 
 		break;
+	case 'rain_btn1':
+		ele_handle.cryMeARiver(800);
+		//setTimeout( function()  {  ele_handle.setError(); }, 3000 ); 
+		break;	
+	case 'rain_btn2':
+		ele_handle.breakTheSpell();
+		break;
 		
 	};
 
