@@ -21,6 +21,9 @@
 		if( hash ){
 			hash = '#' + hash;
 			handle_hash_change(hash);	
+		}
+		else {
+			locationHashChanged();	
 		}	
 	});	
 	

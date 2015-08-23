@@ -367,3 +367,52 @@ display:none;
 min-height:100px;
 margin-top:30px;
 }
+
+.rain-drop {
+  height: 30px;
+  width: 1px;	
+ 
+  /* fallback */ 
+  background-color: #1a82f7;
+  background-repeat: repeat-x;
+ 
+  /* Safari 4-5, Chrome 1-9 */  
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#47373F), to(#FFF)); 
+   
+  /* Safari 5.1, Chrome 10+ */ 
+  background: -webkit-linear-gradient(top, #47373F, #FFF);
+ 
+  /* Firefox 3.6+ */ 
+  background: -moz-linear-gradient(top, #47373F, #FFF); 
+   
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #47373F, #FFF); 
+   
+  /* Opera 11.10+ */ 
+  background: -o-linear-gradient(top, #47373F, #FFF); 
+  
+  position:fixed;
+  top:0%;
+  animation: rain-drop 0.5s linear infinite;
+ -webkit-animation: rain-drop 0.5s linear infinite;
+ 	border-bottom-right-radius: 1px;
+	border-bottom-left-radius: 1px;
+}
+
+@keyframes rain-drop {
+  to { margin-top:100%}
+}
+
+@-webkit-keyframes rain-drop {
+  to { margin-top:100%}
+}
+
+@font-face {
+  font-family: 'Shadows Into Light Two';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Shadows Into Light Two'), local('ShadowsIntoLightTwo-Regular'), url('/fonts/ShadowsIntoLightTwo.woff2') format('woff2');
+}
+
+
+

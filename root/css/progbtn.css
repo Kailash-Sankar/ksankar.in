@@ -25,6 +25,8 @@
   display:inline-block;
   border:1px solid #2e6da4;
   padding:3px;
+  padding-left: 8px;
+  padding-right: 8px;
   vertical-align: middle;
   text-align: center;
   color:#fff;

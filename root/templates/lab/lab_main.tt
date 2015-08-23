@@ -11,6 +11,38 @@
 </div>
 
 <div class="row" style="padding:20px;margin:20px;text-align:center;">
+	<h3>Plugins</h3>
+	<div class="breakerblue"></div>
+</div>
+
+<div class="row center_stage">
+
+	<div class="col-lg-3 col-md-4 col-xs-6">	
+		[% PROCESS 'lab/lab_flip.tt'
+		   front = 	'Button Utility Plugin'
+		   back =  '  <h4><strong>Documentation page for my first plugin, yay!</strong></h4>	
+					  <br/><br/>'
+		   exp = 'prog_btn'
+		 %]
+	</div>
+
+	<div class="col-lg-3 col-md-4 col-xs-6">	
+	
+	</div>
+	
+	<div class="col-lg-3 col-md-4 col-xs-6">	
+
+	</div>
+	
+	<div class="col-lg-3 col-md-4 col-xs-6">	
+	
+	</div>
+	
+
+</div>
+	
+
+<div class="row" style="padding:20px;margin:20px;text-align:center;">
 	<h3>Experiments</h3>
 	<div class="breakerblue"></div>
 </div>

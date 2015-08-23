@@ -172,6 +172,35 @@ When life gives you lemons make lemonade.
 	this.isActive = function() {
 		return is_active;
 	}
+	
+	//special
+	this.cryMeARiver = function(nod) {
+	
+		for(i=0;i<nod;i++) {
+			
+			var leftpos = getRandomNumber(0,100) + '%';
+			var toppos = getRandomNumber(-200,100) + '%';
+			
+			
+			var rd_div = document.createElement('div');
+			rd= $(rd_div);
+			
+			rd.addClass('rain-drop')
+			  .css('left',leftpos)
+			  .css('top',toppos)
+			  .appendTo($('body'));
+			
+			console.log('left pos:',  leftpos);
+			console.log('top pos:',  toppos );
+			
+			//$('body').append(rd);
+		}	
+				
+	}
+	
+	this.breakTheSpell = function() {
+		$('.rain-drop').fadeOut().remove();
+	}	
     
     /* ---- private functions ---- */
      
@@ -212,6 +241,15 @@ When life gives you lemons make lemonade.
        console.log('reset btn: ' +  htmltext );
        btn.html( htmltext );
        is_active = 0;
+	}
+	
+	
+	//special 
+	
+	// Returns a random integer between min (included) and max (included)
+	// Using Math.round() will give you a non-uniform distribution!
+	function getRandomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 	    
  };	
