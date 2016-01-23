@@ -4,23 +4,37 @@
  */
  
 #blog_main {
-margin: 20px;
+	margin: 20px;
 }
 
 .post {
-padding-bottom:10px;
-border-left: 2px solid #eee;
-border-right: 2px solid #eee;
+	padding-bottom:10px;
+	border-left: 0px solid #eee;
+	border-right: 0px solid #eee;
 }
 
 .postcontent {
-margin-left:10px;
-margin-right:10px;
-height:200px;
-text-overflow:ellipsis;
-overflow:hidden;
-white-space:pre-line;
-text-align:justify;
+	padding: 0px 20px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:pre-line;
+	text-align:justify;
+	height: 300px;
+	position: relative;
+}
+
+.postcontent:after {
+	content: attr(data-spec) " Characters";
+	height: 75px;
+	position: absolute;
+	z-index: 10;
+	bottom: 0px;
+	width: 100%;
+	background: transparent linear-gradient(rgba(255, 255, 255, 0), #FCFCFC) repeat scroll 0% 0%;
+	line-height: 11;
+	text-align: center;
+	font-size: 12px;
+	font-family: monospace;
 }
 
 .fullcontent {
@@ -143,4 +157,95 @@ opacity:1;
 .startpad {
 padding-top:20px;
 text-align: center;
+}
+
+.post-links {
+	color: #777;
+	margin: 5px 0px;
+	padding: 0px 20px;
+}
+
+.post-block {
+	margin-bottom:0px;
+	padding-bottom: 0px;
+}
+
+
+#content_panel {
+	transition: all 0.5s linear;
+}
+
+.center-content {
+	transform: translateX(-16.5%);
+	border-right: 1px solid #DDD;
+}
+
+
+/*
+	border-left: 1px solid #DDD;
+	margin-left: auto;
+	margin-right: auto;
+	border-right: 1px solid #DDD;
+	float: none;
+*/
+
+
+#left_panel {
+	transition: transform 0.5s linear;
+}
+
+.hide-left-panel {
+	transform: translateX(-100%);
+}
+
+.viewspace-arrow {
+	z-index: 10;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #DDD;
+	font-size: 40px;
+	line-height: 0.75;
+	border-radius: 50%;
+	text-align: center;
+	padding-right: 3px;
+	background-color: #EEE;
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 24.5%;
+	cursor: pointer;
+	transition: all 0.5s linear;
+}	
+
+.flip-arrow {
+	transform:translateY(-50%) rotate(-180deg);
+	left: 12.4%;
+}
+
+.viewspace-arrow:hover {
+	background-color: rgba(173, 216, 230, 0.8);
+}
+
+.help-block {
+	margin-top: 0px;
+}
+
+span.f1 {
+	text-decoration: underline;
+}
+
+span.f2 {
+	position:relative;
+}
+
+span.f2::before {
+	content: "";
+	height: 3px;
+	width: 11px;
+	border-radius: 5px;
+	background-color: #FFA500;
+	box-sizing: border-box;
+	position: absolute;
+	left: -0.5%;
+	top: 8px;
 }

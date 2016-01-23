@@ -70,3 +70,11 @@ function charcount(comment_box) {
 	console.log("counting"+ rem);
 	$('#charcount').html(rem);
 }
+
+
+$('#vs_arrow').click( function(){
+	console.log('arrow called');
+	$('#left_panel').toggleClass('hide-left-panel');
+	$('#content_panel').toggleClass('center-content');
+	$('#vs_arrow').toggleClass('flip-arrow');
+});
