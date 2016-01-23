@@ -105,7 +105,7 @@ sub send_email :Chained('admin') :PathPart('send_email') :Args(0) {
 
 }
 
-sub send_mail_now :private :args(1) {
+sub send_mail_now :Private :args(1) {
 	my ( $self, $c, @users_list ) = @_;
 	
 	my ($to, $from, $cc, $bcc, $mid);

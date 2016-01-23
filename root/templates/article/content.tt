@@ -20,15 +20,16 @@
 [% IF posts.size %]	
 	[% FOREACH article IN posts %]	
 	<article id ="pid_[% article.id %]"  class = "post">
-		[% IF profile.role == 0 %]
+		
+	   <blockquote class="post-block">
+	   [% IF profile.role == 0 %]
 		<span>		
 			<a class="editbutton close" href="[% c.uri_for('/blog/delete') %]" aria-hidden="true">&times;</a>
 			<a class="editbutton close" href="[% c.uri_for('/blog/edit',article.id) %]" aria-hidden="true"><img src="[% c.uri_for('/static/edit.png') %]"></a>
 		</span>
 		[% END %]
-	   <blockquote>
 	      <p>[% article.title %]</p>
-	      <footer> by [% article.author.username %] | posted on [% article.created_on %] | last updated on [% article.updated_on %] | 
+	      <footer> by [% article.author.username %] | posted on [% article.created_on.ymd %] | last updated on [% article.updated_on.ymd %] | 
 	      	  Tags:[% IF article.tagmaps %] 
 					 [% FOREACH tagmap IN article.tagmaps %]
 						<a class="label label-default tagsearch" href="[% c.uri_for('/blog/search',tagmap.tag.tag_id) %]"
@@ -40,14 +41,15 @@
 				   [% END %] 
 	      </footer>
 	   </blockquote>
-	   <div class="postcontent">
+	   <div class="postcontent" data-spec="[% article.content.length %]">
 		  [% IF article.content.length > 650 %]
-			[% article.content.substr(0,650) _ "..." %]
+			[%# article.content.substr(0,650) _ "..." %]
+			[% article.content %]
 		  [% ELSE %]
 		    [% article.content %]
 		  [% END %]
 	   </div>
-	   <p style="color: #777; margin:5px;">
+	   <p class="post-links">
 		    <a class="editbutton close" style="float:left; font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">[% article.get_column('comment_count') %]&nbsp;Comments</a>
 			<a class="editbutton close" style="float:right; font-size:14px;" href="[% c.uri_for('/blog/view',article.id) %]">View</a>
 	   </p>
