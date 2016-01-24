@@ -169,7 +169,8 @@ sub search_by_tags :Chained('blog') :PathPart('search') : Args(1) {
 	
 	
 	my $posts = [$c->model("DB::Article")->search( 
-		{  'tagmaps.tag_id' => $tag_id				
+		{  'tagmaps.tag_id' => $tag_id,
+		   'draft' => 0				
 		},
 	
 		{	'+select' => [ { count => 'comment', -as => 'no_of_comments' } ],
@@ -178,8 +179,12 @@ sub search_by_tags :Chained('blog') :PathPart('search') : Args(1) {
 			group_by => [qw/me.id author_id title content created_on updated_on /],
 			order_by => 'created_on DESC',				 		 
 		 } )->all()];
+
+	my $nofcom;
+	foreach( @$posts ) { $nofcom  += $_->get_column('comment_count'); };
 	
-	my $pagedetails = { activetag => 5, searchid => $tag_id };
+	
+	my $pagedetails = { activetag => 5, searchid => $tag_id, nofpos => scalar @$posts, nofcom => $nofcom };
 	
 	$c->stash( template => 'article/content.tt', posts => $posts, pgd => $pagedetails );	 
 }
