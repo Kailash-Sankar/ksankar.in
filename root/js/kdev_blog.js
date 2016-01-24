@@ -73,8 +73,39 @@ function charcount(comment_box) {
 
 
 $('#vs_arrow').click( function(){
-	console.log('arrow called');
+	update_viewspace();
+	show_alert('Preference saved on localStorage.');
+});
+
+
+function update_viewspace() {
 	$('#left_panel').toggleClass('hide-left-panel');
 	$('#content_panel').toggleClass('center-content');
 	$('#vs_arrow').toggleClass('flip-arrow');
+
+	var arw_pref = '0';
+	if ( $('#vs_arrow').hasClass('flip-arrow') ) {
+		arw_pref = '1';
+	}
+	console.log('Update arw prefs',arw_pref);
+	localStorage.setItem("ksankar_in_arw_pref_x836", arw_pref );
+}	
+
+$(document).ready( function(){
+	var arw_pref = 	localStorage.getItem("ksankar_in_arw_pref_x836");
+	console.log('Saved arrow prefs:', arw_pref);
+	if ( arw_pref == '1' ) {
+		setTimeout(function() {
+		    update_viewspace();
+		}, 200);
+	}
 });
+
+
+function show_alert(msg) {
+	var alt = '<div id="shw_alert_box" class="alert alert-info alert-dismissible fade in cu-alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>' + msg  + '</div>';
+	$('#content_panel').prepend(alt);
+	setTimeout(function() {
+		    $('#shw_alert_box').alert('close');
+	}, 2000);
+}
