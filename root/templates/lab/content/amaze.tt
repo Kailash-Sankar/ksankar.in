@@ -1,0 +1,18 @@
+<!--- corner menu tutorial -->
+
+<div>
+	<h3> Generate 2D mazes on a Canvas </h3>
+	
+	<div class="bench_data" style="text-align:left"></br>
+		<ul>
+			<li>Aptly name aMazing.js ;)</li>
+		
+		</ul>	
+		
+		<div class="codepen_box">
+			<p data-height="720" data-theme-id="12117" data-slug-hash="pgqLOr" data-default-tab="result" data-user="kailash-sankar" class="codepen">See the Pen <a href="http://codepen.io/kailash-sankar/pen/pgqLOr/">Generate Mazes on a Canvas</a> by Kailash Sankar (<a href="http://codepen.io/kailash-sankar">@kailash-sankar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+			<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+		</div>
+			
+	 </div>
+</div>

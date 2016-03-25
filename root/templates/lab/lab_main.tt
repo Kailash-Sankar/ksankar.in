@@ -6,7 +6,7 @@
 
 <div class="row">
 	<p class="lead center_stage">
-		The little corner where I try new things.
+		The little corner where I try new things. To view my latest experiments head out to my <a href="http://codepen.io/kailash-sankar/">codepen page</a>.
 	</p>
 </div>
 
@@ -27,11 +27,21 @@
 	</div>
 
 	<div class="col-lg-3 col-md-4 col-xs-6">	
-	
+		[% PROCESS 'lab/lab_flip.tt'
+		   front = 	'Form Validator Plugin'
+		   back =  '  <h4><strong>An OO js plugin</strong></h4>	
+					  <br/><br/>'
+		   exp = 'js_validator'
+		 %]
 	</div>
 	
 	<div class="col-lg-3 col-md-4 col-xs-6">	
-
+		[% PROCESS 'lab/lab_flip.tt'
+		   front = 	'2D Maze Generator'
+		   back =  '  <h4><strong>A js plugin for generating mazes on a canvs.</strong></h4>	
+					  <br/><br/>'
+		   exp = 'amaze'
+		%]
 	</div>
 	
 	<div class="col-lg-3 col-md-4 col-xs-6">	
@@ -62,10 +72,10 @@
 
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
-		   front = 	'Corner menu'
-		   back =  '<h4><strong>Like the ones on the corner. ;)</strong></h4>
+		   front = 	'Happy New Year'
+		   back =  '<h4><strong>Wishes from the front end.</strong></h4>
 					<br/><br/>'
-		   exp = 'corner_menu'			
+		   exp = 'new_year'			
 		 %]
 	</div>
 	
@@ -81,7 +91,7 @@
 	
 	<div class="col-lg-3 col-md-4 col-xs-6">	
 		[% PROCESS 'lab/lab_flip.tt'
-		   front = 	'CSS Animation: Solar System'
+		   front = 	'CSS Animation: Atom'
 		   back =  ' <h4><strong>animation, @keyframes ...</strong></h4>
 					<br/><br/>'
 		   exp = 'css_solar_system'			
