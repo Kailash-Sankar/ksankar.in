@@ -6,7 +6,7 @@
 						data-anchor-target="#helper"
 				  >
 					 <h1 class=text-left"><br/><strong>Designs</strong><br/></h1>
-					 <p>I mostly do backend development at my job. I wanted to learn more on the front end and this is how I started.</p>
+					 <p>This is how I started with front end, mostly self taught. I've progressed far beyond these designs but I treasure them none the less. To view some of my more recent designs, check out my codepen page.</p>
 					 <br/>
 					 <div class="col-lg-3 col-md-4 col-xs-6">
 						<div id="de_placebo" class="design_box" data-val="1" data-url="[% c.uri_for('/placeboeffect') %]">

@@ -29,26 +29,30 @@
 				   <div class="col-lg-6 col-md-8 col-xs-10">
 					    
 					 <p class="lead"><u>About Myself</u></p>
-						<p>I'm Kailash Sankar and welcome to my world. <br/>
+						<p>Hello, I'm Kailash Sankar and welcome to my world. <br/>
 						I write code for a living and I love what I do.
 						While in college, like most developers, I started with C and C++.
 						I moved on to ASP.NET MVC and thereafter dabbled with Android app development. 
-						After graduation I worked on a perl CGI + MSSQL server application for the past 20 months and then I switched to Catalyst framework and also started UI development.
-						My Goal is to become a web stack developer;) <br/>
-						Scroll down to see some of my work, ideas and experiments.</p>   
+						After graduation, I started on a path to become a web stack developer. <br/>
+						In the past 3.5 years I've worked maily on Perl (CGI & Catalyst), MySQL, MSSQL and the usual flavours of frontend - HTML, CSS and Javscript and various plugins. 
+						I have written a plugin in jquery and another in OO js and published them on the lab section of my site. I actively experiment and create pens @codepen and write about tech on my blog.	
+						 <br/>
+						My home page's built on a parallax design, my lab's  esponsive bootstrap design and my blog's . 
+						Scroll down, explore and let me know what you think ;)</p>   
 					    <br/>
 					    
 					 <p class="lead"><u>Skills</u></p>
 				      <p>Perl - CGI & Catalyst, .NET C# MVC <br/>
 				      HTML, CSS, Javascript<br/>
 				      SQL server, MySQL<br/>
-				      Skroller.js, enquire.js, modernizer.js, imagesloaded.js, waypoints.js<br/>
-				      Misc: GitHub, svn, jira, trac, photoshop, DBI, HTML::Template, DBIx & Template::Toolkit
+				      Lots of javascript and jquery plugins<br/>
+				      Misc: GitHub, svn, jira, trac, ALM, photoshop, DBI, HTML::Template, DBIx (ORM) & Template::Toolkit
 				      </p>
 				      
 				     <br/>
 				     <p class="lead"><u>Experience</u></p>
-				     Software Engineer at Symphony Teleca from Oct-2012 to present.
+				     Software Engineer at Symphony Teleca from Oct-2012 to Oct-2015. <br/>
+				     Senior Analyst at Wells Fargo from Oct-2015 to Present.
 				      
 				    </div>
 				    

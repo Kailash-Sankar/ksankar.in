@@ -1,0 +1,18 @@
+<!--- corner menu tutorial -->
+
+<div>
+	<h3> Happy new year 2016! </h3>
+	
+	<div class="bench_data" style="text-align:left">Pure CSS wishes.</br>
+		<ul>
+			<li>Best viewed from chrome on pc.</li>
+		
+		</ul>	
+		
+		<div class="codepen_box">
+			<p data-height="720" data-theme-id="12117" data-slug-hash="MKJJaw" data-default-tab="result" data-user="kailash-sankar" class="codepen">See the Pen <a href="http://codepen.io/kailash-sankar/pen/MKJJaw/">New Year xD</a> by Kailash Sankar (<a href="http://codepen.io/kailash-sankar">@kailash-sankar</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+			<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+			</div>
+			
+	 </div>
+</div>

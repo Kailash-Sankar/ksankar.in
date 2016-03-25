@@ -153,6 +153,8 @@ overflow:scroll;
 .tagsearch {
 cursor:pointer;
 opacity:0.8;
+display: -moz-box;
+display: -webkit-box;
 }
 
 .tagsearch:hover {
@@ -202,7 +204,9 @@ text-align: center;
 	height: 40px;
 	border: 1px solid #DDD;
 	font-size: 40px;
-	line-height: 0.75;
+	line-height: 0.9em;
+    font-family: monospace;
+	-webkit-line-height: 1;
 	border-radius: 50%;
 	text-align: center;
 	padding-right: 3px;
@@ -262,3 +266,15 @@ span.f2::before {
 	border-right: 1px solid #DDD;
 	float: none;
 */
+
+/* ======== very low res mobile ========= */ 
+@media only screen and (max-width: 1540px)  {
+	.blogindex {
+		position:initial;	
+	}
+
+	.viewspace-arrow {
+		display: none;
+	}
+}
+
